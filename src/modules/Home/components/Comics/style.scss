@@ -1,0 +1,102 @@
+.comics {
+  position: relative;
+  &__container {
+    @include container-size();
+    position: relative;
+  }
+  &__bg {
+    width: 100%;
+    opacity: 0;
+  }
+  &__axe {
+    width: 263px;
+    position: absolute;
+    top: 140px;
+    left: 600px;
+    opacity: 0;
+  }
+  &__meepo {
+    width: 317px;
+    position: absolute;
+    bottom: 100px;
+    right: 200px;
+    opacity: 0;
+
+  }
+  &__mipo {
+    width: 541px;
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+    opacity: 0;
+  }
+}
+
+@keyframes axe {
+  0% {
+    opacity: 0;
+    left: 400px;
+  }
+
+  100% {
+    opacity: 1;
+    left: 600px;
+  }
+}
+
+@keyframes mipo {
+  0% {
+    opacity: 0;
+    bottom: -100px;
+  }
+
+  100% {
+    opacity: 1;
+    bottom: 0;
+  }
+}
+
+@keyframes meepo {
+  0% {
+    opacity: 0;
+    right: 100px;
+  }
+
+  100% {
+    opacity: 1;
+    right: 200px;
+  }
+}
+
+@keyframes bg {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.comics_animate {
+  .comics__bg {
+    animation: bg 1s ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .comics__axe {
+    animation: axe 1s ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }
+  .comics__meepo {
+    animation: meepo 1s ease;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards;
+  }
+  .comics__mipo {
+    animation: mipo 1s ease-in-out;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+}

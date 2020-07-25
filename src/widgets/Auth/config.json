@@ -1,15 +1,6 @@
 {
   "auth": [
     {
-      "type": "login",
-      "id": "login",
-      "name": "login",
-      "placeholder": "Логин",
-      "validations": "login",
-      "validationsError": "Логин должен содержать от 4 до 8 латинских символов",
-      "autoComplete": "username"
-    },
-    {
       "type": "email",
       "id": "email",
       "name": "email",
@@ -18,6 +9,25 @@
       "validations": "email",
       "validationsError": "Формат Email не верен",
       "autoComplete": "email"
+    },
+    {
+      "type": "login",
+      "id": "login",
+      "name": "login",
+      "margin": "top_x2",
+      "placeholder": "Логин steam",
+      "validations": "login",
+      "validationsError": "Логин должен содержать от 4 до 8 латинских символов",
+      "autoComplete": "username"
+    },
+    {
+      "type": "link",
+      "id": "link",
+      "name": "link",
+      "margin": "top_x2",
+      "placeholder": "Ссылка на steam профиль",
+      "validations": "link",
+      "validationsError": "Ссылка должна содержать минимум 4 символа"
     },
     {
       "type": "password",

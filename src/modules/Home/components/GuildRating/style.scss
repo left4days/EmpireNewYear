@@ -1,0 +1,40 @@
+.rating {
+  &__container {
+    @include container-size();
+    z-index: 2;
+    align-items: center;
+  }
+  &__image {
+    width: 400px;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 36px;
+    @include main-font(700);
+    position: relative;
+    padding: 0 15px;
+    z-index: 2;
+    &:before {
+      content: '';
+      width: 80%;
+      height: 45px;
+      background-color: $orange;
+      top: 0;
+      transform: skew(40deg);
+      left: 0;
+      position: absolute;
+      z-index: -1;
+    }
+    &:after {
+      content: '';
+      width: 80%;
+      height: 45px;
+      background-color: $orange;
+      top: 0;
+      transform: skew(-40deg);
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}

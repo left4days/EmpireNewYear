@@ -30,6 +30,10 @@ Formsy.addValidationRule('isLogin', function(values, value) {
     return onlyLettersAndNumbers(value) && minLength(value, 4) && maxLength(value, 16);
 });
 
+Formsy.addValidationRule('isSteamLink', function(values, value) {
+    return onlyLettersAndNumbers(value) && minLength(value, 4) && maxLength(value, 1000);
+});
+
 Formsy.addValidationRule('isPassword', function(values, value) {
     return oneLetterOneNumberAtLeast(value) && minLength(value, 8) && allLettersIsLatin(value);
 });
@@ -40,6 +44,8 @@ export function getValidationForField(validation) {
             return 'isEmail';
         case 'login':
             return 'isLogin';
+        case 'link':
+            return 'isSteamLink';
         case 'password':
             return 'isPassword';
     }

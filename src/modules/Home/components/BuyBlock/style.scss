@@ -1,0 +1,32 @@
+.buy {
+  padding-bottom: 150px;
+  h2 {
+    font-size: 18px;
+  }
+  &__products {
+    margin: 30px 0;
+    justify-content: space-between;
+    display: flex;
+  }
+  &__item {
+    width: 160px;
+    height: 80px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+  }
+  &__column {
+    width: auto;
+    .buy__products {
+      justify-content: flex-end;
+    }
+    &:last-child {
+      .buy__item {
+        margin-right: 0;
+      }
+    }
+  }
+}

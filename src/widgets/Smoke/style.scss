@@ -1,0 +1,48 @@
+.smoke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2000px;
+}
+
+#repro {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+#canvasMiddle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  // background: rgba(red, 0.4);
+}
+#canvasLeft,
+#canvasRight {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  // background: rgba(red, 0.4);
+}
+#canvasLeft {
+  left: 0;
+  transform: rotate(-90deg);
+}
+#canvasRight {
+  right: 0;
+  transform: rotate(90deg);
+}

@@ -2,7 +2,7 @@ $transitionHover: ease-in 200ms;
 $transitionActive: ease-in 150ms;
 
 $btn-void: $orange, $white, #ff5100d9, $white, #ff5100d1, $white, $grey, $white;
-$btn-fill: transparent, $white, #ff510047, $white, transparent, $white, $grey, $white;
+$btn-fill: transparent, $white, transparent, $grey, transparent, $white, $grey, $white;
 @mixin btn-style(
   $colorBgDefault,
   $colorDefault,
@@ -34,9 +34,9 @@ $btn-fill: transparent, $white, #ff510047, $white, transparent, $white, $grey, $
 .ux-button {
   @include base-sizes();
   @include base-margins();
-  height: 27px;
+  height: 44px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 17px;
   border-radius: 5px;
   border: none;
   text-transform: uppercase;
@@ -55,13 +55,10 @@ $btn-fill: transparent, $white, #ff510047, $white, transparent, $white, $grey, $
   &__style {
     &_void {
       @include btn-style($btn-void...);
+      border: 1px solid $white;
     }
     &_fill {
       @include btn-style($btn-fill...);
-      border: 1px solid $orange;
-      &:hover {
-        border: 1px solid $orange;
-      }
     }
   }
 

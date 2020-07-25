@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Row, Column } from 'ui/Layout';
 import { HeaderAuth } from './HeaderAuth';
 import fireCudaLogo from 'statics/logo_firecuda.svg';
-import seagateLogo from 'statics/seagate.svg';
+import seagateLogo from 'statics/seagate_logo.png';
 import logo from 'statics/logo.svg';
 import style from './style.scss';
 

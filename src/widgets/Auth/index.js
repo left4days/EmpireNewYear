@@ -9,7 +9,6 @@ import { Title } from 'ui/Title';
 import { Description } from 'ui/Description';
 import { getValidationForField } from './validations';
 import config from './config';
-import { AuthSocial } from './AuthSocial';
 import { getAuthAction } from './helpers';
 import { getFirebaseHeaderToken } from 'widgets/requestsHelpers';
 import { getValidationError } from './validations-errors';
@@ -65,13 +64,6 @@ function AuthHeader({ authType }) {
     return (
         <Column>
             <Title align="center">{getTitle(authType).title}</Title>
-            <Description margin="top_x2" align="center">
-                с помощью аккаунта в соц. сетях
-            </Description>
-            <AuthSocial />
-            <Description align="center" margin="bottom_x2" className={style.auth__or}>
-                или
-            </Description>
         </Column>
     );
 }

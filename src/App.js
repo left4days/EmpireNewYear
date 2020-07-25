@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import axios from 'axios';
 import get from 'lodash/get';
-
 import { Header } from 'widgets/Header';
 import { Modal } from 'ui/Modal';
 import DevelopTower from './DevelopTower';
 import routes from './routes';
 import { signOutUser } from 'widgets/Auth/firebase-configuration';
-
-import style from './style.scss';
+import './style.scss';
 
 const config = {
     apiKey: "AIzaSyA3YXk8w0t2E58C1gCPUBi1dOn_M05ARk8",

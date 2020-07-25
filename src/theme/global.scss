@@ -10,14 +10,14 @@ $brown: #484848;
 @mixin base-sizes() {
   &__size {
     &_l {
-      width: 130px;
+      width: 190px;
     }
     &_s {
       width: 85px;
     }
     &_full {
       width: 100%;
-      height: 42px;
+      height: 44px;
     }
   }
 }
@@ -111,7 +111,7 @@ a {
 body {
   font-size: 13px;
   @include main-font(500);
-  background-color: #13023c;
+  background-color: #000000;
   padding: 0;
   box-sizing: border-box;
   margin: 0;

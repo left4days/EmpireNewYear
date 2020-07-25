@@ -18,12 +18,13 @@ function HeaderAuth({ handleModal, user, signOutUser }) {
     }
     return (
         <Row jc="flex-end" ai="center" className={style.header__mobile}>
-            <Button size="l" style="fill" margin="right_x2" onClick={() => handleModal('auth')}>
+            <Button size="s" style="fill" margin="right_x2" onClick={() => handleModal('login')}>
+                Войти
+            </Button>
+            <Button size="l" onClick={() => handleModal('auth')}>
                 Регистрация
             </Button>
-            <Button size="s" onClick={() => handleModal('login')}>
-                Вход
-            </Button>
+
         </Row>
     );
 }
