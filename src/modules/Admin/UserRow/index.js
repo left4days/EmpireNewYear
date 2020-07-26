@@ -33,17 +33,16 @@ function renderLink(withLink, login, email, registerBy) {
     );
 }
 
-function UserRow({ user, idx = '№', withLink }) {
-    const { login = '-', clicks = 0, registerBy = '-', email = '-' } = user;
+function UserRow({ user, idx = '№' }) {
+    const { login = '-', steamLink = '-', registerBy = '-', email = '-' } = user;
 
     return (
         <Row className={style.admin__row}>
             <p className={style.admin__row_item}>{idx}</p>
             <p className={style.admin__row_item}>{login}</p>
+            <p className={style.admin__row_item}>{steamLink}</p>
             <p className={style.admin__row_item}>{email}</p>
             <p className={style.admin__row_item}>{registerBy}</p>
-            <p className={style.admin__row_item}>{clicks}</p>
-            {renderLink(withLink, login, email, registerBy)}
         </Row>
     );
 }

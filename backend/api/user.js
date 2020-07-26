@@ -20,10 +20,10 @@ async function registerUser(req, res) {
     res.json({ success: true });
 }
 
-async function getTopClickers(req, res) {
-    const users = await userService.getTopClickers(req.params);
+async function addGuildToUser(req, res) {
+    const user = await userService.getUserById(req.params.userId);
 
-    res.json({ success: true, data: users });
+    res.json({ success: true });
 }
 
 async function getWinners(req, res) {
@@ -33,16 +33,16 @@ async function getWinners(req, res) {
 }
 
 async function generateWinners(req, res) {
-    const users = await userService.generateWinners(req.params);
+    const users = await userService.generatelocaleWinners(req.params);
 
     res.json({ success: true, data: users });
 }
 
-async function customRegisterNewUser(req, res) {
-    const custom_token = await userService.customRegisterNewUser(req.body);
-
-    res.json({ success: true, data: { custom_token } });
-}
+// async function customRegisterNewUser(req, res) {
+//     const custom_token = await userService.customRegisterNewUser(req.body);
+//
+//     res.json({ success: true, data: { custom_token } });
+// }
 
 async function getAllUsers(req, res) {
     const users_csv = await userService.getAllUsersInCSV(req.params);
@@ -56,9 +56,11 @@ module.exports = {
     GET: [
         ['/api/v1/user/:userId', getUserData],
         ['/api/v1/users', requiresAdmin, getAllUsers],
-        ['/api/v1/user/top/:limit', requiresAdmin, getTopClickers],
         ['/api/v1/user/winners/:limit', requiresAdmin, getWinners],
-        ['/api/v1/user/winners/create/:limit', requiresAdmin, generateWinners],
+        ['/api/v1/user/winners-create/:limit', requiresAdmin, generateWinners],
     ],
-    POST: [['/api/v1/user', registerUser], ['/api/v1/custom-register', customRegisterNewUser]],
+    POST: [
+        ['/api/v1/user', registerUser],
+        ['/api/v1/user/:userId/add-guild', addGuildToUser],
+    ],
 };

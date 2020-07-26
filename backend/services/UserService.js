@@ -6,9 +6,9 @@ const db = firebaseAdmin.database();
 const userRef = db.ref('server/saving-data/fireblog/users');
 const appStateRef = db.ref('server/saving-data/fireblog/appState');
 
-const ClickService = require('../services/ClickService');
+const GuildService = require('../services/ClickService');
 
-const clickService = new ClickService();
+const guildService = new GuildService();
 
 const randomInteger = (min, max) => {
     let rand = min + Math.random() * (max - min);
@@ -45,23 +45,23 @@ class UserService {
             result = snap.val();
         });
 
-        const clicks = await clickService.getUserClicksById(uid);
+        // const { name: guildName = '' } = await guildService.getById(uid);
 
         return {
             ...result,
-            clicks,
+            // guildName,
             uid,
         };
     }
 
     async registerNewUser(data) {
-        const { uid, login, registerBy, email } = data;
+        const { uid, login, steamLink, email } = data;
 
         try {
             return await userRef.update({
                 [uid]: {
                     role: 'user',
-                    registerBy,
+                    steamLink,
                     email,
                     login,
                 },
@@ -72,15 +72,8 @@ class UserService {
         }
     }
 
-    async getTopClickers(params) {
+    async generatelocaleWinners(params) {
         const { limit = 10 } = params;
-
-        const topClickers = await clickService.getTopClickers(limit);
-        return await Promise.all(topClickers.map(({ uid }) => this.getUserById(uid)));
-    }
-
-    async generateWinners(params) {
-        const { limit = 300 } = params;
 
         let participants = [];
         let winners = [];
@@ -107,7 +100,7 @@ class UserService {
 
         try {
             await appStateRef.update({
-                winnerList: winners,
+                localWinners: winners,
             });
         } catch (err) {
             console.log('ERROR DB UPDATE WINNERS LIST', winners);
@@ -118,12 +111,12 @@ class UserService {
     }
 
     async getWinners(params) {
-        const { limit = 300 } = params;
+        const { limit = 10 } = params;
         let winnerList = [];
 
         try {
             await appStateRef.once('value', snapshot => {
-                winnerList = get(snapshot.val(), 'winnerList', []);
+                winnerList = get(snapshot.val(), 'localWinners', []);
             });
         } catch (err) {
             console.log('ERROR DB GET WINNERS');
@@ -151,17 +144,17 @@ class UserService {
             return participants;
         }
 
-        const clicks = (await clickService.getAllUsersClicks()) || {};
+        // const clicks = (await clickService.getAllUsersClicks()) || {};
 
         for (const uid in participants) {
-            if (participants[uid] && clicks[uid]) {
-                participants[uid] = { ...participants[uid], clicks: clicks[uid] };
+            if (participants[uid]) {
+                participants[uid] = { ...participants[uid], guildName: '' };
             }
         }
 
         const resJSON = Object.entries(participants).map(([uid, data], i) => ({ idx: i + 1, uid, ...data }));
 
-        const fields = ['idx', 'email', 'registerBy', 'uid', 'login', 'clicks'];
+        const fields = ['idx', 'email', 'login', 'steamLink', 'uid', 'clicks'];
         const opts = { fields };
 
         try {
@@ -173,18 +166,18 @@ class UserService {
         }
     }
 
-    async customRegisterNewUser(reqBody) {
-        const { user_id } = reqBody;
-        return firebaseAdmin
-            .auth()
-            .createCustomToken(user_id)
-            .then(function(customToken) {
-                return customToken;
-            })
-            .catch(function(error) {
-                console.log('Error creating custom token:', error);
-            });
-    }
+    // async customRegisterNewUser(reqBody) {
+    //     const { user_id } = reqBody;
+    //     return firebaseAdmin
+    //         .auth()
+    //         .createCustomToken(user_id)
+    //         .then(function(customToken) {
+    //             return customToken;
+    //         })
+    //         .catch(function(error) {
+    //             console.log('Error creating custom token:', error);
+    //         });
+    // }
 }
 
 module.exports = UserService;
