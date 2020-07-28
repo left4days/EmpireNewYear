@@ -6,10 +6,6 @@ const db = firebaseAdmin.database();
 const userRef = db.ref('server/saving-data/fireblog/users');
 const appStateRef = db.ref('server/saving-data/fireblog/appState');
 
-const GuildService = require('../services/ClickService');
-
-const guildService = new GuildService();
-
 const randomInteger = (min, max) => {
     let rand = min + Math.random() * (max - min);
     rand = Math.round(rand);
@@ -45,11 +41,8 @@ class UserService {
             result = snap.val();
         });
 
-        // const { name: guildName = '' } = await guildService.getById(uid);
-
         return {
             ...result,
-            // guildName,
             uid,
         };
     }
@@ -72,7 +65,7 @@ class UserService {
         }
     }
 
-    async generatelocaleWinners(params) {
+    async generateLocaleWinners(params) {
         const { limit = 10 } = params;
 
         let participants = [];
@@ -166,18 +159,22 @@ class UserService {
         }
     }
 
-    // async customRegisterNewUser(reqBody) {
-    //     const { user_id } = reqBody;
-    //     return firebaseAdmin
-    //         .auth()
-    //         .createCustomToken(user_id)
-    //         .then(function(customToken) {
-    //             return customToken;
-    //         })
-    //         .catch(function(error) {
-    //             console.log('Error creating custom token:', error);
-    //         });
-    // }
+    async setGuildToUser(guildName, guildID, userId) {
+        const user = await this.getUserById(userId);
+
+        try {
+            return await userRef.update({
+                [user.uid]: {
+                    ...user,
+                    guildName,
+                    guildID
+                },
+            });
+        } catch (err) {
+            console.log('ERROR DB UPDATE USER FOR', user.uid);
+            console.log(err);
+        }
+    }
 }
 
 module.exports = UserService;

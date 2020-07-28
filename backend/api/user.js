@@ -1,7 +1,9 @@
 const UserService = require('../services/UserService');
+const GuildsService = require('../services/GuildsService');
 const { requiresAdmin, requiresAuth } = require('./middleware');
 
 const userService = new UserService();
+const guildsService = new GuildsService();
 
 async function checkIsUserExist(req, res, next) {
     res.json({ success: false, errorMessage: 'This login already exist', meta: { login: false } });
@@ -20,12 +22,6 @@ async function registerUser(req, res) {
     res.json({ success: true });
 }
 
-async function addGuildToUser(req, res) {
-    const user = await userService.getUserById(req.params.userId);
-
-    res.json({ success: true });
-}
-
 async function getWinners(req, res) {
     const users = await userService.getWinners(req.params);
 
@@ -38,11 +34,22 @@ async function generateWinners(req, res) {
     res.json({ success: true, data: users });
 }
 
-// async function customRegisterNewUser(req, res) {
-//     const custom_token = await userService.customRegisterNewUser(req.body);
-//
-//     res.json({ success: true, data: { custom_token } });
-// }
+async function setGuildToUser(req, res, next) {
+    const { body = {} } = req;
+    const { guildName = '', userId } = body;
+    // const isValid = await appStateService.checkDevAccess(devPassword);
+    const guild = await guildsService.getGuildByName(guildName);
+
+    if(guild.name) {
+        await userService.setGuildToUser(guildName, guild.uid, userId);
+    } else {
+        await guildsService.createGuild(guildName);
+    }
+
+    await guildsService.addUserToGuildById(guild.uid, userId);
+
+    res.json({ success: true });
+}
 
 async function getAllUsers(req, res) {
     const users_csv = await userService.getAllUsersInCSV(req.params);
@@ -61,6 +68,8 @@ module.exports = {
     ],
     POST: [
         ['/api/v1/user', registerUser],
-        ['/api/v1/user/:userId/add-guild', addGuildToUser],
+    ],
+    PUT: [
+        ['/api/v1/user/:userId/add-guild', setGuildToUser],
     ],
 };

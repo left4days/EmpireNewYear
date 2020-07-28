@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/Admin/components.js" afterDir="false" />
+    <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="feature(backendApi): add local winners api">
+      <change afterPath="$PROJECT_DIR$/backend/api/guilds.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/services/GuildsService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/clicks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/firebaseKey.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/firebaseKey.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/services/AppStateService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/AppStateService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/services/ClickService.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/services/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/services/UserService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/UserRow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/UserRow/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/widgets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,15 +46,15 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/statics" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/api" />
+      <recent name="$PROJECT_DIR$/backend/services" />
       <recent name="$PROJECT_DIR$/src/widgets" />
       <recent name="$PROJECT_DIR$/src/modules/Home/components/Comics" />
       <recent name="$PROJECT_DIR$/src/statics/comics" />
-      <recent name="$PROJECT_DIR$/src/modules/Home/components" />
-      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/statics" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,9 +87,32 @@
       <workItem from="1595581370867" duration="4144000" />
       <workItem from="1595594990190" duration="4946000" />
     </task>
+    <task id="LOCAL-00001" summary="feature(backendApi): add local winners api">
+      <created>1595785101343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595785101343</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feature(backendApi): add local winners api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature(backendApi): add local winners api" />
   </component>
 </project>
