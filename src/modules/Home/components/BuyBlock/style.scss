@@ -1,5 +1,10 @@
 .buy {
   padding-bottom: 150px;
+  &__container {
+    @include screen-lt(desktop) {
+      flex-direction: column;
+    }
+  }
   h2 {
     font-size: 18px;
   }
@@ -7,6 +12,9 @@
     margin: 30px 0;
     justify-content: space-between;
     display: flex;
+    @include screen-lt(desktop) {
+      justify-content: flex-start !important;
+    }
   }
   &__item {
     width: 160px;

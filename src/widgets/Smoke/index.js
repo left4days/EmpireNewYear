@@ -3,25 +3,25 @@ import SmokeMachine from '@bijection/smoke'
 import './style.scss';
 
 const color = [255,255,255];
-const particles = {
-    left: 0.05,
-    right: 0.05
-};
-const position = {
-    left: 600,
-    right: 1300,
+
+function getSmokePosition(w) {
+    let smokeWidth = 600;
+    return {
+        leftWidth: smokeWidth,
+        rightWidth: w - smokeWidth,
+    }
 }
 
 const sideSmoke = (canvas, side) => {
     const ctx = canvas.getContext('2d');
     const machine = SmokeMachine(ctx, color);
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+    getSmokePosition(w, h);
     machine.start();
     setTimeout(() => {
         machine.setPreDrawCallback(() => {
-            const w = canvas.clientWidth;
-            const h = canvas.clientHeight;
-            console.log(w, h);
-            machine.addSmoke(position[side], h, 0.05);
+            machine.addSmoke(getSmokePosition(w, h)[side + 'Width'], h, 0.05);
             canvas.width = w;
             canvas.height = h;
         });

@@ -30,6 +30,10 @@
     z-index: 2;
     position: relative;
     overflow: hidden;
+    @include screen-lt(tablet) {
+      width: 180px;
+      height: 180px;
+    }
     &:after {
       content: '';
       position: absolute;

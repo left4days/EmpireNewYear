@@ -13,7 +13,7 @@
 
 .product {
   align-items: center;
-  margin-right: 30px;
+  width: calc((100% - 30px)/3);
   &:last-child {
     margin-right: 0;
   }
@@ -23,6 +23,11 @@
     margin-bottom: 60px;
   }
   &__image {
+    transition: .3s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
     &_container {
       min-height: 235px;
       max-height: 235px;

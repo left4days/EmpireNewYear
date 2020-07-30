@@ -26,6 +26,9 @@
     text-transform: uppercase;
     margin-top: 20px;
     color: $white;
+    @include screen-lt(tablet) {
+      font-size: 70px;
+    }
   }
   p {
     font-size: 30px;

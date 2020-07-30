@@ -3,6 +3,7 @@ import { Button } from 'ui/Button';
 import { Row } from 'ui/Layout';
 import { Loader } from 'ui/Loader';
 import { HeaderAuthAuthorized } from './AuthorizedHeader';
+import menuImage from 'statics/menu.svg';
 import style from './style.scss';
 
 function HeaderAuth({ handleModal, user, signOutUser }) {
@@ -24,7 +25,9 @@ function HeaderAuth({ handleModal, user, signOutUser }) {
             <Button size="l" onClick={() => handleModal('auth')}>
                 Регистрация
             </Button>
-
+            <button className={style.header__mobile_btn} onClick={() => handleModal('auth')}>
+                <img src={menuImage} alt="menu"/>
+            </button>
         </Row>
     );
 }
