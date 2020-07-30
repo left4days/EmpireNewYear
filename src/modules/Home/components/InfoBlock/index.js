@@ -11,13 +11,11 @@ import './style.scss';
 
 const InfoItem = ({ src, text, delay }) => {
     return (
-        <ScrollAnimation animateIn="fadeInDown" delay={delay} animateOnce={true}>
-            <Column className="info__item">
-                <div className="info__wrapper">
-                    <img src={src} alt="image"/>
-                </div>
-                <Description>{text}</Description>
-            </Column>
+        <ScrollAnimation animateIn="fadeInDown" className="info__item" delay={delay} animateOnce={true}>
+            <div className="info__wrapper">
+                <img src={src} alt="image"/>
+            </div>
+            <Description>{text}</Description>
         </ScrollAnimation>
     )
 }

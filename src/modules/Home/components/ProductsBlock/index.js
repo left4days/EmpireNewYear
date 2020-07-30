@@ -113,7 +113,7 @@ const ProductsBlock = () => {
     return (
         <Column className="products">
             <Column className="products__container">
-                <Row>
+                <Row className="products__line" jc="space-between">
                     {config.map((item, i) => {
                         return (
                             <ProductItem data={item} key={i} />

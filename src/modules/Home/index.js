@@ -6,13 +6,16 @@ import { GuildRating } from "./components/GuildRating";
 import { ProBlock } from "./components/ProBlock";
 import { ProductsBlock } from "./components/ProductsBlock";
 import { Comics } from "./components/Comics";
+import { GuildInput } from "./components/GuildInput";
 
 class Home extends React.Component {
     render() {
+        const { handleModal } = this.props;
         return (
             <Column>
                 <VideoBlock />
                 <InfoBlock />
+                <GuildInput handleModal={handleModal} />
                 <Comics />
                 <GuildRating />
                 <ProBlock />

@@ -7,6 +7,9 @@
   &__bg {
     width: 100%;
     opacity: 0;
+    @include screen-lt(tablet) {
+      opacity: 1;
+    }
   }
   &__axe {
     width: 263px;
@@ -14,6 +17,18 @@
     top: 140px;
     left: 600px;
     opacity: 0;
+    @include screen-lt(desktop) {
+      width: 200px;
+      left: 400px;
+      top: 100px;
+    }
+    @include screen-lt(tablet) {
+      width: 180px;
+      opacity: 1;
+      right: 205px;
+      left: auto;
+      top: 50px;
+    }
   }
   &__meepo {
     width: 317px;
@@ -21,7 +36,14 @@
     bottom: 100px;
     right: 200px;
     opacity: 0;
-
+    @include screen-lt(desktop) {
+      width: 250px;
+      bottom: 50px;
+    }
+    @include screen-lt(tablet) {
+      opacity: 1;
+      right: 55px;
+    }
   }
   &__mipo {
     width: 541px;
@@ -29,6 +51,13 @@
     bottom: 0;
     left: 100px;
     opacity: 0;
+    @include screen-lt(desktop) {
+      width: 400px;
+    }
+    @include screen-lt(tablet) {
+      opacity: 1;
+      left: 15px;
+    }
   }
 }
 
@@ -36,11 +65,17 @@
   0% {
     opacity: 0;
     left: 400px;
+    @include screen-lt(desktop) {
+      left: 200px;
+    }
   }
 
   100% {
     opacity: 1;
     left: 600px;
+    @include screen-lt(desktop) {
+      left: 400px !important;
+    }
   }
 }
 
@@ -83,20 +118,32 @@
     animation: bg 1s ease-in-out;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
+    @include screen-lt(tablet) {
+      animation: none;
+    }
   }
   .comics__axe {
     animation: axe 1s ease-in-out;
     animation-delay: 1s;
     animation-fill-mode: forwards;
+    @include screen-lt(tablet) {
+      animation: none;
+    }
   }
   .comics__meepo {
     animation: meepo 1s ease;
     animation-delay: 2.5s;
     animation-fill-mode: forwards;
+    @include screen-lt(tablet) {
+      animation: none;
+    }
   }
   .comics__mipo {
     animation: mipo 1s ease-in-out;
     animation-delay: 2s;
     animation-fill-mode: forwards;
+    @include screen-lt(tablet) {
+      animation: none;
+    }
   }
 }

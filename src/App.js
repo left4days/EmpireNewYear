@@ -59,19 +59,8 @@ class App extends Component {
         this.setState({ user: false });
     };
 
-    formRef = ref => (this.form = ref);
-
-    onDevValidChange = () => {
-        window.localStorage.setItem('devMode', 1);
-        this.setState({ devConfirmed: true });
-    };
-
     render() {
         const { modal, user, actionState, mainWinnerData, product_link } = this.state;
-        const isDevMode = !!window.localStorage.getItem('devMode');
-        if (actionState === 'DEV' && !isDevMode) {
-            return <DevelopTower onValidChange={this.onDevValidChange} />;
-        }
 
         return (
             <Router>

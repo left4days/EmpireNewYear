@@ -78,18 +78,30 @@
     }
   }
   &__mobile {
-    @include screen-lt(mobile) {
-      flex-direction: column;
-      align-items: flex-end !important;
-      button {
-        &:first-child {
-          margin-right: 0;
-          margin-bottom: 5px;
-        }
-        &:last-child {
-          width: 130px;
-        }
+    @include screen-lt(tablet) {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      .ux-button {
+        display: none;
       }
+    }
+  }
+}
+
+.header__mobile_btn {
+  display: none;
+  @include screen-lt(tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 50px;
+    outline: none;
+    img {
+      width: 100%;
     }
   }
 }
