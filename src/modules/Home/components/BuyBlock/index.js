@@ -64,7 +64,7 @@ const BuyItem = ({ src, link }) => {
 const BuyBlock = () => {
     return (
         <Column className="buy">
-            <Row jc="space-between">
+            <Row jc="space-between" className="buy__container">
                 {config.map((item, i) => {
                     return (
                         <Column key={i} className="buy__column">

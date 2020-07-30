@@ -5,9 +5,9 @@ import axe from 'statics/comics/axe.png';
 import bg from 'statics/comics/background.png';
 import meepo from 'statics/comics/meepo.png';
 import mipo from 'statics/comics/mipo.png';
-import './style.scss';
 import { LightningWidget } from "widgets/Lightning";
 import { SmokeWidget } from "widgets/Smoke";
+import './style.scss';
 
 
 const Comics = () => {
