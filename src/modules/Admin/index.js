@@ -9,12 +9,9 @@ import { Button } from "ui/Button";
 import { Title } from "ui/Title";
 import { Row, Column } from "ui/Layout";
 import { SwitchActionStateButton, Table } from "./components";
-import { Loader } from "ui/Loader";
-import { UserRow } from "./UserRow";
-import { UserHeading } from "./UserHeading";
+import { GuildsTable } from "./GuildTable";
 
 import style from "./style.scss";
-import { Description } from "../../ui/Description";
 
 class AdminPanel extends React.PureComponent {
   constructor(props) {
@@ -25,23 +22,24 @@ class AdminPanel extends React.PureComponent {
       actionState: "ACTIVE",
       localeWinners: [],
       guildList: [],
-      guildsNumber: 0,
-      users: 0
+      guildsNum: 0,
+      usersNum: 0,
     };
   }
 
   componentWillMount = () => {
     firebase.auth().onAuthStateChanged(() => {
       this.getCurrentAppState();
-      this.getSummaryInfo();
       this.getLocaleWinners();
+      this.getGuilds();
     });
   };
 
   getCurrentAppState = async () => {
-    axios.get("/api/v1/appState/state").then(res => {
-      const { state, mainWinnerEmail } = get(res, "data.data", {});
-      this.setState({ actionState: state, mainWinnerEmail });
+    const options = await getFirebaseHeaderToken();
+    axios.get("/api/v1/appState/state/admin", options).then(res => {
+      const { state, mainWinnerEmail, usersNum, guildsNum } = get(res, "data.data", {});
+      this.setState({ actionState: state, mainWinnerEmail, usersNum, guildsNum });
     });
   };
 
@@ -66,22 +64,20 @@ class AdminPanel extends React.PureComponent {
     });
   };
 
-  getSummaryInfo = async () => {
-    const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/appState/state", options).then(res => {
-      const { users = 0, guildsNumber = 0 } = get(res, "data.data", false);
-      if (users || guildsNumber) {
-        this.setState({ users, guildsNumber });
-      }
-    });
-  };
-
   switchAppState = async currentState => {
     const { actionState } = this.state;
     const options = await getFirebaseHeaderToken();
     const data = { currentState: actionState };
     axios.post("/api/v1/appState/switchState", data, options).then(res => {
       this.setState({ actionState: res.data.data });
+    });
+  };
+
+  getGuilds = async () => {
+    const options = await getFirebaseHeaderToken();
+    axios.get("/api/v1/guilds", options).then(res => {
+      const guildList = get(res, "data.data", []);
+      this.setState({ guildList });
     });
   };
 
@@ -104,8 +100,8 @@ class AdminPanel extends React.PureComponent {
       actionState,
       localeWinners,
       guildList,
-      users,
-      guildsNumber,
+      usersNum,
+      guildsNum,
       created = Date.now()
     } = this.state;
 
@@ -129,8 +125,8 @@ class AdminPanel extends React.PureComponent {
               Выгрузить полный список участников
             </Button>
             <Row jc="flex-end" className={style["admin__header-summary"]}>
-              <p>Участников: {users}</p>
-              <p>Гильдий: {guildsNumber}</p>
+              <p>Участников: {usersNum}</p>
+              <p>Гильдий: {guildsNum}</p>
             </Row>
           </Row>
           <Column>
@@ -143,12 +139,7 @@ class AdminPanel extends React.PureComponent {
             <p
               style={{ fontSize: "20px", color: "white" }}
             >{`Дата розыгрыша ${new Date(created).toLocaleString("ru")}`}</p>
-            <Table
-              text="Список гильдий"
-              onClick={() => {}}
-              buttonText="Обновить"
-              data={guildList}
-            />
+            <GuildsTable data={guildList} onClick={this.getGuilds} />
           </Column>
         </Column>
       </Column>

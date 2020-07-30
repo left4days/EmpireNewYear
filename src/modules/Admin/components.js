@@ -31,6 +31,7 @@ export function Table({ text, onClick, buttonText, data }) {
           user={{
             login: "LOGIN",
             steamLink: "LINK",
+            email: "EMAIL",
             registerBy: "REGISTERED BY"
           }}
         />

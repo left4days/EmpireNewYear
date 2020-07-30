@@ -22,7 +22,7 @@ class GuildsService {
     let guilds = {};
 
     try {
-      await guildsRef.on("value", snap => {
+      await guildsRef.once("value", snap => {
         guilds = snap.val() || {};
       });
     } catch (error) {
@@ -31,7 +31,7 @@ class GuildsService {
       return { success: false, errorMessage: "ERROR IN GUILDS API" };
     }
 
-    return guilds;
+    return Object.entries(guilds).map(([uid, guild]) => ({ ...guild, uid }));
   }
 
   async getGuildByName(guildName = "") {
@@ -123,7 +123,7 @@ class GuildsService {
         }
       });
     } catch (err) {
-      console.log("ERROR DB UPDATE USER FOR", uid);
+      console.log("ERROR DB CREATE GUILD", uid);
       console.log(err);
       return { success: false };
     }

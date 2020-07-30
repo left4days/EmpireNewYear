@@ -70,6 +70,8 @@ class UserService {
 
         let participants = [];
         let winners = [];
+        const created = Date.now();
+
         try {
             await userRef.once('value', snapshot => {
                 participants = Object.entries(snapshot.val()).map(([uid]) => {
@@ -94,22 +96,27 @@ class UserService {
         try {
             await appStateRef.update({
                 localWinners: winners,
+                created
             });
         } catch (err) {
             console.log('ERROR DB UPDATE WINNERS LIST', winners);
             console.log(err);
         }
 
-        return await Promise.all(winners.map(uid => this.getUserById(uid)));
+        const winnerList = await Promise.all(winners.map(uid => this.getUserById(uid)));
+
+        return [winnerList, created];
     }
 
     async getWinners(params) {
         const { limit = 10 } = params;
-        let winnerList = [];
+        let winners = [];
+        let created = 0;
 
         try {
             await appStateRef.once('value', snapshot => {
-                winnerList = get(snapshot.val(), 'localWinners', []);
+                winners = get(snapshot.val(), 'localWinners', []);
+                created = get(snapshot.val(), 'created', []);
             });
         } catch (err) {
             console.log('ERROR DB GET WINNERS');
@@ -118,7 +125,9 @@ class UserService {
             return [];
         }
 
-        return await Promise.all(winnerList.map(uid => this.getUserById(uid)));
+        const winnerList = await Promise.all(winners.map(uid => this.getUserById(uid)));
+
+        return [winnerList, created];
     }
 
     async getAllUsersInCSV(params) {

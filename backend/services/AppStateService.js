@@ -1,89 +1,104 @@
-const firebaseAdmin = require('firebase-admin');
+const firebaseAdmin = require("firebase-admin");
 const db = firebaseAdmin.database();
-const appStateRef = db.ref('server/saving-data/fireblog/appState');
-const usersRef = db.ref('server/saving-data/fireblog/users');
-
-// const UserService = require('../services/UserService');
-//
-// const userService = new UserService();
+const appStateRef = db.ref("server/saving-data/fireblog/appState");
+const usersRef = db.ref("server/saving-data/fireblog/users");
+const guildsRef = db.ref("server/saving-data/fireblog/guilds");
 
 function stateFSM(currentState) {
-    switch (currentState) {
-        case 'DEV':
-            return 'ACTIVE';
-        case 'ACTIVE':
-            return 'FINISHED';
-        case 'FINISHED':
-            return 'DEV';
-        default:
-            return currentState;
-    }
+  switch (currentState) {
+    case "DEV":
+      return "ACTIVE";
+    case "ACTIVE":
+      return "FINISHED";
+    case "FINISHED":
+      return "DEV";
+    default:
+      return currentState;
+  }
 }
 
 class AppStateService {
-    constructor() {
-        this.lastVerifyDevTS = null;
+  constructor() {
+    this.lastVerifyDevTS = null;
+  }
+
+  async getAppState(isAdmin) {
+    let state = "ACTIVE";
+    let guild_leaders = [];
+    let local_Winners = [];
+    let usersNum = 0;
+    let guildsNum = 0;
+
+    await appStateRef.on("value", snap => {
+      const { actionState, guildLeaders, localWinners } = snap.val() || {};
+
+      if (typeof actionState === "string") {
+        state = actionState;
+        guild_leaders = guildLeaders;
+        local_Winners = localWinners;
+      }
+    });
+
+    if (isAdmin) {
+      await usersRef.on("value", snap => {
+        const users = snap.val() || {};
+
+        usersNum = Object.keys(users).length;
+      });
+
+      await guildsRef.on("value", snap => {
+        const guilds = snap.val() || {};
+
+          guildsNum = Object.keys(guilds).length;
+      });
     }
 
-    async getAppState() {
-        let state = 'ACTIVE';
-        let guild_leaders = [];
-        let local_Winners = [];
-        let usersNum = 0;
+    return {
+      state,
+      guildLeaders: guild_leaders,
+      localWinners: local_Winners,
+      usersNum,
+      guildsNum,
+    };
+  }
 
-        await appStateRef.on('value', snap => {
-            const { actionState, guildLeaders, localWinners } = snap.val() || {};
+  async checkDevAccess(password) {
+    let isValid = false;
 
-            if (typeof actionState === 'string') {
-                state = actionState;
-                guild_leaders = guildLeaders;
-                local_Winners = localWinners;
-            }
-        });
+    await appStateRef.once("value", snap => {
+      const { devPassword } = snap.val() || {};
 
-        await usersRef.on('value', snap => {
-            const users = snap.val() || {};
+      if (devPassword === password) {
+        isValid = true;
+        return;
+      }
+    });
 
-            usersNum = Object.keys(users).length;
-        });
+    return isValid;
+  }
 
-        return { state, guildLeaders: guild_leaders, localWinners: local_Winners, users: usersNum, guildsNumber: 3 };
+  async switchAppState(currentState) {
+    let newState = currentState;
+
+    if (!currentState) {
+      return { success: false, errorMessage: "invalid state" };
     }
 
-    async checkDevAccess(password) {
-        let isValid = false;
+    newState = stateFSM(currentState);
 
-        await appStateRef.once('value', snap => {
-            const { devPassword } = snap.val() || {};
-
-            if (devPassword === password) {
-                isValid = true;
-                return;
-            }
-        });
-
-        return isValid;
+    try {
+      await appStateRef.update({ actionState: newState });
+    } catch (error) {
+      console.log("ERROR IN CHANGE CURRENT APP STATE");
+      console.log(error);
+      return {
+        success: false,
+        errorMessage: "ERROR IN CHANGE CURRENT APP STATE"
+      };
     }
 
-    async switchAppState(currentState) {
-        let newState = currentState;
-
-        if (!currentState) {
-            return { success: false, errorMessage: 'invalid state' };
-        }
-
-        newState = stateFSM(currentState);
-
-        try {
-            await appStateRef.update({ actionState: newState });
-        } catch (error) {
-            console.log('ERROR IN CHANGE CURRENT APP STATE');
-            console.log(error);
-            return { success: false, errorMessage: 'ERROR IN CHANGE CURRENT APP STATE' };
-        }
-
-        return newState;
-    }
+    return newState;
+  }
 }
 
 module.exports = AppStateService;

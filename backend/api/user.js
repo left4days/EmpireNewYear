@@ -23,15 +23,15 @@ async function registerUser(req, res) {
 }
 
 async function getWinners(req, res) {
-    const users = await userService.getWinners(req.params);
+    const [users, created] = await userService.getWinners(req.params);
 
-    res.json({ success: true, data: users });
+    res.json({ success: true, data: users, created });
 }
 
 async function generateWinners(req, res) {
-    const users = await userService.generatelocaleWinners(req.params);
+    const [users, created] = await userService.generateLocaleWinners(req.params);
 
-    res.json({ success: true, data: users });
+    res.json({ success: true, data: users, created });
 }
 
 async function setGuildToUser(req, res, next) {
