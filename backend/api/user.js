@@ -37,15 +37,13 @@ async function generateWinners(req, res) {
 async function setGuildToUser(req, res, next) {
     const { body = {} } = req;
     const { guildName = '', userId } = body;
-    // const isValid = await appStateService.checkDevAccess(devPassword);
-    const guild = await guildsService.getGuildByName(guildName);
+    let guild = await guildsService.getGuildByName(guildName);
 
-    if(guild.name) {
-        await userService.setGuildToUser(guildName, guild.uid, userId);
-    } else {
-        await guildsService.createGuild(guildName);
+    if(!guild.name) {
+        guild = await guildsService.createGuild(guildName);
     }
 
+    await userService.setGuildToUser(guildName, guild.uid, userId);
     await guildsService.addUserToGuildById(guild.uid, userId);
 
     res.json({ success: true });
@@ -70,6 +68,6 @@ module.exports = {
         ['/api/v1/user', registerUser],
     ],
     PUT: [
-        ['/api/v1/user/:userId/add-guild', setGuildToUser],
+        ['/api/v1/user/add-guild', setGuildToUser],
     ],
 };

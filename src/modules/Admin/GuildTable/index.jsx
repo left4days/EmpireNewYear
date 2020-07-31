@@ -55,6 +55,7 @@ export class GuildsTable extends React.Component {
           <Row className={style.admin__row}>
             <p className={style.admin__row_item}>№</p>
             <p className={style.admin__row_item}>Name</p>
+            <p className={style.admin__row_item}>Members</p>
             <p className={style.admin__row_item}>Level</p>
             <p className={style.admin__row_item}>Actions</p>
           </Row>

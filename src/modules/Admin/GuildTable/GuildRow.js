@@ -11,6 +11,7 @@ export class GuildRow extends React.Component {
       uid,
       name,
       level,
+        members,
       onEditLevelClick,
       onDownloadMembersInCSV
     } = this.props;
@@ -18,6 +19,7 @@ export class GuildRow extends React.Component {
       <Row className={style.admin__row}>
         <p className={style.admin__row_item}>{idx}</p>
         <p className={style.admin__row_item}>{name}</p>
+        <p className={style.admin__row_item}>{members.length - 1}</p>
         <p className={style.admin__row_item}>{level}</p>
         <Row>
           <Button onClick={() => onEditLevelClick(uid)} margin="right">
