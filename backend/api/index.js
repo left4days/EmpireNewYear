@@ -3,7 +3,7 @@ const router = express.Router();
 const { auth } = require('firebase-admin');
 
 const userApi = require('./user');
-const clicksApi = require('./clicks');
+const guildsApi = require('./guilds');
 const appStateApi = require('./appState');
 
 const authService = auth();
@@ -20,12 +20,17 @@ function createRoutes(route) {
         const [url, ...callbacks] = route;
         router.post(url, ...[callbacks]);
     });
+
+    PUT.forEach(function(route) {
+        const [url, ...callbacks] = route;
+        router.put(url, ...[callbacks]);
+    });
 }
 
 function applyRoutes(app) {
     createRoutes(userApi, router);
-    createRoutes(clicksApi, router);
     createRoutes(appStateApi, router);
+    createRoutes(guildsApi, router);
 
     router.get('/api/*', (req, res, next) => {
         res.json({ success: true, message: 'This api url is not declared' });

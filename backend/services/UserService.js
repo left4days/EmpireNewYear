@@ -6,10 +6,6 @@ const db = firebaseAdmin.database();
 const userRef = db.ref('server/saving-data/fireblog/users');
 const appStateRef = db.ref('server/saving-data/fireblog/appState');
 
-const ClickService = require('../services/ClickService');
-
-const clickService = new ClickService();
-
 const randomInteger = (min, max) => {
     let rand = min + Math.random() * (max - min);
     rand = Math.round(rand);
@@ -45,23 +41,20 @@ class UserService {
             result = snap.val();
         });
 
-        const clicks = await clickService.getUserClicksById(uid);
-
         return {
             ...result,
-            clicks,
             uid,
         };
     }
 
     async registerNewUser(data) {
-        const { uid, login, registerBy, email } = data;
+        const { uid, login, steamLink, email } = data;
 
         try {
             return await userRef.update({
                 [uid]: {
                     role: 'user',
-                    registerBy,
+                    steamLink,
                     email,
                     login,
                 },
@@ -72,18 +65,13 @@ class UserService {
         }
     }
 
-    async getTopClickers(params) {
+    async generateLocaleWinners(params) {
         const { limit = 10 } = params;
-
-        const topClickers = await clickService.getTopClickers(limit);
-        return await Promise.all(topClickers.map(({ uid }) => this.getUserById(uid)));
-    }
-
-    async generateWinners(params) {
-        const { limit = 300 } = params;
 
         let participants = [];
         let winners = [];
+        const created = Date.now();
+
         try {
             await userRef.once('value', snapshot => {
                 participants = Object.entries(snapshot.val()).map(([uid]) => {
@@ -107,23 +95,28 @@ class UserService {
 
         try {
             await appStateRef.update({
-                winnerList: winners,
+                localWinners: winners,
+                created
             });
         } catch (err) {
             console.log('ERROR DB UPDATE WINNERS LIST', winners);
             console.log(err);
         }
 
-        return await Promise.all(winners.map(uid => this.getUserById(uid)));
+        const winnerList = await Promise.all(winners.map(uid => this.getUserById(uid)));
+
+        return [winnerList, created];
     }
 
     async getWinners(params) {
-        const { limit = 300 } = params;
-        let winnerList = [];
+        const { limit = 10 } = params;
+        let winners = [];
+        let created = 0;
 
         try {
             await appStateRef.once('value', snapshot => {
-                winnerList = get(snapshot.val(), 'winnerList', []);
+                winners = get(snapshot.val(), 'localWinners', []);
+                created = get(snapshot.val(), 'created', []);
             });
         } catch (err) {
             console.log('ERROR DB GET WINNERS');
@@ -132,12 +125,12 @@ class UserService {
             return [];
         }
 
-        return await Promise.all(winnerList.map(uid => this.getUserById(uid)));
+        const winnerList = await Promise.all(winners.map(uid => this.getUserById(uid)));
+
+        return [winnerList, created];
     }
 
-    async getAllUsersInCSV(params) {
-        const { limit } = params;
-
+    async getAllUsers() {
         let participants = {};
 
         try {
@@ -147,21 +140,17 @@ class UserService {
         } catch (err) {
             console.log('ERROR DB GET TOP CLICKERS');
             console.log(err);
-
-            return participants;
         }
 
-        const clicks = (await clickService.getAllUsersClicks()) || {};
+        return Object.values(participants);
+    }
 
-        for (const uid in participants) {
-            if (participants[uid] && clicks[uid]) {
-                participants[uid] = { ...participants[uid], clicks: clicks[uid] };
-            }
-        }
+    async getAllUsersInCSV() {
+        const participants = await this.getAllUsers();
 
-        const resJSON = Object.entries(participants).map(([uid, data], i) => ({ idx: i + 1, uid, ...data }));
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
 
-        const fields = ['idx', 'email', 'registerBy', 'uid', 'login', 'clicks'];
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink', 'guildName'];
         const opts = { fields };
 
         try {
@@ -173,17 +162,58 @@ class UserService {
         }
     }
 
-    async customRegisterNewUser(reqBody) {
-        const { user_id } = reqBody;
-        return firebaseAdmin
-            .auth()
-            .createCustomToken(user_id)
-            .then(function(customToken) {
-                return customToken;
-            })
-            .catch(function(error) {
-                console.log('Error creating custom token:', error);
+    async getAllUsersFromGuildInCSV(guildName) {
+        let participants = await this.getAllUsers();
+        participants = participants.filter(user => user.guildName === guildName);
+
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
+
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const opts = { fields };
+
+        try {
+            const csv = json2csv.parse(resJSON, opts);
+            return csv;
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
+    }
+
+    async getUsersFromIdsInCSV(members) {
+        const participants = await Promise.all(members.map(uid => this.getUserById(uid)));
+
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
+
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const opts = { fields };
+
+        try {
+            const csv = json2csv.parse(resJSON, opts);
+            return csv;
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
+
+        return members;
+    }
+
+    async setGuildToUser(guildName, guildID, userId) {
+        const user = await this.getUserById(userId);
+
+        try {
+            return await userRef.update({
+                [user.uid]: {
+                    ...user,
+                    guildName,
+                    guildID
+                },
             });
+        } catch (err) {
+            console.log('ERROR DB UPDATE USER FOR', user.uid);
+            console.log(err);
+        }
     }
 }
 
