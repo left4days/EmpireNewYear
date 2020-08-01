@@ -1,5 +1,5 @@
-import React from 'react';
-import { Column} from "ui/Layout";
+import React from "react";
+import { Column } from "ui/Layout";
 import { VideoBlock } from "./components/VIdeoBlock";
 import { InfoBlock } from "./components/InfoBlock";
 import { GuildRating } from "./components/GuildRating";
@@ -9,20 +9,24 @@ import { Comics } from "./components/Comics";
 import { GuildInput } from "./components/GuildInput";
 
 class Home extends React.Component {
-    render() {
-        const { handleModal } = this.props;
-        return (
-            <Column>
-                <VideoBlock />
-                <InfoBlock />
-                <GuildInput handleModal={handleModal} />
-                <Comics />
-                <GuildRating />
-                <ProBlock />
-                <ProductsBlock />
-            </Column>
-        )
-    }
+  render() {
+    const { handleModal, user } = this.props;
+
+    return (
+      <Column>
+        <VideoBlock />
+        <InfoBlock />
+        <GuildInput
+          handleModal={handleModal}
+          user={user}
+        />
+        <Comics />
+        <GuildRating />
+        <ProBlock />
+        <ProductsBlock />
+      </Column>
+    );
+  }
 }
 
 export { Home };
