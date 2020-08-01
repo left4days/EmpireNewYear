@@ -6,7 +6,7 @@ const { uuid } = require("uuidv4");
 function sortByLevel(a, b) {
   const { level: aLevel } = a;
   const { level: bLevel } = b;
-  if (aLevel > bLevel) {
+  if (Number(aLevel) > Number(bLevel)) {
     return -1;
   }
 
