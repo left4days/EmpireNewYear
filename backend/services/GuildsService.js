@@ -10,7 +10,7 @@ function sortByLevel(a, b) {
     return -1;
   }
 
-  if (aLevel < bLevel) {
+  if (Number(aLevel) < Number(bLevel)) {
     return 1;
   }
 
