@@ -149,6 +149,9 @@ $screenSizes: (
   @include screen-lt(desktop) {
     width: 100%;
   }
+  @include screen-lt(mobile-small) {
+    padding: 0 10px;
+  }
 }
 
 @mixin bgImage($image) {

@@ -6,7 +6,6 @@ import axios from 'axios';
 import get from 'lodash/get';
 import { Header } from 'widgets/Header';
 import { Modal } from 'ui/Modal';
-import DevelopTower from './DevelopTower';
 import routes from './routes';
 import { signOutUser } from 'widgets/Auth/firebase-configuration';
 import './style.scss';

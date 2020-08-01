@@ -9,7 +9,7 @@ const GuildRating = () => {
     return (
         <Column className="rating">
             <Column className="rating__container">
-                <img src={mainImage} alt="main-image" className="rating__image"/>
+                <img src={mainImage} alt="main-image" className="rating__image" />
                 <Title>Рейтинг гильдий</Title>
                 <Table />
             </Column>

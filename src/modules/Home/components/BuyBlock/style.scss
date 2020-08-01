@@ -15,6 +15,10 @@
     @include screen-lt(desktop) {
       justify-content: flex-start !important;
     }
+    @include screen-lt(mobile) {
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
   }
   &__item {
     width: 160px;
@@ -25,6 +29,9 @@
     align-items: center;
     justify-content: center;
     margin-right: 30px;
+    @include screen-lt(mobile) {
+      margin-top: 30px;
+    }
   }
   &__column {
     width: auto;

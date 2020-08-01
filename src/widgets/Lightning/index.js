@@ -4,21 +4,27 @@ import { Lightning } from "./lightning";
 import './style.scss';
 
 const timings = {
-    drawDuration: 60,
-    drawTimeout: 1000,
-    animationTimeout: 5000,
+    drawDuration: 5,
+    drawTimeout: 350,
+    animationTimeout: 1000,
 };
+
+// const timings = {
+//     drawDuration: 5,
+//     drawTimeout: 5000,
+//     animationTimeout: 10000,
+// };
 
 const config = {
     Alpha: "1",
     Blur: "4",
     BlurColor: "#FF5102",
     Color: "white",
-    GlowAlpha: "10",
-    GlowBlur: "10",
+    GlowAlpha: "5",
+    GlowBlur: "5",
     GlowColor: "#FF5102",
     GlowWidth: "5",
-    Segments: "30",
+    Segments: "20",
     Threshold: "1",
     Width: "1"
 };
@@ -72,7 +78,7 @@ function runLighter(target) {
 function getRandomInRange() {
     let numberLength = 2;
     const min = 0;
-    const max = 999;
+    const max = 900;
     let result = [];
     for (let i = 0; i < numberLength; i++) {
         result.push((Math.floor(Math.random() * (max - min + 1)) + min).toString());
@@ -100,7 +106,7 @@ class LightningWidget extends React.Component {
     render() {
         return (
             <div className="lightning">
-                <canvas id="board" width="800" height="800" />
+                <canvas id="board" width="1920" height="900" />
             </div>
         )
     }
