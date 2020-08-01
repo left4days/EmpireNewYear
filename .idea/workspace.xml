@@ -1,67 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/statics/light/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/statics/light/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/widgets/Light/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/widgets/Light/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DevelopTower.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DevelopTower.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/GuildTable/GuildRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/GuildTable/GuildRow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/UserHeading/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/UserHeading/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/UserRow/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/UserRow/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Admin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/AuthPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/AuthPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/Comics/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/Comics/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildRating/Table/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildRating/Table/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildRating/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildRating/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/ProBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/ProBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/VIdeoBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/VIdeoBlock/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Policy/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Policy/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Button/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Description/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Description/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Input/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Input/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Input/masks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Input/masks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Layout/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Loader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Loader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Modal/modals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Modal/modals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Title/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Title/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/firebase-configuration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/firebase-configuration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/validations-errors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/validations-errors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/validations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/validations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/FieldHOC/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/FieldHOC/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Header/HeaderAuth/AuthorizedHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Header/HeaderAuth/AuthorizedHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Header/HeaderAuth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Header/HeaderAuth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/InfoModal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/InfoModal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Lightning/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Lightning/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Lightning/lightning.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Lightning/lightning.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Lightning/vector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Lightning/vector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Smoke/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Smoke/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/fields.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/fields.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/requestsHelpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/requestsHelpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,11 +34,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="210">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -142,11 +91,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/paths.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -176,7 +120,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="update-view" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -190,12 +134,12 @@
         <option value="$PROJECT_DIR$/src/widgets/Light/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/Comics/index.js" />
         <option value="$PROJECT_DIR$/src/widgets/Light/style.scss" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/App.test.js" />
         <option value="$PROJECT_DIR$/src/widgets/InfoModal/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -223,19 +167,6 @@
               <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="widgets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="widgets" type="462c0819:PsiDirectoryNode" />
-              <item name="InfoModal" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -310,12 +241,12 @@
       <workItem from="1596008673269" duration="1613000" />
       <workItem from="1596114901770" duration="925000" />
       <workItem from="1596117406198" duration="495000" />
-      <workItem from="1596297057123" duration="5525000" />
+      <workItem from="1596297057123" duration="6026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9483000" />
+    <option name="totallyTimeSpent" value="9984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="773" extended-state="0" />
@@ -536,13 +467,6 @@
     <entry file="file://$PROJECT_DIR$/.eslintrc">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/jest/cssTransform.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -627,8 +551,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="210">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
