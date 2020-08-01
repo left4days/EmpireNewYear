@@ -13,7 +13,7 @@ async function getGuilds(req, res, next) {
 
 async function getTopGuilds(req, res, next) {
     const { params = {} } = req;
-    const { limit = 5 } = params;
+    const { limit = 10 } = params;
 
     const result = await guildsService.getTopGuilds(limit);
 
@@ -23,7 +23,7 @@ async function getTopGuilds(req, res, next) {
 async function getUsersFromGuild(req, res, next) {
     const { body = {} } = req;
     const { guildName = '' } = body;
-    const usersUids = await guildsService.getUsersFromGuild(guildName);
+    const usersUids = await guildsService.getUsersIdsFromGuild(guildName);
     const users = await Promise.all(usersUids.map(uid => userService.getUserById(uid)));
 
     res.json({ success: true, data: users });

@@ -121,7 +121,7 @@ class AdminPanel extends React.PureComponent {
               actionState={actionState}
               onClick={this.switchAppState}
             />
-            <Button style="void" margin="left" onClick={this.getAllUsers}>
+            <Button style="void" margin="left" onClick={this.downloadAllUsers}>
               Выгрузить полный список участников
             </Button>
             <Row jc="flex-end" className={style["admin__header-summary"]}>

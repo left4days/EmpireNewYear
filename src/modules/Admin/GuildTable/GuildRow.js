@@ -22,10 +22,10 @@ export class GuildRow extends React.Component {
         <p className={style.admin__row_item}>{members.length - 1}</p>
         <p className={style.admin__row_item}>{level}</p>
         <Row>
-          <Button onClick={() => onEditLevelClick(uid)} margin="right">
+          <Button onClick={() => onEditLevelClick(name)} margin="right">
             Изменить уровень
           </Button>
-          <Button onClick={() => onDownloadMembersInCSV(uid)}>
+          <Button onClick={() => onDownloadMembersInCSV(name)}>
             Выгрузить участников
           </Button>
         </Row>

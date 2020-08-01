@@ -130,9 +130,7 @@ class UserService {
         return [winnerList, created];
     }
 
-    async getAllUsersInCSV(params) {
-        const { limit } = params;
-
+    async getAllUsers() {
         let participants = {};
 
         try {
@@ -142,21 +140,17 @@ class UserService {
         } catch (err) {
             console.log('ERROR DB GET TOP CLICKERS');
             console.log(err);
-
-            return participants;
         }
 
-        // const clicks = (await clickService.getAllUsersClicks()) || {};
+        return Object.values(participants);
+    }
 
-        for (const uid in participants) {
-            if (participants[uid]) {
-                participants[uid] = { ...participants[uid], guildName: '' };
-            }
-        }
+    async getAllUsersInCSV() {
+        const participants = await this.getAllUsers();
 
-        const resJSON = Object.entries(participants).map(([uid, data], i) => ({ idx: i + 1, uid, ...data }));
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
 
-        const fields = ['idx', 'email', 'login', 'steamLink', 'uid', 'clicks'];
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink', 'guildName'];
         const opts = { fields };
 
         try {
@@ -166,6 +160,43 @@ class UserService {
             console.error(err);
             return '';
         }
+    }
+
+    async getAllUsersFromGuildInCSV(guildName) {
+        let participants = await this.getAllUsers();
+        participants = participants.filter(user => user.guildName === guildName);
+
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
+
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const opts = { fields };
+
+        try {
+            const csv = json2csv.parse(resJSON, opts);
+            return csv;
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
+    }
+
+    async getUsersFromIdsInCSV(members) {
+        const participants = await Promise.all(members.map(uid => this.getUserById(uid)));
+
+        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
+
+        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const opts = { fields };
+
+        try {
+            const csv = json2csv.parse(resJSON, opts);
+            return csv;
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
+
+        return members;
     }
 
     async setGuildToUser(guildName, guildID, userId) {

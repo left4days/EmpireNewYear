@@ -45,19 +45,19 @@ class GuildsService {
       return { success: false, errorMessage: "ERROR IN GUILDS API" };
     }
 
-    const guild = guilds.filter((guild) => guildName === guild.name)[0] || {};
+    const guild = guilds.filter(guild => guildName === guild.name)[0] || {};
 
     return guild;
   }
 
-  async getTopGuilds(limit = 5) {
+  async getTopGuilds(limit = 10) {
     let guilds = {};
 
     try {
       await guildsRef.once("value", snapshot => {
         guilds = Object.entries(snapshot.val())
           .map(([uid, guild]) => {
-            return { uid, guild };
+            return { uid, ...guild };
           })
           .sort(sortByLevel)
           .slice(0, +limit);
@@ -70,10 +70,10 @@ class GuildsService {
       return { success: false, errorMessage: "ERROR IN TOP GUILDS API" };
     }
 
-    return guilds;
+    return guilds.map((guild, i) => ({ name: guild.name, idx: i + 1 }));
   }
 
-  async getUsersFromGuild(guildName) {
+  async getUsersIdsFromGuild(guildName) {
     let members = [];
     let guild = {};
 
@@ -86,7 +86,7 @@ class GuildsService {
       return { success: false, errorMessage: "ERROR IN GUILDS API" };
     }
 
-    return members;
+    return members.filter(id => !!id);
   }
 
   async setGuildLevelByName(guildName, level) {
@@ -109,10 +109,10 @@ class GuildsService {
   async createGuild(guildName) {
     const uid = uuid();
     const result = {
-        uid,
-        name: guildName,
-        level: 0,
-        members: ['']
+      uid,
+      name: guildName,
+      level: 0,
+      members: [""]
     };
 
     try {
@@ -120,7 +120,7 @@ class GuildsService {
         [uid]: {
           name: guildName,
           level: 0,
-          members: { 0: '' }
+          members: { 0: "" }
         }
       });
     } catch (err) {
@@ -133,10 +133,10 @@ class GuildsService {
   }
 
   async addUserToGuildById(guildId, userId) {
-      let guild = {};
+    let guild = {};
     try {
-      await guildsRef.child(guildId).once('value', snap => {
-          guild = snap.val() || { members: [] }
+      await guildsRef.child(guildId).once("value", snap => {
+        guild = snap.val() || { members: [] };
       });
 
       return await guildsRef

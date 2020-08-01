@@ -1,73 +1,91 @@
-const UserService = require('../services/UserService');
-const GuildsService = require('../services/GuildsService');
-const { requiresAdmin, requiresAuth } = require('./middleware');
+const UserService = require("../services/UserService");
+const GuildsService = require("../services/GuildsService");
+const { requiresAdmin, requiresAuth } = require("./middleware");
 
 const userService = new UserService();
 const guildsService = new GuildsService();
 
 async function checkIsUserExist(req, res, next) {
-    res.json({ success: false, errorMessage: 'This login already exist', meta: { login: false } });
+  res.json({
+    success: false,
+    errorMessage: "This login already exist",
+    meta: { login: false }
+  });
 }
 
 async function getUserData(req, res, next) {
-    const { userId } = req.params;
-    const user = await userService.getUserById(userId);
+  const { userId } = req.params;
+  const user = await userService.getUserById(userId);
 
-    res.json(user);
+  res.json(user);
 }
 
 async function registerUser(req, res) {
-    const user = await userService.registerNewUser(req.body);
+  const user = await userService.registerNewUser(req.body);
 
-    res.json({ success: true });
+  res.json({ success: true });
 }
 
 async function getWinners(req, res) {
-    const [users, created] = await userService.getWinners(req.params);
+  const [users, created] = await userService.getWinners(req.params);
 
-    res.json({ success: true, data: users, created });
+  res.json({ success: true, data: users, created });
 }
 
 async function generateWinners(req, res) {
-    const [users, created] = await userService.generateLocaleWinners(req.params);
+  const [users, created] = await userService.generateLocaleWinners(req.params);
 
-    res.json({ success: true, data: users, created });
+  res.json({ success: true, data: users, created });
 }
 
 async function setGuildToUser(req, res, next) {
-    const { body = {} } = req;
-    const { guildName = '', userId } = body;
-    let guild = await guildsService.getGuildByName(guildName);
+  const { body = {} } = req;
+  const { guildName = "", userId } = body;
+  let guild = await guildsService.getGuildByName(guildName);
 
-    if(!guild.name) {
-        guild = await guildsService.createGuild(guildName);
-    }
+  if (!guild.name) {
+    guild = await guildsService.createGuild(guildName);
+  }
 
-    await userService.setGuildToUser(guildName, guild.uid, userId);
-    await guildsService.addUserToGuildById(guild.uid, userId);
+  await userService.setGuildToUser(guildName, guild.uid, userId);
+  await guildsService.addUserToGuildById(guild.uid, userId);
 
-    res.json({ success: true });
+  res.json({ success: true });
 }
 
 async function getAllUsers(req, res) {
-    const users_csv = await userService.getAllUsersInCSV(req.params);
+  const users_csv = await userService.getAllUsersInCSV(req.params);
 
-    res.setHeader('Content-Disposition', 'attachment; filename=data.csv');
-    res.setHeader('content-type', 'text/csv');
-    res.status(200).send(new Buffer(users_csv));
+  res.setHeader("Content-Disposition", "attachment; filename=data.csv");
+  res.setHeader("content-type", "text/csv");
+  res.status(200).send(new Buffer(users_csv));
+}
+
+async function getAllUsersFromGuild(req, res) {
+  const { body } = req;
+  const { guildName } = body;
+  const usersIds = await guildsService.getUsersIdsFromGuild(guildName);
+  console.log(usersIds);
+  const users_csv = await userService.getUsersFromIdsInCSV(usersIds);
+
+  res.setHeader(
+    "Content-Disposition",
+    `attachment; filename=data.csv`
+  );
+  res.setHeader("content-type", "text/csv");
+  res.status(200).send(new Buffer(users_csv));
 }
 
 module.exports = {
-    GET: [
-        ['/api/v1/user/:userId', getUserData],
-        ['/api/v1/users', requiresAdmin, getAllUsers],
-        ['/api/v1/user/winners/:limit', requiresAdmin, getWinners],
-        ['/api/v1/user/winners-create/:limit', requiresAdmin, generateWinners],
-    ],
-    POST: [
-        ['/api/v1/user', registerUser],
-    ],
-    PUT: [
-        ['/api/v1/user/add-guild', setGuildToUser],
-    ],
+  GET: [
+    ["/api/v1/user/:userId", getUserData],
+    ["/api/v1/users", requiresAdmin, getAllUsers],
+    ["/api/v1/user/winners/:limit", requiresAdmin, getWinners],
+    ["/api/v1/user/winners-create/:limit", requiresAdmin, generateWinners]
+  ],
+  POST: [
+      ["/api/v1/user", registerUser],
+      ["/api/v1/users/guild", requiresAdmin, getAllUsersFromGuild],
+  ],
+  PUT: [["/api/v1/user/add-guild", setGuildToUser]]
 };
