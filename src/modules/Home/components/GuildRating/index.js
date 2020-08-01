@@ -3,7 +3,7 @@ import axios from "axios";
 import { Column } from "ui/Layout";
 import { Title } from "ui/Title";
 import mainImage from "statics/main.png";
-import { Table } from './Table';
+import { Table } from "./Table";
 
 import "./style.scss";
 

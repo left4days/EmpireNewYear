@@ -1,5 +1,5 @@
-import { FieldWrapperHOC } from 'widgets/FieldHOC';
-import { Input } from 'ui/Input';
+import { FieldWrapperHOC } from "widgets/FieldHOC";
+import { Input } from "ui/Input";
 
 const WrappedInput = FieldWrapperHOC(Input);
 

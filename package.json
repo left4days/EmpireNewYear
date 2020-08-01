@@ -2,10 +2,11 @@
   "name": "sgchallenge",
   "version": "0.1.0",
   "private": true,
-  "homepage": "_",
+  "homepage": "https://sgchallenge.ru/",
   "dependencies": {
     "@babel/core": "7.2.2",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/runtime": "^7.11.0",
     "@bijection/smoke": "^1.0.2",
     "@svgr/webpack": "4.1.0",
     "animate.css": "^4.1.0",
@@ -103,7 +104,8 @@
     "server": "node ./backend/index.js",
     "server-dev": "nodemon --inspect ./backend/index.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -b master -d build",
+    "lint-all": "prettier --write \"src/**/*.{ts,js,tsx}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -153,10 +155,6 @@
       "web.jsx",
       "jsx",
       "node"
-    ],
-    "watchPlugins": [
-      "/Users/cevcode/WebstormProjects/overgear/dragon/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/cevcode/WebstormProjects/overgear/dragon/node_modules/jest-watch-typeahead/testname.js"
     ]
   },
   "babel": {
