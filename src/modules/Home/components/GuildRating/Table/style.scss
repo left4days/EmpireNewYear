@@ -2,6 +2,9 @@
   width: 100%;
   margin-top: 80px;
   margin-bottom: 40px;
+  @include screen-lt(mobile-small) {
+    margin-top: 40px;
+  }
   &__row {
     height: 40px;
     border-top: 1px solid rgba(255,255,255,0.2);
@@ -28,11 +31,21 @@
     color: $white;
     @include main-font(600);
     background: #C03F04;
+    @include screen-lt(mobile-small) {
+      font-size: 16px;
+      width: 40px;
+    }
   }
 
   &__name {
     font-size: 24px;
     color: $white;
     padding: 0 20px;
+    @include screen-lt(mobile-small) {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
   }
 }

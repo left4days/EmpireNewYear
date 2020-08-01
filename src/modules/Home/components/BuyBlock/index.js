@@ -40,15 +40,6 @@ const config = [
             }
         ]
     },
-    {
-        title: "Купить в Беларуси",
-        data: [
-            {
-                src: buy6,
-                link: '#',
-            },
-        ]
-    }
 ];
 
 const BuyItem = ({ src, link }) => {

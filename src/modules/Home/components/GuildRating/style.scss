@@ -6,6 +6,9 @@
   }
   &__image {
     width: 400px;
+    @include screen-lt(mobile-small) {
+      width: 250px;
+    }
   }
   h2 {
     text-transform: uppercase;
@@ -14,10 +17,16 @@
     position: relative;
     padding: 0 15px;
     z-index: 2;
+    @include screen-lt(mobile-small) {
+      font-size: 24px;
+    }
     &:before {
       content: '';
       width: 80%;
       height: 45px;
+      @include screen-lt(mobile-small) {
+        height: 28px;
+      }
       background-color: $orange;
       top: 0;
       transform: skew(40deg);
@@ -29,6 +38,9 @@
       content: '';
       width: 80%;
       height: 45px;
+      @include screen-lt(mobile-small) {
+        height: 28px;
+      }
       background-color: $orange;
       top: 0;
       transform: skew(-40deg);

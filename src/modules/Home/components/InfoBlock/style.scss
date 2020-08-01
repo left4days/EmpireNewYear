@@ -3,6 +3,9 @@
   &__container {
     @include container-size();
     z-index: 2;
+    @include screen-lt(mobile) {
+      margin-top: 170px;
+    }
   }
   &__item {
     width: 100%;
@@ -16,6 +19,13 @@
       text-align: center;
       max-width: 80%;
       margin-top: 40px;
+      @include screen-lt(mobile) {
+        font-size: 12px;
+        margin-top: 20px;
+      }
+      @include screen-lt(mobile) {
+        font-size: 10px;
+      }
     }
   }
   &__wrapper {
@@ -33,6 +43,14 @@
     @include screen-lt(tablet) {
       width: 180px;
       height: 180px;
+    }
+    @include screen-lt(mobile) {
+      width: 84px;
+      height: 84px;
+    }
+    @include screen-lt(mobile) {
+      width: 64px;
+      height: 64px;
     }
     &:after {
       content: '';
@@ -55,6 +73,9 @@
     }
     img {
       z-index: 3;
+      @include screen-lt(mobile) {
+        width: 60%;
+      }
     }
   }
   &__asset {
@@ -64,6 +85,10 @@
     z-index: 1;
     width: 316px;
     height: 266px;
+    @include screen-lt(mobile) {
+      width: 150px;
+      height: auto;
+    }
     &_right {
       right: 0;
       left: auto;

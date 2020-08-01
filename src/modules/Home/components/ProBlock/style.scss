@@ -1,13 +1,24 @@
 .pro {
   background-image: url('../../../../statics/pro_bg.png');
+  @include screen-lt(mobile) {
+    background-image: url('../../../../statics/pro_bg_m.png');
+  }
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   min-height: 1140px;
+  @include screen-lt(mobile) {
+    min-height: auto;
+    padding-bottom: 20px;
+  }
   &__logo {
     width: 200px;
     margin-top: 80px;
+    @include screen-lt(mobile) {
+      width: 20%;
+      margin-top: 0;
+    }
   }
 
   &__text {
@@ -19,6 +30,9 @@
     justify-content: space-between;
     min-height: 930px;
     @include container-size();
+    @include screen-lt(mobile) {
+      min-height: auto;
+    }
   }
   h2 {
     font-size: 100px;
@@ -29,25 +43,56 @@
     @include screen-lt(tablet) {
       font-size: 70px;
     }
+    @include screen-lt(mobile) {
+      font-size: 35px;
+    }
+    @include screen-lt(mobile-small) {
+      font-size: 27px;
+    }
   }
   p {
     font-size: 30px;
     color: $white;
+    @include screen-lt(mobile) {
+      font-size: 20px;
+    }
+    @include screen-lt(mobile-small) {
+      font-size: 13px;
+    }
   }
   &__footer {
     align-items: center;
     justify-content: center;
+    @include screen-lt(mobile) {
+      margin-top: 70px;
+    }
     img {
       width: 142px;
       height: 142px;
+      @include screen-lt(mobile) {
+        width: 57px;
+        height: auto;
+      }
+      @include screen-lt(mobile-small) {
+        width: 47px;
+      }
       &:first-child {
         width: 164px;
-        height: 40px;
+        height: auto;
+        @include screen-lt(mobile) {
+          width: 86px;
+        }
+        @include screen-lt(mobile-small) {
+          width: 66px;
+        }
       }
     }
     p {
       font-size: 18px;
       white-space: nowrap;
+      @include screen-lt(mobile) {
+        font-size: 10px;
+      }
     }
   }
 }

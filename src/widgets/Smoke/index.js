@@ -21,7 +21,7 @@ const sideSmoke = (canvas, side) => {
     machine.start();
     setTimeout(() => {
         machine.setPreDrawCallback(() => {
-            machine.addSmoke(getSmokePosition(w, h)[side + 'Width'], h, 0.05);
+            machine.addSmoke(getSmokePosition(w, h)[side + 'Width'], h, 0.02);
             canvas.width = w;
             canvas.height = h;
         });
@@ -30,7 +30,7 @@ const sideSmoke = (canvas, side) => {
 };
 
 
-const middleSmoke = (canvas) => {
+const middleSmoke = (canvas, coef) => {
     const ctx = canvas.getContext('2d');
     const machine = SmokeMachine(ctx, color);
     machine.start();
@@ -38,24 +38,28 @@ const middleSmoke = (canvas) => {
         machine.setPreDrawCallback(() => {
             const w = canvas.clientWidth;
             const h = canvas.clientHeight;
-            machine.addSmoke(w/2, h - 300, 0.05);
+            machine.addSmoke(w*coef, h - 200, 0.02);
             canvas.width = w;
             canvas.height = h;
         });
     }, 2500);
     return machine;
-}
+};
 
 
 class SmokeWidget extends React.Component {
     componentDidMount() {
         const repro = document.getElementById('repro');
-        const canvasMiddle = document.getElementById('canvasMiddle');
+        const canvasMiddle1 = document.getElementById('canvasMiddle1');
+        const canvasMiddle2 = document.getElementById('canvasMiddle2');
+        const canvasMiddle3 = document.getElementById('canvasMiddle3');
         const canvasLeft = document.getElementById('canvasLeft');
         const canvasRight = document.getElementById('canvasRight');
         sideSmoke(canvasLeft, 'left');
         sideSmoke(canvasRight, 'right');
-        const middleSmokeMachine = middleSmoke(canvasMiddle);
+        // middleSmoke(canvasMiddle1, 0.2);
+        middleSmoke(canvasMiddle2, 0.5);
+        // middleSmoke(canvasMiddle3, 0.8);
     }
 
     render() {
@@ -64,7 +68,9 @@ class SmokeWidget extends React.Component {
                 <div id="repro">
                     <canvas id="canvasLeft" />
                     <canvas id="canvasRight" />
-                    <canvas id="canvasMiddle" />
+                    <canvas id="canvasMiddle1" />
+                    <canvas id="canvasMiddle2" />
+                    <canvas id="canvasMiddle3" />
                 </div>
             </div>
         )

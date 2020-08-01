@@ -78,6 +78,7 @@
     "react-vk": "^4.2.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
+    "slick-carousel": "^1.8.1",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "1.2.2",
     "text-mask-addons": "^3.8.0",

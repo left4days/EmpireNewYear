@@ -4,6 +4,9 @@
   left: 0;
   width: 100%;
   height: 2000px;
+  @include screen-lt(tablet) {
+    display: none;
+  }
 }
 
 #repro {
@@ -20,7 +23,7 @@
     bottom: 0;
   }
 }
-#canvasMiddle {
+#canvasMiddle1, #canvasMiddle2, #canvasMiddle3 {
   position: absolute;
   top: 0;
   left: 0;
