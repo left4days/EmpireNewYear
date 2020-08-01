@@ -18,7 +18,7 @@ app.engine('html', require('ejs').renderFile);
 applyRoutes(app);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../', 'build', 'index.js.html'));
 });
 
 // catch 404 and forward to error handler

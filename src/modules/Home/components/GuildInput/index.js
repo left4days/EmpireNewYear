@@ -75,7 +75,7 @@ class GuildInput extends React.Component {
         options
       )
       .then(res => {
-          window.location.reload(false);
+        window.location.reload(false);
       });
   };
 

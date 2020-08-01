@@ -16,10 +16,7 @@ class Home extends React.Component {
       <Column>
         <VideoBlock />
         <InfoBlock />
-        <GuildInput
-          handleModal={handleModal}
-          user={user}
-        />
+        <GuildInput handleModal={handleModal} user={user} />
         <Comics />
         <GuildRating />
         <ProBlock />

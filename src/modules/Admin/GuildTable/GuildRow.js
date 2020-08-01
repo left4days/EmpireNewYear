@@ -11,7 +11,7 @@ export class GuildRow extends React.Component {
       uid,
       name,
       level,
-        members,
+      members,
       onEditLevelClick,
       onDownloadMembersInCSV
     } = this.props;

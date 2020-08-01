@@ -122,7 +122,7 @@ const ProductsBlock = () => {
     autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: true
   };
   return (
     <Column className="products">

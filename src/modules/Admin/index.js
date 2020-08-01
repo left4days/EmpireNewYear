@@ -23,7 +23,7 @@ class AdminPanel extends React.PureComponent {
       localeWinners: [],
       guildList: [],
       guildsNum: 0,
-      usersNum: 0,
+      usersNum: 0
     };
   }
 
@@ -38,8 +38,17 @@ class AdminPanel extends React.PureComponent {
   getCurrentAppState = async () => {
     const options = await getFirebaseHeaderToken();
     axios.get("/api/v1/appState/state/admin", options).then(res => {
-      const { state, mainWinnerEmail, usersNum, guildsNum } = get(res, "data.data", {});
-      this.setState({ actionState: state, mainWinnerEmail, usersNum, guildsNum });
+      const { state, mainWinnerEmail, usersNum, guildsNum } = get(
+        res,
+        "data.data",
+        {}
+      );
+      this.setState({
+        actionState: state,
+        mainWinnerEmail,
+        usersNum,
+        guildsNum
+      });
     });
   };
 
