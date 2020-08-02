@@ -7,13 +7,14 @@ import { ProBlock } from "./components/ProBlock";
 import { ProductsBlock } from "./components/ProductsBlock";
 import { Comics } from "./components/Comics";
 import { GuildInput } from "./components/GuildInput";
+import './style.scss';
 
 class Home extends React.Component {
   render() {
     const { user } = this.props;
 
     return (
-      <Column>
+      <Column className="home">
         <VideoBlock />
         <InfoBlock />
         <GuildInput user={user} />
