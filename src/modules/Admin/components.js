@@ -29,8 +29,8 @@ export function Table({ text, onClick, buttonText, data }) {
       <Column ai="flex-start">
         <UserRow
           user={{
-            login: "LOGIN",
-            steamLink: "LINK",
+            login: "NAME",
+            steamLogin: "LOGIN",
             email: "EMAIL",
             registerBy: "REGISTERED BY"
           }}

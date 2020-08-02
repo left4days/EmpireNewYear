@@ -48,15 +48,17 @@ class UserService {
     }
 
     async registerNewUser(data) {
-        const { uid, login, steamLink, email } = data;
+        const { uid, login, steamLogin, country, email, subscribe } = data;
 
         try {
             return await userRef.update({
                 [uid]: {
                     role: 'user',
-                    steamLink,
+                    steamLogin,
                     email,
+                    country,
                     login,
+                    subscribe,
                 },
             });
         } catch (err) {
@@ -150,25 +152,7 @@ class UserService {
 
         const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
 
-        const fields = ['idx', 'uid', 'email', 'login', 'steamLink', 'guildName'];
-        const opts = { fields };
-
-        try {
-            const csv = json2csv.parse(resJSON, opts);
-            return csv;
-        } catch (err) {
-            console.error(err);
-            return '';
-        }
-    }
-
-    async getAllUsersFromGuildInCSV(guildName) {
-        let participants = await this.getAllUsers();
-        participants = participants.filter(user => user.guildName === guildName);
-
-        const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
-
-        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const fields = ['idx', 'email', 'login', 'steamLogin', 'country', 'guildName', 'subscribe'];
         const opts = { fields };
 
         try {
@@ -185,7 +169,7 @@ class UserService {
 
         const resJSON = participants.map((data, i) => ({ idx: i + 1, ...data }));
 
-        const fields = ['idx', 'uid', 'email', 'login', 'steamLink'];
+        const fields = ['idx', 'email', 'login', 'steamLogin', 'country', 'guildName', 'subscribe'];
         const opts = { fields };
 
         try {

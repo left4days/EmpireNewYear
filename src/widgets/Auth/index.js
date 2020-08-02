@@ -153,7 +153,8 @@ class Auth extends React.Component {
       .then(async res => {
         const { user = {} } = res || {};
         const uid = get(res, "user.uid", "");
-        const data = { userInfo, registerBy, uid, email, country, steamLogin };
+        const subscribe = true;
+        const data = { login: userInfo, registerBy, uid, email, country, steamLogin, subscribe };
         const options = await getFirebaseHeaderToken();
 
         return axios.post("api/v1/user", data, options);
