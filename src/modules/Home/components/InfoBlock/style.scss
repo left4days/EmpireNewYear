@@ -1,5 +1,6 @@
 .info {
   position: relative;
+  background: linear-gradient(180deg, #000, #040404);
   &__container {
     @include container-size();
     z-index: 2;

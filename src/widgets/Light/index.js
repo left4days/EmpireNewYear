@@ -8,7 +8,7 @@ import "./style.scss";
 const Light = () => {
   return (
     <div className="light__wrapper">
-      <div className="light">s
+      <div className="light">
         <img src={im1} className="light_1" alt="" />
         <img src={im2} className="light_2" alt="" />
         <img src={im3} className="light_3" alt="" />
