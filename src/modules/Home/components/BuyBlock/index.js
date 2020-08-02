@@ -19,15 +19,15 @@ const config = [
       },
       {
         src: buy2,
-        link: "#"
+        link: "https://citilink.ru/promo/seagatefirecuda/"
       },
       {
         src: buy3,
-        link: "#"
+        link: "https://www.regard.ru/firecuda/"
       },
       {
         src: buy4,
-        link: "#"
+        link: "https://new.ogo1.ru/news/gaming_firecuda/"
       }
     ]
   },
@@ -36,7 +36,7 @@ const config = [
     data: [
       {
         src: buy5,
-        link: "#"
+        link: "https://firecuda.brain.com.ua/"
       }
     ]
   }
@@ -45,7 +45,7 @@ const config = [
 const BuyItem = ({ src, link }) => {
   return (
     <Column className="buy__item">
-      <a href={link} className="buy__link">
+      <a href={link} className="buy__link" target="_blank" rel="noopener noreferrer">
         <img src={src} alt="buy-image" />
       </a>
     </Column>

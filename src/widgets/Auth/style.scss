@@ -86,4 +86,7 @@
   color: #ddd;
   font-size: 12px;
   margin-top: 5px;
+  @include screen-lt(mobile-very-small) {
+    font-size: 10px;
+  }
 }

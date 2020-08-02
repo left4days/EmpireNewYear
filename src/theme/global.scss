@@ -128,6 +128,7 @@ $screenSizes: (
         tablet: 991px,
         mobile: 768px,
         mobile-small: 480px,
+        mobile-very-small: 400px,
 );
 
 @mixin screen-gt($name) {

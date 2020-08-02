@@ -1,2 +1,12 @@
 .home {
 }
+
+.ReactModal__Content {
+  @include screen-lt(mobile) {
+    width: 85% !important;
+    padding: 20px !important;
+  }
+  @include screen-lt(mobile-very-small) {
+    padding: 10px 20px !important;
+  }
+}

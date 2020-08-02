@@ -17,6 +17,12 @@
   }
 }
 
+.hide_mob {
+  @include screen-lt(mobile-very-small) {
+    display: none;
+  }
+}
+
 input[type="checkbox"] {
   width: 18px !important;
   height: 18px !important;
@@ -27,10 +33,16 @@ input[type="checkbox"] {
 .checkbox-label {
   color: $white;
   font-size: 12px;
+  @include screen-lt(mobile-very-small) {
+    font-size: 10px;
+  }
   a {
     color: $orange;
     text-decoration: underline;
     font-size: 12px;
+    @include screen-lt(mobile-very-small) {
+      font-size: 10px;
+    }
   }
 }
 

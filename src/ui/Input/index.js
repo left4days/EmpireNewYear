@@ -74,8 +74,10 @@ function Input({
           <a href="https://www.seagate.com/ru/ru/legal-privacy/privacy-policy/">
             Положением о конфиденциальности Seagate
           </a>
+          <span className="hide_mob">
           . Я понимаю, что могу отозвать свое согласие в любой момент,
           обратившись по адресу data.protection.officer@seagate.com*.
+          </span>
         </p>
       );
     } else {
