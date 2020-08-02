@@ -16,3 +16,24 @@
     background-color: #000;
   }
 }
+
+input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 5px 0 0;
+  padding: 0;
+}
+
+.checkbox-label {
+  color: $white;
+  font-size: 12px;
+  a {
+    color: $orange;
+    text-decoration: underline;
+    font-size: 12px;
+  }
+}
+
+.checkbox__area {
+  align-items: flex-start;
+}

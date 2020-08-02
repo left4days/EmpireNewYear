@@ -24,6 +24,7 @@
     position: absolute;
     top: 140px;
     left: 600px;
+    z-index: 2;
     opacity: 0;
     @include screen-lt(desktop) {
       width: 200px;
@@ -50,6 +51,7 @@
       position: absolute;
       top: 166px;
       left: 774px;
+      z-index: 2;
       opacity: 0;
       @include screen-lt(desktop) {
         width: 150px;
@@ -74,6 +76,7 @@
     width: 317px;
     position: absolute;
     bottom: 100px;
+    z-index: 2;
     right: 200px;
     opacity: 0;
     @include screen-lt(desktop) {
@@ -95,6 +98,7 @@
   }
   &__mipo {
     width: 541px;
+    z-index: 2;
     position: absolute;
     bottom: 0;
     left: 100px;
@@ -116,6 +120,7 @@
     }
     &_say {
       width: 200px;
+      z-index: 2;
       position: absolute;
       bottom: 255px;
       left: 100px;

@@ -10,26 +10,11 @@ import { UserHeading } from "../UserHeading";
 import Formsy from "formsy-react";
 import { Input } from "widgets/fields";
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
+import { customStyles } from "widgets/Auth";
 
 import style from "../UserRow/style.scss";
 import "./styles.scss";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "1px solid #ff5100",
-    background: "#0a0b0a",
-    borderRadius: "4px"
-  },
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.4)"
-  }
-};
 
 export class GuildsTable extends React.Component {
   constructor(props) {

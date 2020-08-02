@@ -6,26 +6,7 @@ import { HeaderAuthAuthorized } from "./AuthorizedHeader";
 import menuImage from "statics/menu.svg";
 import style from "./style.scss";
 import Modal from "react-modal";
-import { Auth } from "../../Auth";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "1px solid #ff5100",
-    background: "#0a0b0a",
-    borderRadius: "4px",
-    width: "300px",
-    padding: "20px 40px"
-  },
-  overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.7)"
-  }
-};
+import { Auth, customStyles } from "../../Auth";
 
 class HeaderAuth extends React.Component {
   state = {
@@ -87,7 +68,7 @@ class HeaderAuth extends React.Component {
           style={customStyles}
           contentLabel="Title"
         >
-          <Auth authType="login" />;
+          <Auth authType="login" />
         </Modal>
         <Modal
           isOpen={isAuthModalOpen}
@@ -95,7 +76,7 @@ class HeaderAuth extends React.Component {
           style={customStyles}
           contentLabel="Title"
         >
-          <Auth authType="auth" />;
+          <Auth authType="auth" />
         </Modal>
       </Row>
     );

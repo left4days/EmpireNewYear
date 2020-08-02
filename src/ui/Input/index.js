@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import MaskedInput from "react-text-mask";
 import { getMask } from "./masks";
+import { Row } from "ui/Layout";
 import style from "./style.scss";
 
 function Input({
@@ -48,6 +49,57 @@ function Input({
         onChange={e => onChange(e.target.value)}
       />
     );
+  }
+  if (type === "checkbox") {
+    if (id === "privacy") {
+      return (
+        <p className="checkbox-label">
+          {" "}
+          <input
+            type={type}
+            id={id}
+            name={name}
+            value={value}
+            onBlur={onBlur}
+            onClick={onClick}
+            onFocus={onFocus}
+            disabled={disabled}
+            className={className}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            onChange={onChange}
+          />
+          Я соглашаюсь с тем, что мои персональные данные будут использоваться
+          для регистрации и в соответствии с{" "}
+          <a href="https://www.seagate.com/ru/ru/legal-privacy/privacy-policy/">
+            Положением о конфиденциальности Seagate
+          </a>
+          . Я понимаю, что могу отозвать свое согласие в любой момент,
+          обратившись по адресу data.protection.officer@seagate.com*.
+        </p>
+      );
+    } else {
+      return (
+        <p className="checkbox-label">
+          <input
+            type={type}
+            id={id}
+            name={name}
+            value={value}
+            onBlur={onBlur}
+            onClick={onClick}
+            onFocus={onFocus}
+            disabled={disabled}
+            className={className}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+            onChange={onChange}
+          />
+          Я хочу получать уведомления о новейших продуктах, рекламных
+          мероприятиях и предложениях от Seagate.
+        </p>
+      );
+    }
   }
   return (
     <input
