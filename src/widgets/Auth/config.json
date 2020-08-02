@@ -1,21 +1,30 @@
 {
   "auth": [
     {
-      "type": "login",
-      "id": "login",
-      "name": "login",
-      "placeholder": "Логин",
+      "type": "text",
+      "id": "userInfo",
+      "name": "userInfo",
+      "placeholder": "Имя Фамилия",
       "validationsError": "",
-      "tooltip": "Логин, который вы указываете при входе в Steam",
-      "autoComplete": "username"
+      "margin": "top_x2",
+      "autoComplete": "name"
+    },
+    {
+      "type": "text",
+      "id": "country",
+      "name": "country",
+      "placeholder": "Страна",
+      "validationsError": "",
+      "margin": "top_x2",
+      "autoComplete": "country-name"
     },
     {
       "type": "login",
-      "id": "steamLink",
-      "name": "steamLink",
+      "id": "steamLogin",
+      "name": "steamLogin",
       "margin": "top_x2",
-      "placeholder": "Ссылка на профиль Steam",
-      "tooltip": "Полная строка из URL",
+      "placeholder": "Логин Steam",
+      "tooltip": "Логин, который вы указываете при входе в Steam",
       "validationsError": ""
     },
     {
@@ -37,6 +46,14 @@
       "validations": "password",
       "validationsError": "Пароль должен содержать минимум одну цифру и букву",
       "autoComplete": "new-password"
+    },
+    {
+      "type": "checkbox",
+      "id": "privacy",
+      "name": "privacy",
+      "validations": "privacy",
+      "validationsError": "",
+      "margin": "top_x2"
     }
   ],
   "login": [

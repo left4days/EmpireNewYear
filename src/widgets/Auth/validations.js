@@ -28,6 +28,11 @@ export function maxLength(value, number) {
   return value.toString().length <= number;
 }
 
+function isPrivacy(value) {
+  if (!value) return false;
+  return value === true;
+}
+
 Formsy.addValidationRule("isLogin", function(values, value) {
   return (
     onlyLettersAndNumbers(value) && minLength(value, 4) && maxLength(value, 16)
@@ -50,6 +55,12 @@ Formsy.addValidationRule("isPassword", function(values, value) {
   );
 });
 
+Formsy.addValidationRule("isPrivacy", function(values, value) {
+  return (
+      isPrivacy(value)
+  );
+});
+
 export function getValidationForField(validation) {
   switch (validation) {
     case "email":
@@ -60,5 +71,7 @@ export function getValidationForField(validation) {
       return "isSteamLink";
     case "password":
       return "isPassword";
+    case "privacy":
+      return "isPrivacy";
   }
 }

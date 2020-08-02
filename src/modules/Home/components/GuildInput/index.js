@@ -2,13 +2,16 @@ import React from "react";
 import cx from "classnames";
 import axios from "axios";
 
-import { Column } from "ui/Layout";
+import {Column, Row} from "ui/Layout";
 import { Title } from "ui/Title";
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import correctImage from "statics/correct.svg";
 import Formsy from "formsy-react";
 import { Input } from "widgets/fields";
 import "./style.scss";
+import Modal from "react-modal";
+import {InfoModal} from "widgets/InfoModal";
+import { customStyles } from "widgets/Auth";
 
 const NoGuid = ({ valid, onSubmit, handleModal }) => {
   return (
@@ -29,7 +32,7 @@ const NoGuid = ({ valid, onSubmit, handleModal }) => {
           <img src={correctImage} alt="correct" />
         </button>
       </Column>
-      <button onClick={() => handleModal("info")} className="guild__info">
+      <button onClick={handleModal} className="guild__info">
         Как узнать тег гильдии?
       </button>
     </Column>
@@ -50,7 +53,8 @@ class GuildInput extends React.Component {
 
     this.state = {
       valid: false,
-      error: ""
+      error: "",
+      isModalOpen: false,
     };
   }
 
@@ -79,8 +83,17 @@ class GuildInput extends React.Component {
       });
   };
 
+  handleCloseModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
+  handleModal = () => {
+    this.setState({ isModalOpen: true });
+  };
+
   render() {
-    const { user, handleModal } = this.props;
+    const { user } = this.props;
+    const { isModalOpen } = this.state;
 
     if (user === "loading" || !user.userData) {
       return null;
@@ -100,13 +113,21 @@ class GuildInput extends React.Component {
               <NoGuid
                 valid={this.state.valid}
                 onSubmit={this.onSubmit}
-                handleModal={handleModal}
+                handleModal={this.handleModal}
               />
             ) : (
               <WithGuid guildName={guildName} />
             )}
           </Formsy>
         </Column>
+        <Modal
+            isOpen={isModalOpen}
+            onRequestClose={this.handleCloseModal}
+            style={customStyles}
+            contentLabel="Title"
+        >
+          <InfoModal />;
+        </Modal>
       </Column>
     );
   }

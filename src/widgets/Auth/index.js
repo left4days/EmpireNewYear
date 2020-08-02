@@ -1,24 +1,21 @@
 import React from "react";
 import Formsy from "formsy-react";
-import { Link } from "react-router-dom";
 import { Input } from "widgets/fields";
 import { Column } from "ui/Layout";
 import { Button } from "ui/Button";
 import { Row } from "ui/Layout";
 import { Title } from "ui/Title";
-import { Description } from "ui/Description";
 import { getValidationForField } from "./validations";
 import config from "./config";
 import { getAuthAction } from "./helpers";
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import { getValidationError } from "./validations-errors";
-
 import style from "./style.scss";
 import get from "lodash/get";
 import axios from "axios/index";
 import Modal from "react-modal";
 
-const customStyles = {
+export const customStyles = {
   content: {
     top: "50%",
     left: "50%",
@@ -29,11 +26,12 @@ const customStyles = {
     border: "1px solid #ff5100",
     background: "#0a0b0a",
     borderRadius: "4px",
-    width: "300px",
+    width: "400px",
     padding: "20px 40px"
   },
   overlay: {
-    backgroundColor: "rgba(0, 0, 0, 0.7)"
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    zIndex: "50"
   }
 };
 
@@ -52,15 +50,6 @@ function getTitle(authType) {
 function BottomPanel(props) {
   const { authType, handleModalAuth, handleModalReset } = props;
   switch (authType) {
-    case "auth":
-      return (
-        <Description>
-          Нажимая на кнопку Зарегистрироваться, вы подтверждаете свое согласие с
-          <Link to="/policy" target="_blank" className={style.auth__link}>
-            Условиями предоставления услуг
-          </Link>
-        </Description>
-      );
     case "login":
       return (
         <Row>
@@ -158,13 +147,13 @@ class Auth extends React.Component {
   onSubmit = () => {
     const { authType = "auth" } = this.props;
     const model = this.form.getModel();
-    const { login, registerBy = "email", email, steamLink } = model;
+    const { userInfo, country, registerBy = "email", email, steamLogin } = model;
 
     getAuthAction(authType, model)
       .then(async res => {
         const { user = {} } = res || {};
         const uid = get(res, "user.uid", "");
-        const data = { login, registerBy, uid, email, steamLink };
+        const data = { userInfo, registerBy, uid, email, country, steamLogin };
         const options = await getFirebaseHeaderToken();
 
         return axios.post("api/v1/user", data, options);
@@ -184,7 +173,6 @@ class Auth extends React.Component {
       isResetModalOpen
     } = this.state;
     const { authType = "auth" } = this.props;
-
     return (
       <Column>
         <AuthHeader authType={authType} />
@@ -203,21 +191,25 @@ class Auth extends React.Component {
               validations,
               validationsError,
               margin,
-              autoComplete
+              autoComplete,
+              tooltip
             } = item;
             return (
-              <Input
-                validations={getValidationForField(validations)}
-                margin={margin}
-                key={i}
-                validationError={validationsError}
-                required
-                type={type}
-                autoComplete={autoComplete}
-                id={id}
-                placeholder={placeholder}
-                name={name}
-              />
+              <>
+                <Input
+                  validations={getValidationForField(validations)}
+                  margin={margin}
+                  key={i}
+                  validationError={validationsError}
+                  required
+                  type={type}
+                  autoComplete={autoComplete}
+                  id={id}
+                  placeholder={placeholder}
+                  name={name}
+                />
+                {tooltip && <p className="tooltip">ⓘ {tooltip}</p>}
+              </>
             );
           })}
           <ErrorText error={error} />
@@ -243,7 +235,7 @@ class Auth extends React.Component {
           style={customStyles}
           contentLabel="Title"
         >
-          <Auth authType="login" />;
+          <Auth authType="login" />
         </Modal>
         <Modal
           isOpen={isAuthModalOpen}
@@ -251,7 +243,7 @@ class Auth extends React.Component {
           style={customStyles}
           contentLabel="Title"
         >
-          <Auth authType="auth" />;
+          <Auth authType="auth" />
         </Modal>
         <Modal
           isOpen={isResetModalOpen}

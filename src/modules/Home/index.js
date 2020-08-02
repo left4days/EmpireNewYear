@@ -10,13 +10,13 @@ import { GuildInput } from "./components/GuildInput";
 
 class Home extends React.Component {
   render() {
-    const { handleModal, user } = this.props;
+    const { user } = this.props;
 
     return (
       <Column>
         <VideoBlock />
         <InfoBlock />
-        <GuildInput handleModal={handleModal} user={user} />
+        <GuildInput user={user} />
         <Comics />
         <GuildRating />
         <ProBlock />

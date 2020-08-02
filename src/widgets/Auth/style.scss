@@ -67,6 +67,7 @@
       background-color: transparent;
       text-transform: none;
       width: auto;
+      border: none;
       &:hover {
         background-color: transparent;
         color: $white;
@@ -79,4 +80,10 @@
     font-size: 12px;
     padding-top: 10px;
   }
+}
+
+.tooltip {
+  color: #ddd;
+  font-size: 12px;
+  margin-top: 5px;
 }
