@@ -4,6 +4,7 @@
   width: 100%;
   height: 1070px;
   z-index: 1;
+  overflow: hidden;
   @include screen-lt(tablet) {
     display: none;
   }
@@ -15,9 +16,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  //opacity: 0;
-  //animation: all_a 4s;
-  //animation-iteration-count: infinite;
   z-index: 1;
 }
 
