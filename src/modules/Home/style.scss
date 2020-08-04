@@ -6,6 +6,10 @@
     width: 85% !important;
     padding: 20px !important;
   }
+  @include screen-lt(mobile-small) {
+    width: 80% !important;
+    padding: 20px !important;
+  }
   @include screen-lt(mobile-very-small) {
     padding: 10px 20px !important;
   }

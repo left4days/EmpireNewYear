@@ -27,6 +27,35 @@
   }
 }
 
+.footer__info {
+  color: $white;
+  font-size: 12px;
+  margin-top: 5px;
+  a {
+    font-size: 12px;
+  }
+}
+
+.rules {
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  button {
+    color: $white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
 #root {
   position: relative;
 }

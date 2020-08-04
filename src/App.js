@@ -5,10 +5,10 @@ import firebase from "firebase";
 import axios from "axios";
 import get from "lodash/get";
 import { Header } from "widgets/Header";
-import { Modal } from "ui/Modal";
 import routes from "./routes";
 import { signOutUser } from "widgets/Auth/firebase-configuration";
 import "./style.scss";
+import { PromoInfo } from "./widgets/PromoInfo";
 
 const config = {
   apiKey: "AIzaSyA3YXk8w0t2E58C1gCPUBi1dOn_M05ARk8",
@@ -61,6 +61,7 @@ class App extends Component {
     return (
       <Router>
         <Header signOutUser={this.signOutUserAction} user={user} />
+        <PromoInfo />
         <div className="app">
           {routes.map(route => {
             const { path, exact, Component } = route;
@@ -83,6 +84,18 @@ class App extends Component {
         </div>
         <div className="footer">
           <Link to="/policy">Политика конфиденциальности</Link>
+          <p className="footer__info">
+            ⓘ Изображения взяты с сайта{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.dota2.com/"
+            >
+              dota2.com
+            </a>{" "}
+            и переработаны. Team Empire и Seagate не претендуют на авторство
+            данных изображений.
+          </p>
         </div>
       </Router>
     );

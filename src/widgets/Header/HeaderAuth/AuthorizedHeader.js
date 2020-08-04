@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 import style from "./style.scss";
 
-function DropDown({ isOpen, signOutUser }) {
+function DropDown({ isOpen, signOutUser, role }) {
   if (!isOpen) {
     return null;
   }
   return (
     <Column className={style.dropdown}>
-      <Link className={style.dropdown__button} to="/admin">
+      {role === 'admin' ? <Link className={style.dropdown__button} to="/admin">
         Admin
-      </Link>
+      </Link> : ''}
       <button onClick={signOutUser} className={style.dropdown__button}>
         Log Out
       </button>
@@ -38,8 +38,9 @@ class HeaderAuthAuthorized extends React.Component {
       user: { email, userData = {}, displayName = "" },
       signOutUser
     } = this.props;
-    const { login = "", clicks = 0, email: socialEmail } = userData;
+    const { login = "", email: socialEmail, role } = userData;
     const { isOpen } = this.state;
+
 
     return (
       <Row jc="flex-end" ai="center" className={style.header__authorized}>
@@ -51,7 +52,7 @@ class HeaderAuthAuthorized extends React.Component {
             {email || socialEmail}
           </p>
         </div>
-        <DropDown isOpen={isOpen} signOutUser={signOutUser} />
+        <DropDown isOpen={isOpen} signOutUser={signOutUser} role={role} />
       </Row>
     );
   }

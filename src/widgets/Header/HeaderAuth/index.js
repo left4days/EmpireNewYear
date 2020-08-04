@@ -58,7 +58,7 @@ class HeaderAuth extends React.Component {
         </Button>
         <button
           className={style.header__mobile_btn}
-          onClick={this.handleModalAuth}
+          onClick={this.handleModalLogin}
         >
           <img src={menuImage} alt="menu" />
         </button>

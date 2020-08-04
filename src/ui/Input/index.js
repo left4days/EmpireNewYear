@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import MaskedInput from "react-text-mask";
 import { getMask } from "./masks";
-import { Row } from "ui/Layout";
 import style from "./style.scss";
 
 function Input({
@@ -20,7 +19,8 @@ function Input({
   type,
   name,
   id,
-  autoComplete
+  autoComplete,
+  ...props
 }) {
   const className = cx(
     style["ux-input"],

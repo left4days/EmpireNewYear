@@ -61,6 +61,16 @@ Formsy.addValidationRule("isPrivacy", function(values, value) {
   );
 });
 
+Formsy.addValidationRule("isPrivacy", function(values, value) {
+  return (
+      isPrivacy(value)
+  );
+});
+
+Formsy.addValidationRule("isSubscribe", function(values, value) {
+  return true;
+});
+
 export function getValidationForField(validation) {
   switch (validation) {
     case "email":

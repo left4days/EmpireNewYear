@@ -11,6 +11,9 @@
   color: $white;
   @include placeholder-color($brown);
   outline: 0;
+  @include screen-lt(mobile-very-small) {
+    height: 32px;
+  }
 
   &_disabled {
     background-color: #040404;
@@ -48,4 +51,10 @@ input[type="checkbox"] {
 
 .checkbox__area {
   align-items: flex-start;
+}
+
+.field__margin_top_x2 {
+  @include screen-lt(mobile-very-small) {
+    margin-top: 10px;
+  }
 }

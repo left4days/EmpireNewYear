@@ -130,7 +130,9 @@ class Auth extends React.Component {
     this.setState({ isAuthModalOpen: true, isLoginModalOpen: false });
   };
 
-  formRef = ref => (this.form = ref);
+  formRef = ref => {
+    this.form = ref
+  };
 
   onValid = () => {
     this.setState({ valid: true });
@@ -165,6 +167,10 @@ class Auth extends React.Component {
       });
   };
 
+  onChange = ({ ...args }) => {
+    console.log(args)
+  };
+
   render() {
     const {
       valid,
@@ -180,6 +186,7 @@ class Auth extends React.Component {
         <Formsy
           onValidSubmit={this.onSubmit}
           ref={this.formRef}
+          onChange={this.onChange}
           onValid={this.onValid}
           onInvalid={this.onInvalid}
         >

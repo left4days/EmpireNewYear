@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import axios from "axios";
 
-import {Column, Row} from "ui/Layout";
+import {Column } from "ui/Layout";
 import { Title } from "ui/Title";
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import correctImage from "statics/correct.svg";
@@ -126,7 +126,7 @@ class GuildInput extends React.Component {
             style={customStyles}
             contentLabel="Title"
         >
-          <InfoModal />;
+          <InfoModal />
         </Modal>
       </Column>
     );

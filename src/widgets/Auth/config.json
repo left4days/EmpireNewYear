@@ -54,6 +54,14 @@
       "validations": "privacy",
       "validationsError": "",
       "margin": "top_x2"
+    },
+    {
+      "type": "checkbox",
+      "id": "subscribe",
+      "name": "subscribe",
+      "validations": "",
+      "validationsError": "",
+      "margin": "top_x2"
     }
   ],
   "login": [

@@ -24,6 +24,13 @@ const FieldWrapperHOC = Component => {
       super(props);
     }
 
+    componentDidMount() {
+      const { id, value, setValue } = this.props;
+      if(id === 'subscribe' && !value) {
+        setValue(false);
+      }
+    }
+
     changeValue = event => {
       const { setValue, type } = this.props;
       if(type === 'checkbox') {

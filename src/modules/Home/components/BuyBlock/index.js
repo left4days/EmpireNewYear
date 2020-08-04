@@ -1,12 +1,12 @@
 import React from "react";
 import { Column, Row } from "ui/Layout";
 import { Title } from "ui/Title";
-import buy1 from "statics/buy1.png";
-import buy2 from "statics/buy2.png";
+import buy1 from "statics/buy1.svg";
+import buy2 from "statics/buy2.svg";
 import buy3 from "statics/buy3.png";
 import buy4 from "statics/buy4.png";
 import buy5 from "statics/buy5.png";
-import buy6 from "statics/buy6.png";
+import logo from "statics/logo.svg";
 import "./style.scss";
 
 const config = [
@@ -15,19 +15,23 @@ const config = [
     data: [
       {
         src: buy1,
-        link: "#"
+        link: "https://www.dns-shop.ru/search/?q=firecuda+m.2"
       },
       {
         src: buy2,
         link: "https://citilink.ru/promo/seagatefirecuda/"
       },
       {
+        src: buy4,
+        link: "https://new.ogo1.ru/news/gaming_firecuda/"
+      },
+      {
         src: buy3,
         link: "https://www.regard.ru/firecuda/"
       },
       {
-        src: buy4,
-        link: "https://new.ogo1.ru/news/gaming_firecuda/"
+        src: logo,
+        link: "#"
       }
     ]
   },

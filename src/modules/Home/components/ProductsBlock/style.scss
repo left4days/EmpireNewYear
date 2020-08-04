@@ -129,7 +129,8 @@
       font-size: 18px;
     }
     &_name {
-      color: #585858 !important;
+     @include main-font(400);
+     color: #dddddd !important;
     }
     img {
       width: 100%;
