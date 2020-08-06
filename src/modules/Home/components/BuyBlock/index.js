@@ -6,7 +6,7 @@ import buy2 from "statics/buy2.svg";
 import buy3 from "statics/buy3.png";
 import buy4 from "statics/buy4.png";
 import buy5 from "statics/buy5.png";
-import logo from "statics/logo.svg";
+import logo from "statics/logo6.svg";
 import "./style.scss";
 
 const config = [
@@ -18,8 +18,8 @@ const config = [
         link: "https://www.dns-shop.ru/search/?q=firecuda+m.2"
       },
       {
-        src: buy2,
-        link: "https://citilink.ru/promo/seagatefirecuda/"
+        src: logo,
+        link: "https://www.onlinetrade.ru/sitesearch.html?query=firecuda&cat_id=294&archive=0&force_items=1"
       },
       {
         src: buy4,
@@ -30,9 +30,9 @@ const config = [
         link: "https://www.regard.ru/firecuda/"
       },
       {
-        src: logo,
-        link: "#"
-      }
+        src: buy2,
+        link: "https://citilink.ru/promo/seagatefirecuda/"
+      },
     ]
   },
   {

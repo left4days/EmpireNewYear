@@ -5,6 +5,7 @@ import { Column } from "ui/Layout";
 import { Description } from "ui/Description";
 import { Title } from "ui/Title";
 import "./style.scss";
+import {Link} from "react-router-dom";
 
 const PromoModal = () => {
     return (
@@ -34,7 +35,7 @@ class PromoInfo extends React.Component {
         const { isModalOpen } = this.state;
         return (
             <div className="rules">
-                <button onClick={this.handleModal}>ⓘ Условия участия</button>
+                <Link to="/terms">ⓘ Условия участия</Link>
                 <Modal
                     isOpen={isModalOpen}
                     onRequestClose={this.handleCloseModal}

@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Column } from "ui/Layout";
 import { VideoBlock } from "./components/VIdeoBlock";
-import { InfoBlock } from "./components/InfoBlock";
 import { GuildRating } from "./components/GuildRating";
 import { ProBlock } from "./components/ProBlock";
 import { ProductsBlock } from "./components/ProductsBlock";
 import { Comics } from "./components/Comics";
 import { GuildInput } from "./components/GuildInput";
-import './style.scss';
+import "./style.scss";
 
-class Home extends React.Component {
-  render() {
-    const { user } = this.props;
+const Home = ({ user }) => {
 
-    return (
-      <Column className="home">
-        <VideoBlock />
-        <InfoBlock />
-        <GuildInput user={user} />
-        <Comics />
-        <GuildRating />
-        <ProBlock />
-        <ProductsBlock />
-      </Column>
-    );
-  }
-}
+  return (
+    <Column className="home">
+      <VideoBlock />
+      <GuildInput user={user}/>
+      <Comics />
+      <GuildRating />
+      <ProBlock />
+      <ProductsBlock />
+    </Column>
+  );
+};
 
 export { Home };

@@ -2,6 +2,7 @@ import { AdminPanel } from "./modules/Admin";
 import { Home } from "./modules/Home";
 import { AuthPage } from "./modules/AuthPage";
 import { Policy } from "./modules/Policy";
+import { Terms } from "./modules/Terms";
 
 export default [
   {
@@ -23,6 +24,13 @@ export default [
   {
     path: "/policy",
     Component: Policy,
+    componentProps: {
+      authType: "auth"
+    }
+  },
+  {
+    path: "/terms",
+    Component: Terms,
     componentProps: {
       authType: "auth"
     }
