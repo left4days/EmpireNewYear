@@ -2,144 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/Terms/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Terms/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/statics/logo6.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SGChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SGChallenge.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apple-touch-icon-114x114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apple-touch-icon-72x72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-600italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-700italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-800italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-cyrillic_latin-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500italic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500italic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500italic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Montserrat/montserrat-v12-latin_cyrillic-500italic.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Bold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-ExtraBold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-ExtraBold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-ExtraBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-ExtraBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Medium.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Medium.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Medium.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-SemiBold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-SemiBold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-SemiBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/fonts/Raleway/Raleway-SemiBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/precache-manifest.7482e9f757bbd62f0324b162a4a0527d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/privacy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/service-worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.bc338c01.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/2.bc338c01.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.69c6194c.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.69c6194c.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/runtime~main.a8a9905a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/runtime~main.a8a9905a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/1.80cb82f0.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/1.ef79b202.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/2.5e8f1192.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/2.7be070fa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/3.02e94bac.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/3.2e9b77a7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/4.4bd8c0f9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/asset1.2b56cd7b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/asset2.5304b43c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/axe.02fb92fe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/background.b19cdf43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/bg_image.e7f2c3cd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/buy1.8601e303.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/buy2.c3f8021c.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/buy5.3348d0db.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/clouds.98262d1f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/correct.c1d3023e.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/email_icon.8a2c1e4a.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/firecude_col.db7c2ce2.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/logo.2c17d653.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/logo_firecuda.62c2f44e.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/main.c04d195b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/meepo.de51557c.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/menu.d32d7edf.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/mipo.9ef64855.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/pro_bg.a2937735.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/pro_bg_m.037a35f3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/product1.d8354096.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/product2.d795140a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/product3.38498fd5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/product_bg.d440234f.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick-theme.f9faba67.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick-theme.f9faba67.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.b7c9e1e4.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.ced611da.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.d41f55a7.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.f38b2db1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.f38b2db1.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/slick.f97e3bbf.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/smoke.cc7aabf3.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/media/video_bg.4bbed6eb.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/style.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/PromoInfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/PromoInfo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/PromoInfo/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/PromoInfo/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -164,8 +30,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="596">
               <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="214" column="44" lean-forward="true" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-496">
+              <caret line="180" column="42" lean-forward="true" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -197,19 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1160">
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+            <state relative-caret-position="-1984">
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -218,10 +96,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/Policy/index.js">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="10" selection-end-line="198" />
+            <state relative-caret-position="174">
+              <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -248,18 +126,6 @@
               <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -294,6 +160,7 @@
       <find>valid</find>
       <find>requ</find>
       <find>InfoItem</find>
+      <find>console.log(</find>
     </findStrings>
     <replaceStrings>
       <replace>SGChallenge</replace>
@@ -343,19 +210,19 @@
         <option value="$PROJECT_DIR$/src/widgets/Header/HeaderAuth/AuthorizedHeader.js" />
         <option value="$PROJECT_DIR$/src/widgets/Auth/config.json" />
         <option value="$PROJECT_DIR$/src/widgets/Auth/validations.js" />
-        <option value="$PROJECT_DIR$/src/widgets/Auth/index.js" />
         <option value="$PROJECT_DIR$/src/ui/Input/index.js" />
         <option value="$PROJECT_DIR$/src/widgets/FieldHOC/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/style.scss" />
         <option value="$PROJECT_DIR$/src/modules/Home/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss" />
-        <option value="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" />
         <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/widgets/PromoInfo/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Terms/index.js" />
         <option value="$PROJECT_DIR$/src/widgets/PromoInfo/style.scss" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" />
+        <option value="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" />
+        <option value="$PROJECT_DIR$/src/widgets/Auth/index.js" />
       </list>
     </option>
   </component>
@@ -404,6 +271,15 @@
               <item name="modules" type="462c0819:PsiDirectoryNode" />
               <item name="Home" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="GuildInput" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
@@ -501,17 +377,18 @@
       <workItem from="1596297057123" duration="16914000" />
       <workItem from="1596391190456" duration="3519000" />
       <workItem from="1596526333252" duration="4796000" />
-      <workItem from="1596697510557" duration="3556000" />
+      <workItem from="1596697510557" duration="4723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35306000" />
+    <option name="totallyTimeSpent" value="36473000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="984" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1858873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1858873" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -525,7 +402,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32890856" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3344749" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3344749" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -767,16 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4326">
-          <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/widgets/Auth/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
@@ -853,25 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1160">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Policy/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -932,16 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/style.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -953,6 +791,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1984">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-496">
+          <caret line="180" column="42" lean-forward="true" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="214" column="44" lean-forward="true" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

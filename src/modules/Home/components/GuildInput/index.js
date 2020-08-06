@@ -124,7 +124,10 @@ class GuildInput extends React.Component {
   };
 
   handleModalAuth = () => {
-    this.setState({ isAuthModalOpen: true, isLoginModalOpen: false });
+    const { user } = this.props;
+    if (!user.userData) {
+      this.setState({isAuthModalOpen: true, isLoginModalOpen: false});
+    }
   };
 
   formRef = ref => (this.form = ref);
@@ -161,17 +164,19 @@ class GuildInput extends React.Component {
   };
 
   scrollToMyRef = () => {
-    return window.scrollTo(0, this.myRef.current.offsetTop);
+    const { user } = this.props;
+    if (user === 'loading' || !user.userData) {
+      return null;
+    } else {
+      return window.scrollTo(0, this.myRef.current.offsetTop);
+    }
   };
 
   render() {
     const { user } = this.props;
     const { isModalOpen, isAuthModalOpen } = this.state;
 
-    if (user === "loading" || !user.userData) {
-      return null;
-    }
-    const { guildName = "" } = user.userData;
+    const guildName = user.userData ? user.userData.guildName : null;
 
     return (
       <>
@@ -200,44 +205,46 @@ class GuildInput extends React.Component {
             className="info__asset info__asset_right"
           />
         </Column>
-        <div ref={this.myRef}>
-          <Column className="guild">
-            <Column className="guild__container">
-              <Formsy
-                onValidSubmit={this.onSubmit}
-                ref={this.formRef}
-                onValid={this.onValid}
-                onInvalid={this.onInvalid}
-              >
-                {!guildName ? (
-                  <NoGuid
-                    valid={this.state.valid}
-                    onSubmit={this.onSubmit}
-                    handleModal={this.handleModal}
-                  />
-                ) : (
-                  <WithGuid guildName={guildName} />
-                )}
-              </Formsy>
-            </Column>
-            <Modal
-              isOpen={isModalOpen}
-              onRequestClose={this.handleCloseModal}
-              style={customStyles}
-              contentLabel="Title"
-            >
-              <InfoModal />
-            </Modal>
-            <Modal
-                isOpen={isAuthModalOpen}
-                onRequestClose={this.onCloseModalAuth}
-                style={customStyles}
-                contentLabel="Title"
-            >
-              <Auth authType="auth" />
-            </Modal>
-          </Column>
-        </div>
+        {user === "loading" || !user.userData ? null :
+            <div ref={this.myRef}>
+              <Column className="guild">
+                <Column className="guild__container">
+                  <Formsy
+                      onValidSubmit={this.onSubmit}
+                      ref={this.formRef}
+                      onValid={this.onValid}
+                      onInvalid={this.onInvalid}
+                  >
+                    {!guildName ? (
+                        <NoGuid
+                            valid={this.state.valid}
+                            onSubmit={this.onSubmit}
+                            handleModal={this.handleModal}
+                        />
+                    ) : (
+                        <WithGuid guildName={guildName}/>
+                    )}
+                  </Formsy>
+                </Column>
+                <Modal
+                    isOpen={isModalOpen}
+                    onRequestClose={this.handleCloseModal}
+                    style={customStyles}
+                    contentLabel="Title"
+                >
+                  <InfoModal/>
+                </Modal>
+              </Column>
+            </div>
+        }
+        <Modal
+            isOpen={isAuthModalOpen}
+            onRequestClose={this.onCloseModalAuth}
+            style={customStyles}
+            contentLabel="Title"
+        >
+          <Auth authType="auth"/>
+        </Modal>
       </>
     );
   }

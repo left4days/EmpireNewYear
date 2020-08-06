@@ -167,10 +167,6 @@ class Auth extends React.Component {
       });
   };
 
-  onChange = ({ ...args }) => {
-    console.log(args)
-  };
-
   render() {
     const {
       valid,
@@ -186,7 +182,6 @@ class Auth extends React.Component {
         <Formsy
           onValidSubmit={this.onSubmit}
           ref={this.formRef}
-          onChange={this.onChange}
           onValid={this.onValid}
           onInvalid={this.onInvalid}
         >
