@@ -94,8 +94,8 @@ async function getAllUsers(req, res) {
 async function getAllUsersFromGuild(req, res) {
   const { body } = req;
   const { guildName } = body;
+
   const usersIds = await guildsService.getUsersIdsFromGuild(guildName);
-  console.log(usersIds);
   const users_csv = await userService.getUsersFromIdsInCSV(usersIds);
 
   res.setHeader("Content-Disposition", `attachment; filename=data.csv`);

@@ -103,7 +103,6 @@ class AdminPanel extends React.PureComponent {
   };
 
   generateSecretWinners = async () => {
-      console.log('GENERATE');
     const options = await getFirebaseHeaderToken();
     axios.post("/api/v1/user/secret-winners/1", {}, options).then(res => {
       this.getSecretWinners();
