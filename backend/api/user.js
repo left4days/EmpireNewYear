@@ -72,6 +72,17 @@ async function setGuildToUser(req, res, next) {
   res.json({ success: true });
 }
 
+async function setPromocodeToUser(req, res, next) {
+    const { body = {} } = req;
+    const { promocode = "", userId } = body;
+
+    const { promocodes = [] } = await appStateService.getAppState(true);
+
+    const { success, triesLeft } = await userService.setPromocodeToUser(promocode, userId, promocodes);
+
+    res.json({ success, triesLeft });
+}
+
 async function getAllUsers(req, res) {
   const users_csv = await userService.getAllUsersInCSV(req.params);
 
@@ -105,5 +116,8 @@ module.exports = {
     ["/api/v1/user/secret-winners/:limit", requiresAdmin, generateSecretWinners],
     ["/api/v1/users/guild", requiresAdmin, getAllUsersFromGuild]
   ],
-  PUT: [["/api/v1/user/add-guild", setGuildToUser]]
+  PUT: [
+      ["/api/v1/user/add-guild", setGuildToUser],
+      ["/api/v1/user/add-promocode", requiresAdmin, setPromocodeToUser]
+  ]
 };

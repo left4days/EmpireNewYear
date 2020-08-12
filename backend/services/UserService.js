@@ -173,6 +173,7 @@ class UserService {
 
     return [winnerList, created];
   }
+
   async getWinners(params) {
     const { limit = 10 } = params;
     let winners = [];
@@ -279,6 +280,41 @@ class UserService {
       });
     } catch (err) {
       console.log("ERROR DB UPDATE USER FOR", user.uid);
+      console.log(err);
+    }
+  }
+
+  async setPromocodeToUser(promocode, userId, avaliablePromocodes) {
+    const user = await this.getUserById(userId);
+
+    if (user.tries > 3) {
+      return { success: false, triesLeft: 0 };
+    }
+
+    if (avaliablePromocodes.indexOf(promocode) > -1) {
+      try {
+        return await userRef.update({
+          [user.uid]: {
+            ...user,
+            promocode,
+            tries: !!user.tries ? user.tries + 1 : 1
+          }
+        });
+      } catch (err) {
+        console.log("ERROR DB UPDATE correct setPromocodeToUser", user.uid);
+        console.log(err);
+      }
+    }
+
+    try {
+      return await userRef.update({
+        [user.uid]: {
+          ...user,
+          tries: !!user.tries ? user.tries + 1 : 1
+        }
+      });
+    } catch (err) {
+      console.log("ERROR DB UPDATE incorrect setPromocodeToUser", user.uid);
       console.log(err);
     }
   }
