@@ -287,19 +287,22 @@ class UserService {
   async setPromocodeToUser(promocode, userId, avaliablePromocodes) {
     const user = await this.getUserById(userId);
 
-    if (user.tries > 3) {
+    if (Number(user.tries || 0) > 3) {
       return { success: false, triesLeft: 0 };
     }
 
     if (avaliablePromocodes.indexOf(promocode) > -1) {
       try {
-        return await userRef.update({
+        const newTries = !!user.tries ? user.tries + 1 : 1;
+        await userRef.update({
           [user.uid]: {
             ...user,
             promocode,
-            tries: !!user.tries ? user.tries + 1 : 1
+            tries: newTries
           }
         });
+
+        return { success: true, triesLeft: 3 - newTries };
       } catch (err) {
         console.log("ERROR DB UPDATE correct setPromocodeToUser", user.uid);
         console.log(err);
@@ -307,12 +310,14 @@ class UserService {
     }
 
     try {
-      return await userRef.update({
+      const newTries = !!user.tries ? user.tries + 1 : 1;
+      await userRef.update({
         [user.uid]: {
           ...user,
-          tries: !!user.tries ? user.tries + 1 : 1
+          tries: newTries
         }
       });
+      return { success: false, triesLeft: 3 - newTries };
     } catch (err) {
       console.log("ERROR DB UPDATE incorrect setPromocodeToUser", user.uid);
       console.log(err);

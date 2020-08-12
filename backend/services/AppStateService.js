@@ -29,16 +29,26 @@ class AppStateService {
     let secret_winners = [];
     let usersNum = 0;
     let guildsNum = 0;
+    let _promocodes = [];
 
     await appStateRef.on("value", snap => {
-      const { actionState, guildLeaders, localWinners, secretWinners } = snap.val() || {};
+      const {
+        actionState,
+        guildLeaders,
+        localWinners,
+        secretWinners,
+        promocodes,
+      } = snap.val() || {};
 
       if (typeof actionState === "string") {
         state = actionState;
         guild_leaders = guildLeaders;
         local_Winners = localWinners;
         secret_winners = secretWinners;
+        _promocodes = promocodes;
       }
+        console.log('GET', promocodes);
+
     });
 
     if (isAdmin) {
@@ -51,7 +61,7 @@ class AppStateService {
       await guildsRef.on("value", snap => {
         const guilds = snap.val() || {};
 
-          guildsNum = Object.keys(guilds).length;
+        guildsNum = Object.keys(guilds).length;
       });
     }
 
@@ -62,6 +72,7 @@ class AppStateService {
       secretWinners: secret_winners,
       usersNum,
       guildsNum,
+      promocodes: _promocodes
     };
   }
 
