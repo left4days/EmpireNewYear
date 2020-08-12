@@ -61,7 +61,7 @@ const BadPromo = () => {
 };
 
 function getPromoComponent(tries, promocode, valid, onSubmit) {
-  if(tries > 3) {
+  if(tries === 3) {
     return <BadPromo />
   }
   if(promocode) {

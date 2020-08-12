@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/validations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/validations.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="97" column="47" lean-forward="true" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+            <state relative-caret-position="278">
+              <caret line="117" column="65" selection-start-line="117" selection-start-column="65" selection-end-line="117" selection-end-column="65" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -374,18 +373,18 @@
       <workItem from="1596526333252" duration="4796000" />
       <workItem from="1596697510557" duration="5007000" />
       <workItem from="1596733846686" duration="1082000" />
-      <workItem from="1597266638811" duration="4611000" />
+      <workItem from="1597266638811" duration="4895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42450000" />
+    <option name="totallyTimeSpent" value="42734000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24876674" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -820,8 +819,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="97" column="47" lean-forward="true" selection-start-line="97" selection-start-column="47" selection-end-line="97" selection-end-column="47" />
+        <state relative-caret-position="278">
+          <caret line="117" column="65" selection-start-line="117" selection-start-column="65" selection-end-line="117" selection-end-column="65" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
