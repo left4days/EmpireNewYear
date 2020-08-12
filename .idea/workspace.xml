@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f0cc62-d82e-4356-9e6d-b2aa30a7fb5a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SGChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SGChallenge.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/Home/components/PromoInput/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/statics/hook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/statics/pudge.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/widgets/Auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/widgets/Auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,34 +18,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+            <state relative-caret-position="-1275">
+              <caret line="127" column="15" lean-forward="true" selection-start-line="127" selection-end-line="128" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="596">
-              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="147">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="71" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="214" column="44" lean-forward="true" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
+            <state relative-caret-position="107">
+              <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -52,13 +51,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
+        <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-496">
-              <caret line="180" column="42" lean-forward="true" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="168">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -75,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="357">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -87,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1984">
+            <state>
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -98,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="462">
               <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -110,7 +106,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/modules/Terms/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="462">
               <caret line="24" column="105" selection-start-line="24" selection-start-column="105" selection-end-line="24" selection-end-column="105" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -122,7 +118,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/widgets/Header/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="210">
               <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -214,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/widgets/FieldHOC/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/style.scss" />
-        <option value="$PROJECT_DIR$/src/modules/Home/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss" />
         <option value="$PROJECT_DIR$/src/routes.js" />
         <option value="$PROJECT_DIR$/src/widgets/PromoInfo/index.js" />
@@ -223,13 +218,17 @@
         <option value="$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js" />
         <option value="$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js" />
         <option value="$PROJECT_DIR$/src/widgets/Auth/index.js" />
+        <option value="$PROJECT_DIR$/src/modules/Home/components/PromoInput/style.scss" />
+        <option value="$PROJECT_DIR$/src/modules/Home/index.js" />
+        <option value="$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="984" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="124" />
+    <option name="y" value="146" />
+    <option name="width" value="1440" />
+    <option name="height" value="804" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -285,21 +284,16 @@
               <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="widgets" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="PromoInput" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
               <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="widgets" type="462c0819:PsiDirectoryNode" />
-              <item name="Header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SGChallenge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SGChallenge" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="widgets" type="462c0819:PsiDirectoryNode" />
-              <item name="PromoInfo" type="462c0819:PsiDirectoryNode" />
+              <item name="statics" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -311,7 +305,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/modules/Home/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -326,17 +320,17 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/modules" />
-      <recent name="$PROJECT_DIR$/src/modules/Home/components" />
-      <recent name="1.png 3.png 2.png 4.png" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/widgets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/statics" />
       <recent name="$PROJECT_DIR$/src/statics/light" />
       <recent name="$PROJECT_DIR$/src/statics/comics" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/Home/components" />
+      <recent name="$PROJECT_DIR$/src/modules" />
+      <recent name="1.png 3.png 2.png 4.png" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/widgets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -377,18 +371,20 @@
       <workItem from="1596297057123" duration="16914000" />
       <workItem from="1596391190456" duration="3519000" />
       <workItem from="1596526333252" duration="4796000" />
-      <workItem from="1596697510557" duration="4723000" />
+      <workItem from="1596697510557" duration="5007000" />
+      <workItem from="1596733846686" duration="1082000" />
+      <workItem from="1597266638811" duration="2892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36473000" />
+    <option name="totallyTimeSpent" value="40731000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="984" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1858873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24876674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -402,7 +398,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32890856" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3344749" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33236575" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -433,16 +429,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/webpackDevServer.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="65" selection-start-line="9" selection-start-column="65" selection-end-line="9" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -682,27 +668,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/InfoBlock/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="86" column="17" lean-forward="true" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="165" column="5" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/InfoBlock/style.scss" />
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/InfoBlock/index.js" />
     <entry file="file://$PROJECT_DIR$/src/widgets/Auth/validations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
@@ -740,29 +707,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/Header/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="1113">
           <caret line="63" column="13" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -770,13 +717,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Terms/index.js">
+    <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3465">
+          <caret line="180" column="42" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Terms/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
           <caret line="24" column="105" selection-start-line="24" selection-start-column="105" selection-end-line="24" selection-end-column="105" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/widgets/Header/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/style.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="71" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -787,49 +790,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/BuyBlock/index.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/ProductsBlock/index.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1984">
+        <state relative-caret-position="357">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/PromoInfo/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="596">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/widgets/Auth/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-496">
-          <caret line="180" column="42" lean-forward="true" selection-start-line="180" selection-start-column="42" selection-end-line="180" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Home/components/GuildInput/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="214" column="44" lean-forward="true" selection-start-line="214" selection-start-column="44" selection-end-line="214" selection-end-column="44" />
+        <state relative-caret-position="-1275">
+          <caret line="127" column="15" lean-forward="true" selection-start-line="127" selection-end-line="128" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="65" column="32" lean-forward="true" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
