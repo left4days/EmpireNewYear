@@ -10,6 +10,7 @@ import { Title } from "ui/Title";
 import { Row, Column } from "ui/Layout";
 import { SwitchActionStateButton, Table } from "./components";
 import { GuildsTable } from "./GuildTable";
+import { UserTable } from "./UserTable";
 
 import style from "./style.scss";
 
@@ -23,7 +24,8 @@ class AdminPanel extends React.PureComponent {
       localeWinners: [],
       guildList: [],
       guildsNum: 0,
-      usersNum: 0
+      usersNum: 0,
+      secretWinners: []
     };
   }
 
@@ -32,6 +34,7 @@ class AdminPanel extends React.PureComponent {
       this.getCurrentAppState();
       this.getLocaleWinners();
       this.getGuilds();
+      this.getSecretWinners();
     });
   };
 
@@ -90,6 +93,22 @@ class AdminPanel extends React.PureComponent {
     });
   };
 
+  getSecretWinners = async () => {
+    const options = await getFirebaseHeaderToken();
+    axios.get("/api/v1/user/secret-winners/1", options).then(res => {
+        console.log('DDD', res);
+      const secretWinners = get(res, "data.data", []);
+      this.setState({ secretWinners });
+    });
+  };
+
+  generateSecretWinners = async () => {
+    const options = await getFirebaseHeaderToken();
+    axios.post("/api/v1/user/secret-winners/1", {}, options).then(res => {
+      this.getSecretWinners();
+    });
+  };
+
   downloadAllUsers = async () => {
     const options = await getFirebaseHeaderToken();
     axios.get("/api/v1/users", options).then(async res => {
@@ -111,6 +130,7 @@ class AdminPanel extends React.PureComponent {
       guildList,
       usersNum,
       guildsNum,
+      secretWinners,
       created = Date.now()
     } = this.state;
 
@@ -148,6 +168,10 @@ class AdminPanel extends React.PureComponent {
             <p
               style={{ fontSize: "20px", color: "white" }}
             >{`Дата розыгрыша ${new Date(created).toLocaleString("ru")}`}</p>
+            <UserTable
+              data={secretWinners}
+              onClick={this.generateSecretWinners}
+            />
             <GuildsTable data={guildList} onClick={this.getGuilds} />
           </Column>
         </Column>
