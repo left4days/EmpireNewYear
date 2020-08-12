@@ -7,14 +7,17 @@ import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import correctImage from "statics/correct.svg";
 import Formsy from "formsy-react";
 import { Input } from "widgets/fields";
-import pudgeImage from 'statics/pudge.png';
-import hookImage from 'statics/hook.png';
+import pudgeImage from "statics/pudge.png";
+import hookImage from "statics/hook.png";
 import "./style.scss";
 
-const NoGuid = ({ valid, onSubmit }) => {
+const NoPromo = ({ valid, onSubmit }) => {
   return (
     <Column className="promo__inner">
-      <Title>Введите секретный код и станьте <br/>участником розыгрыша Dragonclaw Hook!</Title>
+      <Title>
+        Введите секретный код и станьте <br />
+        участником розыгрыша Dragonclaw Hook!
+      </Title>
       <Column className="promo__widget">
         <Input
           required
@@ -34,13 +37,39 @@ const NoGuid = ({ valid, onSubmit }) => {
   );
 };
 
-const WithGuid = ({ guildName }) => {
+const WithPromo = () => {
   return (
-    <Column className="guild__inner">
-      <Title>Вы состоите в гильдии "{guildName}"</Title>
+    <Column className="promo__inner">
+      <Title>
+        Вы верно ввели секретный код и становитесь <br /> участником розыгрыша
+        Dragonclaw Hook
+      </Title>
     </Column>
   );
 };
+
+const BadPromo = () => {
+  return (
+      <Column className="promo__inner">
+        <Title>
+          К сожалению, вы неверно ввели секретный код.<br/> Количество попыток исчерпано
+        </Title>
+      </Column>
+  );
+};
+
+function getPromoComponent(tries, promocode, valid, onSubmit) {
+  if(tries >= 3) {
+    return <BadPromo />
+  }
+  if(promocode) {
+    return <WithPromo/>
+  }
+  if(!promocode) {
+    return <NoPromo valid={valid} onSubmit={onSubmit} />
+  }
+  return null;
+}
 
 class PromoInput extends React.Component {
   constructor(props) {
@@ -79,14 +108,12 @@ class PromoInput extends React.Component {
 
   render() {
     const { user } = this.props;
-    if(!user.userData) {
+    if (!user.userData) {
       return null;
     }
-    console.log(user);
-
     return (
       <Column className="promo">
-        <img className="promo__pudge" src={pudgeImage} alt="pudge-alt"/>
+        <img className="promo__pudge" src={pudgeImage} alt="pudge-alt" />
         <Column className="promo__container">
           <Formsy
             onValidSubmit={this.onSubmit}
@@ -94,14 +121,10 @@ class PromoInput extends React.Component {
             onValid={this.onValid}
             onInvalid={this.onInvalid}
           >
-            <NoGuid
-                valid={this.state.valid}
-                onSubmit={this.onSubmit}
-                handleModal={this.handleModal}
-            />
+            {getPromoComponent(user.userData.tries, user.userData.promocode, this.state.valid, this.onSubmit)}
           </Formsy>
         </Column>
-        <img className="promo__hook" src={hookImage} alt="hook-alt"/>
+        <img className="promo__hook" src={hookImage} alt="hook-alt" />
       </Column>
     );
   }
