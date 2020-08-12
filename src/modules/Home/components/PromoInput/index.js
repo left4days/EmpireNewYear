@@ -10,6 +10,7 @@ import { Input } from "widgets/fields";
 import pudgeImage from "statics/pudge.png";
 import hookImage from "statics/hook.png";
 import "./style.scss";
+import {getValidationForField} from "../../../../widgets/Auth/validations";
 
 const NoPromo = ({ valid, onSubmit }) => {
   return (
@@ -21,6 +22,7 @@ const NoPromo = ({ valid, onSubmit }) => {
       <Column className="promo__widget">
         <Input
           required
+          validations={getValidationForField("promocode")}
           type="text"
           id="promocode"
           placeholder="Промокод"
@@ -98,7 +100,7 @@ class PromoInput extends React.Component {
     axios
       .put(
         "/api/v1/user/add-promocode",
-        { promocode: promocode, userId: user.userData.uid },
+        { promocode: promocode.toUpperCase(), userId: user.userData.uid },
         options
       )
       .then(res => {

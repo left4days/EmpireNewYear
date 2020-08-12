@@ -61,6 +61,12 @@ Formsy.addValidationRule("isPrivacy", function(values, value) {
   );
 });
 
+Formsy.addValidationRule("isPromocode", function(values, value) {
+  return (
+      onlyLettersAndNumbers(value) && minLength(value, 1) && maxLength(value, 16)
+  );
+});
+
 Formsy.addValidationRule("isPrivacy", function(values, value) {
   return (
       isPrivacy(value)
@@ -83,5 +89,7 @@ export function getValidationForField(validation) {
       return "isPassword";
     case "privacy":
       return "isPrivacy";
+    case "promocode":
+      return "isPromocode";
   }
 }
