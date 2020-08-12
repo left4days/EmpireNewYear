@@ -36,7 +36,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="222">
               <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -368,12 +368,12 @@
       <workItem from="1596526333252" duration="4796000" />
       <workItem from="1596697510557" duration="5007000" />
       <workItem from="1596733846686" duration="1082000" />
-      <workItem from="1597266638811" duration="4093000" />
+      <workItem from="1597266638811" duration="4158000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41932000" />
+    <option name="totallyTimeSpent" value="41997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
@@ -393,7 +393,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32890856" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33236575" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33236575" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -814,7 +814,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Home/components/PromoInput/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="222">
           <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
