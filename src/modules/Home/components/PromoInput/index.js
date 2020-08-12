@@ -12,13 +12,14 @@ import hookImage from "statics/hook.png";
 import "./style.scss";
 import {getValidationForField} from "../../../../widgets/Auth/validations";
 
-const NoPromo = ({ valid, onSubmit }) => {
+const NoPromo = ({ valid, onSubmit, tries }) => {
   return (
     <Column className="promo__inner">
       <Title>
         Введите секретный код и станьте <br />
         участником розыгрыша Dragonclaw Hook!
       </Title>
+      {tries ? <p className="promo__tries">Осталось попыток: {3 - tries}</p>: null}
       <Column className="promo__widget">
         <Input
           required
@@ -61,14 +62,14 @@ const BadPromo = () => {
 };
 
 function getPromoComponent(tries, promocode, valid, onSubmit) {
-  if(tries === 3) {
+  if(tries === 3 && !promocode) {
     return <BadPromo />
   }
   if(promocode) {
-    return <WithPromo/>
+    return <WithPromo />
   }
   if(!promocode) {
-    return <NoPromo valid={valid} onSubmit={onSubmit} />
+    return <NoPromo valid={valid} onSubmit={onSubmit} tries={tries} />
   }
   return null;
 }
