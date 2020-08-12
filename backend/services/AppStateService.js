@@ -26,16 +26,18 @@ class AppStateService {
     let state = "ACTIVE";
     let guild_leaders = [];
     let local_Winners = [];
+    let secret_winners = [];
     let usersNum = 0;
     let guildsNum = 0;
 
     await appStateRef.on("value", snap => {
-      const { actionState, guildLeaders, localWinners } = snap.val() || {};
+      const { actionState, guildLeaders, localWinners, secretWinners } = snap.val() || {};
 
       if (typeof actionState === "string") {
         state = actionState;
         guild_leaders = guildLeaders;
         local_Winners = localWinners;
+        secret_winners = secretWinners;
       }
     });
 
@@ -57,6 +59,7 @@ class AppStateService {
       state,
       guildLeaders: guild_leaders,
       localWinners: local_Winners,
+      secretWinners: secret_winners,
       usersNum,
       guildsNum,
     };
