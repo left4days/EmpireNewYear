@@ -15,7 +15,7 @@ const config = [
     data: [
       {
         src: buy1,
-        link: "https://www.dns-shop.ru/search/?q=firecuda+m.2"
+        link: "https://www.dns-shop.ru/search/?q=firecuda+ssd&order=popular&category=dd58148920724e77-8a9ddfba20724e77&stock=all"
       },
       {
         src: logo,
