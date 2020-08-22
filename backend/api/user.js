@@ -118,6 +118,6 @@ module.exports = {
   ],
   PUT: [
       ["/api/v1/user/add-guild", setGuildToUser],
-      ["/api/v1/user/add-promocode", requiresAdmin, setPromocodeToUser]
+      ["/api/v1/user/add-promocode", setPromocodeToUser]
   ]
 };

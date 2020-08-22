@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/meepo.de51557c.png"
   },
   {
-    "revision": "56c313d0326a39ff1c12",
-    "url": "/static/js/main.cd9c970c.chunk.js"
+    "revision": "42c370df294e07d0d58a",
+    "url": "/static/js/main.390b942c.chunk.js"
   },
   {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
@@ -180,7 +180,7 @@ self.__precacheManifest = [
     "url": "/static/js/2.a661bc8c.chunk.js"
   },
   {
-    "revision": "61da969f66aec223a8373af7d851c70d",
+    "revision": "3b7f9d5e395a7a4623171c39f6be5182",
     "url": "/index.html"
   }
 ];

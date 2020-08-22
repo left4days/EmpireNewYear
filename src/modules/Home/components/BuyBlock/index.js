@@ -19,7 +19,7 @@ const config = [
       },
       {
         src: logo,
-        link: "https://www.onlinetrade.ru/sitesearch.html?query=firecuda&cat_id=294&archive=0&force_items=1"
+        link: "https://www.onlinetrade.ru/l/SGChallenge"
       },
       {
         src: buy4,
