@@ -1,7 +1,7 @@
 @import "fonts.scss";
 
 $black: #0a0b0a;
-$orange: #ff5100;
+$orange: #FF6400;
 $white: #fff;
 $grey: #8b9497;
 $bgDark: #1a1a1a;
@@ -22,21 +22,29 @@ $brown: #484848;
   }
 }
 
-@mixin placeholder-color($color) {
+@mixin placeholder-color($color, $padding) {
   &::-webkit-input-placeholder {
     color: $color;
+    text-transform: uppercase;
+    padding-top: $padding;
   }
 
   &::-moz-placeholder {
     color: $color;
+    text-transform: uppercase;
+    padding-top: $padding;
   }
 
   &:-moz-placeholder {
     color: $color;
+    text-transform: uppercase;
+    padding-top: $padding;
   }
 
   &:-ms-input-placeholder {
     color: $color;
+    text-transform: uppercase;
+    padding-top: $padding;
   }
 }
 
@@ -146,7 +154,7 @@ $screenSizes: (
 
 @mixin container-size() {
   width: 1320px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 20px;
   @include screen-lt(desktop-big) {
     width: 100%;

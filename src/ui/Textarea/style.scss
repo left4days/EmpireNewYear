@@ -1,15 +1,16 @@
-.ux-input {
-  height: 42px;
+.ux-textarea {
+  height: 150px;
   width: 100%;
+  resize: none;
   border: 1px dashed $orange;
   border-radius: 10px;
   background-color: transparent;
-  padding: 0 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
   font-size: 14px;
   @include main-font(500);
   color: $white;
-  @include placeholder-color($brown, 0);
+  @include placeholder-color($brown, 0px);
   outline: 0;
   @include screen-lt(mobile-very-small) {
     height: 32px;

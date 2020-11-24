@@ -1,19 +1,14 @@
 import React from "react";
 import Formsy from "formsy-react";
-import { Input } from "widgets/fields";
-import { Column } from "ui/Layout";
+import { Input, Textarea } from "widgets/fields";
 import { Button } from "ui/Button";
-import { Row } from "ui/Layout";
-import { Title } from "ui/Title";
+import { Column } from "ui/Layout";
 import { getValidationForField } from "./validations";
 import config from "./config";
-import { getAuthAction } from "./helpers";
-import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
+import { createMessage } from "./firebase-configuration";
 import { getValidationError } from "./validations-errors";
 import style from "./style.scss";
-import get from "lodash/get";
 import axios from "axios/index";
-import Modal from "react-modal";
 
 export const customStyles = {
   content: {
@@ -35,51 +30,6 @@ export const customStyles = {
   }
 };
 
-function getTitle(authType) {
-  switch (authType) {
-    case "auth":
-    default:
-      return { title: "Регистрация", button: "Зарегистрироваться" };
-    case "login":
-      return { title: "Авторизация", button: "Войти" };
-    case "reset":
-      return { title: "Восстановить пароль", button: "Восстановить" };
-  }
-}
-
-function BottomPanel(props) {
-  const { authType, handleModalAuth, handleModalReset } = props;
-  switch (authType) {
-    case "login":
-      return (
-        <Row>
-          <Button className={style.auth__button_more} onClick={handleModalAuth}>
-            Регистрация
-          </Button>
-          <Button
-            className={style.auth__button_more}
-            onClick={handleModalReset}
-          >
-            Забыли пароль?
-          </Button>
-        </Row>
-      );
-    case "reset":
-    default:
-      return null;
-  }
-}
-function AuthHeader({ authType }) {
-  if (authType === "reset") {
-    return <Title align="center">{getTitle(authType).title}</Title>;
-  }
-  return (
-    <Column>
-      <Title align="center">{getTitle(authType).title}</Title>
-    </Column>
-  );
-}
-
 function ErrorText({ error }) {
   if (!error) {
     return null;
@@ -93,45 +43,12 @@ class Auth extends React.Component {
 
     this.state = {
       valid: false,
-      error: "",
-      isLoginModalOpen: false,
-      isAuthModalOpen: false,
-      isResetModalOpen: false
+      error: ""
     };
-
-    this.tryRegisterID = 0;
   }
 
-  onCloseModalLogin = () => {
-    this.setState({ isLoginModalOpen: false });
-  };
-
-  onCloseModalAuth = () => {
-    this.setState({ isAuthModalOpen: false });
-  };
-
-  onCloseResetModal = () => {
-    this.setState({ isResetModalOpen: false });
-  };
-
-  handleModalLogin = () => {
-    this.setState({ isLoginModalOpen: true, isAuthModalOpen: false });
-  };
-
-  handleModalReset = () => {
-    this.setState({
-      isLoginModalOpen: false,
-      isAuthModalOpen: false,
-      isResetModalOpen: true
-    });
-  };
-
-  handleModalAuth = () => {
-    this.setState({ isAuthModalOpen: true, isLoginModalOpen: false });
-  };
-
   formRef = ref => {
-    this.form = ref
+    this.form = ref;
   };
 
   onValid = () => {
@@ -142,24 +59,15 @@ class Auth extends React.Component {
     this.setState({ valid: false });
   };
 
-  componentWillUnmount() {
-    clearTimeout(this.tryRegisterID);
-  }
-
   onSubmit = () => {
-    const { authType = "auth" } = this.props;
     const model = this.form.getModel();
-    const { userInfo, country, registerBy = "email", email, steamLogin } = model;
+    const { name, productLink, email, message } = model;
 
-    getAuthAction(authType, model)
+    createMessage(name, productLink, email, message)
       .then(async res => {
-        const { user = {} } = res || {};
-        const uid = get(res, "user.uid", "");
-        const subscribe = true;
-        const data = { login: userInfo, registerBy, uid, email, country, steamLogin, subscribe };
-        const options = await getFirebaseHeaderToken();
+        const data = { name, productLink, email, message };
 
-        return axios.post("api/v1/user", data, options);
+        return axios.post("api/v1/createMessage", data);
       })
       .catch(error => {
         this.setState({ error: error.code });
@@ -168,24 +76,16 @@ class Auth extends React.Component {
   };
 
   render() {
-    const {
-      valid,
-      error,
-      isLoginModalOpen,
-      isAuthModalOpen,
-      isResetModalOpen
-    } = this.state;
-    const { authType = "auth" } = this.props;
+    const { error, valid } = this.state;
     return (
       <Column>
-        <AuthHeader authType={authType} />
         <Formsy
           onValidSubmit={this.onSubmit}
           ref={this.formRef}
           onValid={this.onValid}
           onInvalid={this.onInvalid}
         >
-          {config[authType].map((item, i) => {
+          {config.map((item, i) => {
             const {
               type,
               id,
@@ -195,13 +95,32 @@ class Auth extends React.Component {
               validationsError,
               margin,
               autoComplete,
-              tooltip
+              label
             } = item;
+            if (type === "textarea") {
+              return (
+                <>
+                  <Textarea
+                    validations={getValidationForField(validations)}
+                    margin={margin}
+                    label={label}
+                    key={i}
+                    validationError={validationsError}
+                    required
+                    autoComplete={autoComplete}
+                    id={id}
+                    placeholder={placeholder}
+                    name={name}
+                  />
+                </>
+              );
+            }
             return (
               <>
                 <Input
                   validations={getValidationForField(validations)}
                   margin={margin}
+                  label={label}
                   key={i}
                   validationError={validationsError}
                   required
@@ -211,51 +130,19 @@ class Auth extends React.Component {
                   placeholder={placeholder}
                   name={name}
                 />
-                {tooltip && <p className="tooltip">ⓘ {tooltip}</p>}
               </>
             );
           })}
           <ErrorText error={error} />
           <Button
-            className={style.auth__button}
-            type="submit"
-            size="full"
-            margin="bottom_x2"
             disabled={!valid}
+            className="form__button"
+            size="l"
+            onClick={this.onSubmit}
           >
-            {getTitle(authType).button}
+            Отправить
           </Button>
-          <BottomPanel
-            authType={authType}
-            handleModalLogin={this.handleModalLogin}
-            handleModalAuth={this.handleModalAuth}
-            handleModalReset={this.handleModalReset}
-          />
         </Formsy>
-        <Modal
-          isOpen={isLoginModalOpen}
-          onRequestClose={this.onCloseModalLogin}
-          style={customStyles}
-          contentLabel="Title"
-        >
-          <Auth authType="login" />
-        </Modal>
-        <Modal
-          isOpen={isAuthModalOpen}
-          onRequestClose={this.onCloseModalAuth}
-          style={customStyles}
-          contentLabel="Title"
-        >
-          <Auth authType="auth" />
-        </Modal>
-        <Modal
-          isOpen={isResetModalOpen}
-          onRequestClose={this.onCloseResetModal}
-          style={customStyles}
-          contentLabel="Title"
-        >
-          <Auth authType="reset" />
-        </Modal>
       </Column>
     );
   }

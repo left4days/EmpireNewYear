@@ -1,101 +1,41 @@
-{
-  "auth": [
-    {
-      "type": "text",
-      "id": "userInfo",
-      "name": "userInfo",
-      "placeholder": "Имя Фамилия",
-      "validationsError": "",
-      "margin": "top_x2",
-      "autoComplete": "name"
-    },
-    {
-      "type": "text",
-      "id": "country",
-      "name": "country",
-      "placeholder": "Страна",
-      "validationsError": "",
-      "margin": "top_x2",
-      "autoComplete": "country-name"
-    },
-    {
-      "type": "login",
-      "id": "steamLogin",
-      "name": "steamLogin",
-      "margin": "top_x2",
-      "placeholder": "Логин Steam",
-      "tooltip": "Логин, который вы указываете при входе в Steam",
-      "validationsError": ""
-    },
-    {
-      "type": "email",
-      "id": "email",
-      "name": "email",
-      "margin": "top_x2",
-      "placeholder": "Электронная почта",
-      "validations": "email",
-      "validationsError": "Формат Email не верен",
-      "autoComplete": "email"
-    },
-    {
-      "type": "password",
-      "id": "password",
-      "name": "password",
-      "margin": "top_x2",
-      "placeholder": "Пароль",
-      "validations": "password",
-      "validationsError": "Пароль должен содержать минимум одну цифру и букву",
-      "autoComplete": "new-password"
-    },
-    {
-      "type": "checkbox",
-      "id": "privacy",
-      "name": "privacy",
-      "validations": "privacy",
-      "validationsError": "",
-      "margin": "top_x2"
-    },
-    {
-      "type": "checkbox",
-      "id": "subscribe",
-      "name": "subscribe",
-      "validations": "",
-      "validationsError": "",
-      "margin": "top_x2"
-    }
-  ],
-  "login": [
-    {
-      "type": "email",
-      "id": "email",
-      "name": "email",
-      "margin": "top_x2",
-      "placeholder": "Электронная почта",
-      "validations": "email",
-      "validationsError": "",
-      "autoComplete": "email"
-    },
-    {
-      "type": "password",
-      "id": "password",
-      "name": "password",
-      "margin": "top_x2",
-      "placeholder": "Пароль",
-      "validations": "password",
-      "validationsError": "",
-      "autoComplete": "current-password"
-    }
-  ],
-  "reset": [
-    {
-      "type": "email",
-      "id": "email",
-      "name": "email",
-      "margin": "top_x2",
-      "placeholder": "Электронная почта",
-      "validations": "email",
-      "validationsError": "Формат Email не верен",
-      "autoComplete": "email"
-    }
-  ]
-}
+[
+  {
+    "type": "text",
+    "id": "name",
+    "name": "name",
+    "label": "Имя",
+    "placeholder": "Введите ваше Имя",
+    "validationsError": "",
+    "margin": "top_x2",
+    "autoComplete": "name"
+  },
+  {
+    "type": "text",
+    "id": "productLink",
+    "label": "Ссылка на продукт",
+    "name": "productLink",
+    "placeholder": "Укажите ссылку на выбранный продукт",
+    "validationsError": "",
+    "margin": "top_x2"
+  },
+  {
+    "type": "email",
+    "id": "email",
+    "name": "email",
+    "margin": "top_x2",
+    "label": "Электронная почта",
+    "placeholder": "Введите ваш e-mail",
+    "validations": "email",
+    "validationsError": "Формат Email не верен",
+    "autoComplete": "email"
+  },
+  {
+    "type": "textarea",
+    "id": "message",
+    "name": "message",
+    "label": "Текст вашей истории",
+    "margin": "top_x2",
+    "placeholder": "Введите ваш текст",
+    "validationsError": ""
+  }
+]

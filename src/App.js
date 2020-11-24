@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import firebase from "firebase";
 import axios from "axios";
+import DevelopTower from "./DevelopTower";
 import get from "lodash/get";
 import { Header } from "widgets/Header";
 import routes from "./routes";
-import { signOutUser } from "widgets/Auth/firebase-configuration";
 import "./style.scss";
-import { PromoInfo } from "./widgets/PromoInfo";
+import { Loader } from 'ui/Loader';
+import { Column } from 'ui/Layout';
+import logo from 'statics/logo.svg';
 
 const config = {
   apiKey: "AIzaSyA3YXk8w0t2E58C1gCPUBi1dOn_M05ARk8",
@@ -25,43 +27,38 @@ firebase.initializeApp(config);
 
 class App extends Component {
   state = {
-    user: "loading",
-    actionState: "ACTIVE",
-    mainWinnerData: {},
-    product_link: false
+    actionState: "ACTIVE"
   };
 
   componentWillMount() {
-    firebase.auth().onAuthStateChanged(res => {
-      const uid = get(res, "uid", "");
-      if (uid) {
-        axios.get(`/api/v1/user/${uid}`).then(resData => {
-          const user = { ...res, userData: resData.data };
-          this.setState({ user });
-        });
-      } else {
-        this.setState({ user: false });
-      }
-    });
-
     axios.get("/api/v1/appState/state").then(res => {
-      const { state, mainWinnerData, product_link } = get(res, "data.data", {});
-      this.setState({ actionState: state, mainWinnerData, product_link });
+      const { state } = get(res, "data.data", {});
+      this.setState({ actionState: state });
     });
   }
 
-  signOutUserAction = () => {
-    signOutUser();
-    this.setState({ user: false });
+  onDevValidChange = () => {
+    window.localStorage.setItem("devMode", 1);
+    this.setState({ devConfirmed: true });
   };
 
   render() {
-    const { user, actionState, mainWinnerData, product_link } = this.state;
-
+    const isDevMode = !!window.localStorage.getItem("devMode");
+    const { actionState } = this.state;
+      if (actionState === 'loading') {
+          return (
+              <Column className="loading__app" ai="center" jc="center">
+                  <img className="header__logo" src={logo} alt="logo" />
+                  <Loader />
+              </Column>
+          );
+      }
+    if (actionState === "DEV" && !isDevMode) {
+      return <DevelopTower onValidChange={this.onDevValidChange} />;
+    }
     return (
       <Router>
-        <Header signOutUser={this.signOutUserAction} user={user} />
-        <PromoInfo />
+        <Header />
         <div className="app">
           {routes.map(route => {
             const { path, exact, Component } = route;
@@ -70,14 +67,7 @@ class App extends Component {
                 key={path}
                 path={path}
                 exact={exact}
-                component={() => (
-                  <Component
-                    user={user}
-                    actionState={actionState}
-                    product_link={product_link}
-                    mainWinnerData={mainWinnerData}
-                  />
-                )}
+                component={() => <Component actionState={actionState} />}
               />
             );
           })}

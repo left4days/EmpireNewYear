@@ -1,29 +1,43 @@
 .header {
-  background-color: #0a0b0a;
+  background-color: #000000;
   color: $white;
   height: 80px;
   @include screen-lt(tablet) {
     height: 160px;
   }
 
+  &__menu_item {
+    @include main-font(700);
+    font-size: 16px;
+    color: $white;
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      color: $orange;
+      transition: .2s all ease-in-out;
+    }
+  }
+
   &__container {
     z-index: 4;
+    width: 100%;
+    height: 100%;
     @include container-size();
     @include screen-lt(tablet) {
       flex-direction: column-reverse;
-    }
-    > * {
-      width: 100%;
-      height: 44px;
     }
   }
 
   &__logo {
     height: 40px;
     &_double {
+      height: 100%;
+      align-items: center !important;
       img {
         &:first-child {
-          margin-right: 10px;
+          margin-right: 40px;
         }
       }
       @include screen-lt(tablet) {

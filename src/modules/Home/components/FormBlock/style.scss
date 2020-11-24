@@ -1,0 +1,29 @@
+.form {
+  position: relative;
+  margin-top: 60px;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background: url('../../../../statics/drakon.png');
+    width: 800px;
+    height: 490px;
+  }
+  &__container {
+    @include container-size();
+    z-index: 2;
+    p {
+      font-size: 22px;
+      color: $white;
+      @include main-font(300);
+      span {
+        text-transform: uppercase;
+        @include main-font(600);
+      }
+    }
+  }
+  &__image {
+    position: relative;
+  }
+}

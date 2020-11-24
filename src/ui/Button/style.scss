@@ -34,7 +34,7 @@ $btn-fill: transparent, $white, transparent, $grey, transparent, $white, $grey, 
 .ux-button {
   @include base-sizes();
   @include base-margins();
-  height: 44px;
+  height: 40px;
   cursor: pointer;
   font-size: 17px;
   border-radius: 5px;
@@ -58,7 +58,6 @@ $btn-fill: transparent, $white, transparent, $grey, transparent, $white, $grey, 
   &__style {
     &_void {
       @include btn-style($btn-void...);
-      border: 1px solid $white;
     }
     &_fill {
       @include btn-style($btn-fill...);

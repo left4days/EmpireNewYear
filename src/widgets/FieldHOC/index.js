@@ -4,7 +4,6 @@ import cx from "classnames";
 import { withFormsy } from "formsy-react";
 import { Column } from "ui/Layout";
 import style from "./style.scss";
-import Formsy from "formsy-react";
 
 function Label({ text, error }) {
   return (

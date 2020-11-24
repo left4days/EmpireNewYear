@@ -1,55 +1,59 @@
 import React from "react";
 import { Column, Row } from "ui/Layout";
-import { Title } from "ui/Title";
-import buy1 from "statics/buy1.svg";
-import buy2 from "statics/buy2.svg";
+import buy1 from "statics/buy1.png";
+import buy2 from "statics/buy2.png";
 import buy3 from "statics/buy3.png";
 import buy4 from "statics/buy4.png";
 import buy5 from "statics/buy5.png";
-import logo from "statics/logo6.svg";
+import buy6 from "statics/buy6.png";
+import buy7 from "statics/buy7.png";
+import buy8 from "statics/buy8.png";
 import "./style.scss";
 
 const config = [
   {
-    title: "Купить в России",
-    data: [
-      {
-        src: buy1,
-        link: "https://www.dns-shop.ru/search/?q=firecuda+ssd&order=popular&category=dd58148920724e77-8a9ddfba20724e77&stock=all"
-      },
-      {
-        src: logo,
-        link: "https://www.onlinetrade.ru/l/SGChallenge"
-      },
-      {
-        src: buy4,
-        link: "https://new.ogo1.ru/news/gaming_firecuda/"
-      },
-      {
-        src: buy3,
-        link: "https://www.regard.ru/firecuda/"
-      },
-      {
-        src: buy2,
-        link: "https://citilink.ru/promo/seagatefirecuda/"
-      },
-    ]
+    src: buy1,
+    link: "#"
   },
   {
-    title: "Купить в Украине",
-    data: [
-      {
-        src: buy5,
-        link: "https://firecuda.brain.com.ua/"
-      }
-    ]
+    src: buy2,
+    link: "#"
+  },
+  {
+    src: buy3,
+    link: "#"
+  },
+  {
+    src: buy4,
+    link: "#"
+  },
+  {
+    src: buy5,
+    link: "#"
+  },
+  {
+    src: buy6,
+    link: "#"
+  },
+  {
+    src: buy7,
+    link: "#"
+  },
+  {
+    src: buy8,
+    link: "#"
   }
 ];
 
 const BuyItem = ({ src, link }) => {
   return (
     <Column className="buy__item">
-      <a href={link} className="buy__link" target="_blank" rel="noopener noreferrer">
+      <a
+        href={link}
+        className="buy__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src={src} alt="buy-image" />
       </a>
     </Column>
@@ -61,16 +65,7 @@ const BuyBlock = () => {
     <Column className="buy">
       <Row jc="space-between" className="buy__container">
         {config.map((item, i) => {
-          return (
-            <Column key={i} className="buy__column">
-              <Title>{item.title}</Title>
-              <Row className="buy__products">
-                {item.data.map((data, i) => (
-                  <BuyItem key={i} src={data.src} link={data.link} />
-                ))}
-              </Row>
-            </Column>
-          );
+          return <BuyItem key={i} src={item.src} link={item.link} />;
         })}
       </Row>
     </Column>

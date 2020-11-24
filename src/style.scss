@@ -12,6 +12,13 @@
   }
 }
 
+.loading__app {
+  height: 100vh;
+  .header__logo {
+    margin-bottom: 40px;
+  }
+}
+
 .footer {
   z-index: 2;
   width: 100%;
