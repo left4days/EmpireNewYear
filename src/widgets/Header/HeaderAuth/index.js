@@ -6,7 +6,7 @@ import { HeaderAuthAuthorized } from "./AuthorizedHeader";
 import menuImage from "statics/menu.svg";
 import style from "./style.scss";
 import Modal from "react-modal";
-import { Auth, customStyles } from "../../Auth";
+import { Auth, customStyles } from "../../Form";
 
 class HeaderAuth extends React.Component {
   state = {

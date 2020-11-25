@@ -1,14 +1,19 @@
 import React from "react";
 import Formsy from "formsy-react";
-import { Input, Textarea } from "widgets/fields";
-import { Button } from "ui/Button";
+import { Input } from "widgets/fields";
 import { Column } from "ui/Layout";
-import { getValidationForField } from "./validations";
+import { Button } from "ui/Button";
+import { Row } from "ui/Layout";
+import { Title } from "ui/Title";
+import { getValidationForField } from "../Form/validations";
 import config from "./config";
-import { createMessage } from "./firebase-configuration";
-import { getValidationError } from "./validations-errors";
-import style from "./style.scss";
+import { getAuthAction } from "./helpers";
+import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
+import { getValidationError } from "../Form/validations-errors";
+import style from "../Form/style.scss";
+import get from "lodash/get";
 import axios from "axios/index";
+import Modal from "react-modal";
 
 export const customStyles = {
   content: {
@@ -30,6 +35,35 @@ export const customStyles = {
   }
 };
 
+function getTitle(authType) {
+  switch (authType) {
+    case "auth":
+    default:
+      return { title: "Регистрация", button: "Зарегистрироваться" };
+    case "login":
+      return { title: "Авторизация", button: "Войти" };
+  }
+}
+
+function BottomPanel(props) {
+  const { authType, handleChangeAuth } = props;
+  return (
+    <Button onClick={handleChangeAuth} size="full">
+      {authType === "login" ? "Регистрация" : "Авторизация"}
+    </Button>
+  );
+}
+function AuthHeader({ authType }) {
+  if (authType === "reset") {
+    return <Title align="center">{getTitle(authType).title}</Title>;
+  }
+  return (
+    <Column>
+      <Title align="center">{getTitle(authType).title}</Title>
+    </Column>
+  );
+}
+
 function ErrorText({ error }) {
   if (!error) {
     return null;
@@ -43,9 +77,17 @@ class Auth extends React.Component {
 
     this.state = {
       valid: false,
-      error: ""
+      error: "",
+      authType: "auth"
     };
+
+    this.tryRegisterID = 0;
   }
+
+  handleChangeAuth = () => {
+    const { authType } = this.state;
+    this.setState({ authType: authType === "auth" ? "login" : "auth" });
+  };
 
   formRef = ref => {
     this.form = ref;
@@ -59,15 +101,23 @@ class Auth extends React.Component {
     this.setState({ valid: false });
   };
 
+  componentWillUnmount() {
+    clearTimeout(this.tryRegisterID);
+  }
+
   onSubmit = () => {
+    const { authType } = this.state;
     const model = this.form.getModel();
-    const { name, productLink, email, message } = model;
+    const { userInfo, registerBy = "email", email } = model;
 
-    createMessage(name, productLink, email, message)
+    getAuthAction(authType, model)
       .then(async res => {
-        const data = { name, productLink, email, message };
+        const { user = {} } = res || {};
+        const uid = get(res, "user.uid", "");
+        const data = { login: userInfo, registerBy, uid, email };
+        const options = await getFirebaseHeaderToken();
 
-        return axios.post("api/v1/createMessage", data);
+        return axios.post("api/v1/user", data, options);
       })
       .catch(error => {
         this.setState({ error: error.code });
@@ -76,16 +126,17 @@ class Auth extends React.Component {
   };
 
   render() {
-    const { error, valid } = this.state;
+    const { valid, error, authType } = this.state;
     return (
       <Column>
+        <AuthHeader authType={authType} />
         <Formsy
           onValidSubmit={this.onSubmit}
           ref={this.formRef}
           onValid={this.onValid}
           onInvalid={this.onInvalid}
         >
-          {config.map((item, i) => {
+          {config[authType].map((item, i) => {
             const {
               type,
               id,
@@ -95,32 +146,13 @@ class Auth extends React.Component {
               validationsError,
               margin,
               autoComplete,
-              label
+              tooltip
             } = item;
-            if (type === "textarea") {
-              return (
-                <>
-                  <Textarea
-                    validations={getValidationForField(validations)}
-                    margin={margin}
-                    label={label}
-                    key={i}
-                    validationError={validationsError}
-                    required
-                    autoComplete={autoComplete}
-                    id={id}
-                    placeholder={placeholder}
-                    name={name}
-                  />
-                </>
-              );
-            }
             return (
               <>
                 <Input
                   validations={getValidationForField(validations)}
                   margin={margin}
-                  label={label}
                   key={i}
                   validationError={validationsError}
                   required
@@ -130,18 +162,24 @@ class Auth extends React.Component {
                   placeholder={placeholder}
                   name={name}
                 />
+                {tooltip && <p className="tooltip">ⓘ {tooltip}</p>}
               </>
             );
           })}
           <ErrorText error={error} />
           <Button
+            className={style.auth__button}
+            type="submit"
+            size="full"
+            margin="bottom_x2"
             disabled={!valid}
-            className="form__button"
-            size="l"
-            onClick={this.onSubmit}
           >
-            Отправить
+            {getTitle(authType).button}
           </Button>
+          <BottomPanel
+            authType={authType}
+            handleChangeAuth={this.handleChangeAuth}
+          />
         </Formsy>
       </Column>
     );

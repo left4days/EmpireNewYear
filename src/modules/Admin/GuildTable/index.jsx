@@ -10,7 +10,7 @@ import { UserHeading } from "../UserHeading";
 import Formsy from "formsy-react";
 import { Input } from "widgets/fields";
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
-import { customStyles } from "widgets/Auth";
+import { customStyles } from "widgets/Form";
 
 import style from "../UserRow/style.scss";
 import "./styles.scss";

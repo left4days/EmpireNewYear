@@ -3,8 +3,8 @@
   background-image: url('../../../../statics/image_bacground_header.png');
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 980px;
-  background-position: center center;
+  min-height: 800px;
+  background-position: center bottom;
   &__container {
     @include container-size();
     z-index: 2;
