@@ -13,14 +13,13 @@ import { Column } from 'ui/Layout';
 import logo from 'statics/logo.svg';
 
 const config = {
-  apiKey: "AIzaSyA3YXk8w0t2E58C1gCPUBi1dOn_M05ARk8",
-  authDomain: "sg-challenge.firebaseapp.com",
-  databaseURL: "https://sg-challenge.firebaseio.com",
-  projectId: "sg-challenge",
-  storageBucket: "sg-challenge.appspot.com",
-  messagingSenderId: "698626447936",
-  appId: "1:698626447936:web:f957f1cff204739d8e5da5",
-  measurementId: "G-Z2SLXT6N79"
+  apiKey: "AIzaSyAC84idBUU4iWy_mpSzgg00Dnv4yoYunLo",
+  authDomain: "empirenewyear.firebaseapp.com",
+  databaseURL: "https://empirenewyear.firebaseio.com",
+  projectId: "empirenewyear",
+  storageBucket: "empirenewyear.appspot.com",
+  messagingSenderId: "675056552638",
+  appId: "1:675056552638:web:9af5c718ba82439696ecef"
 };
 
 firebase.initializeApp(config);
@@ -34,6 +33,11 @@ class App extends Component {
     axios.get("/api/v1/appState/state").then(res => {
       const { state } = get(res, "data.data", {});
       this.setState({ actionState: state });
+    });
+
+    axios.get("/api/v1/top-stories").then(res => {
+      const topStories = get(res, "data.data", {});
+      this.setState({ topStories });
     });
   }
 

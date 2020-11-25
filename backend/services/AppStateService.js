@@ -1,8 +1,8 @@
 const firebaseAdmin = require("firebase-admin");
 const db = firebaseAdmin.database();
-const appStateRef = db.ref("server/saving-data/fireblog/appState");
-const usersRef = db.ref("server/saving-data/fireblog/users");
-const guildsRef = db.ref("server/saving-data/fireblog/guilds");
+const appStateRef = db.ref("appState");
+const usersRef = db.ref("users");
+const storiesRef = db.ref("stories");
 
 function stateFSM(currentState) {
   switch (currentState) {
@@ -24,55 +24,29 @@ class AppStateService {
 
   async getAppState(isAdmin) {
     let state = "ACTIVE";
-    let guild_leaders = [];
-    let local_Winners = [];
-    let secret_winners = [];
-    let usersNum = 0;
-    let guildsNum = 0;
-    let _promocodes = [];
 
     await appStateRef.on("value", snap => {
       const {
         actionState,
-        guildLeaders,
-        localWinners,
-        secretWinners,
-        promocodes,
       } = snap.val() || {};
 
       if (typeof actionState === "string") {
         state = actionState;
-        guild_leaders = guildLeaders;
-        local_Winners = localWinners;
-        secret_winners = secretWinners;
-        _promocodes = promocodes;
       }
-        console.log('GET', promocodes);
-
     });
 
-    if (isAdmin) {
-      await usersRef.on("value", snap => {
-        const users = snap.val() || {};
-
-        usersNum = Object.keys(users).length;
-      });
-
-      await guildsRef.on("value", snap => {
-        const guilds = snap.val() || {};
-
-        guildsNum = Object.keys(guilds).length;
-      });
-    }
+    // if (isAdmin) {
+    //   await storiesRef.on("value", snap => {
+    //     stories = Object.values(snap.val() || {});
+    //     topStories = Object.values(stories).filter(i => i.shownOnMainPage);
+    //
+    //     storiesNum = Object.keys(stories).length;
+    //     storiesTopNum = topStories.length;
+    //   });
+    // }
 
     return {
-      state,
-      guildLeaders: guild_leaders,
-      localWinners: local_Winners,
-      secretWinners: secret_winners,
-      usersNum,
-      guildsNum,
-      promocodes: _promocodes
+      state
     };
   }
 

@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { auth } = require('firebase-admin');
 
+const storiesApi = require('./stories');
 const userApi = require('./user');
-const guildsApi = require('./guilds');
 const appStateApi = require('./appState');
-
-const authService = auth();
 
 function createRoutes(route) {
     const { GET = [], POST = [], PUT = [], DELETE = [] } = route;
@@ -30,7 +27,7 @@ function createRoutes(route) {
 function applyRoutes(app) {
     createRoutes(userApi, router);
     createRoutes(appStateApi, router);
-    createRoutes(guildsApi, router);
+    createRoutes(storiesApi, router);
 
     router.get('/api/*', (req, res, next) => {
         res.json({ success: true, message: 'This api url is not declared' });

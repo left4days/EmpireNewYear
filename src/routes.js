@@ -15,13 +15,6 @@ export default [
     Component: AdminPanel
   },
   {
-    path: "/auth",
-    Component: AuthPage,
-    componentProps: {
-      authType: "auth"
-    }
-  },
-  {
     path: "/policy",
     Component: Policy,
     componentProps: {
@@ -33,13 +26,6 @@ export default [
     Component: Terms,
     componentProps: {
       authType: "auth"
-    }
-  },
-  {
-    path: "/register",
-    Component: AuthPage,
-    componentProps: {
-      authType: "register"
     }
   }
 ];
