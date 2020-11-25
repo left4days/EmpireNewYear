@@ -1,10 +1,8 @@
 const UserService = require("../services/UserService");
-const GuildsService = require("../services/GuildsService");
 const AppStateService = require("../services/AppStateService");
 const { requiresAdmin } = require("./middleware");
 
 const userService = new UserService();
-const guildsService = new GuildsService();
 const appStateService = new AppStateService();
 
 async function checkIsUserExist(req, res, next) {
@@ -57,21 +55,6 @@ async function generateWinners(req, res) {
   res.json({ success: true, data: users, created });
 }
 
-async function setGuildToUser(req, res, next) {
-  const { body = {} } = req;
-  const { guildName = "", userId } = body;
-  let guild = await guildsService.getGuildByName(guildName);
-
-  if (!guild.name) {
-    guild = await guildsService.createGuild(guildName);
-  }
-
-  await userService.setGuildToUser(guildName, guild.uid, userId);
-  await guildsService.addUserToGuildById(guild.uid, userId);
-
-  res.json({ success: true });
-}
-
 async function setPromocodeToUser(req, res, next) {
     const { body = {} } = req;
     const { promocode = "", userId } = body;
@@ -91,18 +74,6 @@ async function getAllUsers(req, res) {
   res.status(200).send(new Buffer(users_csv));
 }
 
-async function getAllUsersFromGuild(req, res) {
-  const { body } = req;
-  const { guildName } = body;
-
-  const usersIds = await guildsService.getUsersIdsFromGuild(guildName);
-  const users_csv = await userService.getUsersFromIdsInCSV(usersIds);
-
-  res.setHeader("Content-Disposition", `attachment; filename=data.csv`);
-  res.setHeader("content-type", "text/csv");
-  res.status(200).send(new Buffer(users_csv));
-}
-
 module.exports = {
   GET: [
     ["/api/v1/user/:userId", getUserData],
@@ -114,10 +85,8 @@ module.exports = {
   POST: [
     ["/api/v1/user", registerUser],
     ["/api/v1/user/secret-winners/:limit", requiresAdmin, generateSecretWinners],
-    ["/api/v1/users/guild", requiresAdmin, getAllUsersFromGuild]
   ],
   PUT: [
-      ["/api/v1/user/add-guild", setGuildToUser],
       ["/api/v1/user/add-promocode", setPromocodeToUser]
   ]
 };

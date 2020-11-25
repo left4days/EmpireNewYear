@@ -32,38 +32,21 @@ class AdminPanel extends React.PureComponent {
   componentWillMount = () => {
     firebase.auth().onAuthStateChanged(() => {
       this.getCurrentAppState();
-      this.getLocaleWinners();
-      this.getGuilds();
-      this.getSecretWinners();
     });
   };
 
   getCurrentAppState = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/appState/state/admin", options).then(res => {
-      const { state, mainWinnerEmail, usersNum, guildsNum } = get(
-        res,
-        "data.data",
-        {}
-      );
+    axios.get("/api/v1/appState/state", options).then(res => {
+      const { state } = get(res, "data.data", {});
       this.setState({
-        actionState: state,
-        mainWinnerEmail,
-        usersNum,
-        guildsNum
+        actionState: state
       });
     });
   };
 
   getLocaleWinners = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/user/winners/10", options).then(res => {
-      this.setState({
-        localeWinners: res.data.data,
-        created: res.data.created,
-        isUserAdmin: true
-      });
-    });
   };
 
   createLocaleWinners = async () => {
@@ -96,7 +79,7 @@ class AdminPanel extends React.PureComponent {
   getSecretWinners = async () => {
     const options = await getFirebaseHeaderToken();
     axios.get("/api/v1/user/secret-winners/1", options).then(res => {
-        console.log('DDD', res);
+      console.log("DDD", res);
       const secretWinners = get(res, "data.data", []);
       this.setState({ secretWinners });
     });

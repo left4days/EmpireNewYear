@@ -9,11 +9,11 @@ async function getAppState(req, res, next) {
     res.json({ success: true, data: result });
 }
 
-async function getAdminAppState(req, res, next) {
-    const result = await appStateService.getAppState(true);
-
-    res.json({ success: true, data: result });
-}
+// async function getAdminAppState(req, res, next) {
+//     const result = await appStateService.getAppState(true);
+//
+//     res.json({ success: true, data: result });
+// }
 
 async function checkDevAccess(req, res, next) {
     const { body = {} } = req;
@@ -35,7 +35,6 @@ async function switchAppState(req, res, next) {
 module.exports = {
     GET: [
         ['/api/v1/appState/state', getAppState],
-        ['/api/v1/appState/state/admin', requiresAdmin, getAdminAppState],
     ],
     POST: [
         ['/api/v1/appState/switchState', requiresAdmin, switchAppState],
