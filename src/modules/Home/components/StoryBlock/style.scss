@@ -1,0 +1,57 @@
+.story {
+  position: relative;
+  margin-top: 40px;
+  &__container {
+    @include container-size();
+    z-index: 2;
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+  &__item {
+    background-color: $white;
+    border-radius: 5px;
+    border-bottom: 17px solid $orange;
+    padding: 20px;
+    &:hover {
+      transform: scale(1.04);
+      transition: all 0.2s ease-in-out;
+    }
+    h2 {
+      font-size: 16px;
+      margin-top: 0;
+      color: $black;
+      @include main-font(700);
+      margin-bottom: 3px;
+    }
+  }
+  &__attr {
+    @include main-font(700);
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: $black;
+  }
+  &__message {
+    color: $black;
+    @include main-font(400);
+    font-size: 16px;
+  }
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  margin-bottom: 30px;
+}

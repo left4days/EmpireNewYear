@@ -10,7 +10,7 @@ import { Input } from "widgets/fields";
 import pudgeImage from "statics/pudge.png";
 import hookImage from "statics/hook.png";
 import "./style.scss";
-import {getValidationForField} from "../../../../widgets/Auth/validations";
+import {getValidationForField} from "../../../../widgets/Form/validations";
 
 const NoPromo = ({ valid, onSubmit, tries }) => {
   return (

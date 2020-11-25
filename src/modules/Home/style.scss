@@ -1,4 +1,9 @@
 .home {
+  position: relative;
+  background-image: url('../../statics/image_bacground_futer.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
 }
 
 .ReactModal__Content {

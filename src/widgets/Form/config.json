@@ -1,0 +1,41 @@
+[
+  {
+    "type": "text",
+    "id": "name",
+    "name": "name",
+    "label": "Имя",
+    "placeholder": "Введите ваше Имя",
+    "validationsError": "",
+    "margin": "",
+    "autoComplete": "name"
+  },
+  {
+    "type": "text",
+    "id": "productLink",
+    "label": "Ссылка на продукт",
+    "name": "productLink",
+    "placeholder": "Укажите ссылку на выбранный продукт",
+    "validationsError": "",
+    "margin": "top_x2"
+  },
+  {
+    "type": "email",
+    "id": "email",
+    "name": "email",
+    "margin": "top_x2",
+    "label": "Электронная почта",
+    "placeholder": "Введите ваш e-mail",
+    "validations": "email",
+    "validationsError": "Формат Email не верен",
+    "autoComplete": "email"
+  },
+  {
+    "type": "textarea",
+    "id": "message",
+    "name": "message",
+    "label": "Текст вашей истории",
+    "margin": "top_x2",
+    "placeholder": "Введите ваш текст",
+    "validationsError": ""
+  }
+]

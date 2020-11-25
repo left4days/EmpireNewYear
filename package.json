@@ -71,6 +71,7 @@
     "react-app-polyfill": "^0.2.2",
     "react-dev-utils": "^8.0.0",
     "react-dom": "^16.8.4",
+    "react-masonry-css": "^1.0.14",
     "react-modal": "^3.11.2",
     "react-onclickoutside": "^6.8.0",
     "react-router-dom": "^4.4.0-beta.8",

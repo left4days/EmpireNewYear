@@ -27,13 +27,18 @@ firebase.initializeApp(config);
 
 class App extends Component {
   state = {
-    actionState: "ACTIVE"
+    actionState: "ACTIVE",
+    stories: [],
   };
 
   componentWillMount() {
     axios.get("/api/v1/appState/state").then(res => {
       const { state } = get(res, "data.data", {});
       this.setState({ actionState: state });
+    });
+    //TODO: Stories API should be connected
+    axios.get("/stories.json").then(res => {
+      this.setState({ stories: res.data });
     });
   }
 
@@ -44,7 +49,7 @@ class App extends Component {
 
   render() {
     const isDevMode = !!window.localStorage.getItem("devMode");
-    const { actionState } = this.state;
+    const { actionState, stories } = this.state;
       if (actionState === 'loading') {
           return (
               <Column className="loading__app" ai="center" jc="center">
@@ -67,25 +72,13 @@ class App extends Component {
                 key={path}
                 path={path}
                 exact={exact}
-                component={() => <Component actionState={actionState} />}
+                component={() => <Component actionState={actionState} stories={stories} />}
               />
             );
           })}
         </div>
         <div className="footer">
           <Link to="/policy">Политика конфиденциальности</Link>
-          <p className="footer__info">
-            ⓘ Изображения взяты с сайта{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.dota2.com/"
-            >
-              dota2.com
-            </a>{" "}
-            и переработаны. Team Empire и Seagate не претендуют на авторство
-            данных изображений.
-          </p>
         </div>
       </Router>
     );

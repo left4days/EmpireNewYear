@@ -1,5 +1,5 @@
 import React from "react";
-import { Auth } from "widgets/Auth";
+import { Auth } from "widgets/Form";
 import { InfoModal } from "widgets/InfoModal";
 
 export function getModal(type, handleModal) {

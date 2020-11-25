@@ -9,7 +9,7 @@ import Formsy from "formsy-react";
 import { Input } from "widgets/fields";
 import Modal from "react-modal";
 import { InfoModal } from "widgets/InfoModal";
-import {Auth, customStyles} from "widgets/Auth";
+import {Auth, customStyles} from "widgets/Form";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Description } from "ui/Description";
 import icon1 from "statics/1.svg";

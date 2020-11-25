@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from "react-modal";
-import {customStyles} from "../Auth";
+import {customStyles} from "../Form";
 import { Column } from "ui/Layout";
 import { Description } from "ui/Description";
 import { Title } from "ui/Title";

@@ -6,7 +6,7 @@ import get from "lodash/get";
 
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import { Button } from "ui/Button";
-import { Title } from "ui/Title";
+import { AuthPage } from "modules/AuthPage";
 import { Row, Column } from "ui/Layout";
 import { SwitchActionStateButton, Table } from "./components";
 import { GuildsTable } from "./GuildTable";
@@ -136,9 +136,7 @@ class AdminPanel extends React.PureComponent {
 
     if (!isUserAdmin) {
       return (
-        <Title containerClassName={style.admin__rejected}>
-          You have no permissions to see this page
-        </Title>
+        <AuthPage />
       );
     }
 
