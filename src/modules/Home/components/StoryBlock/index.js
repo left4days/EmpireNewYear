@@ -12,13 +12,20 @@ function checkLength(attr, max) {
   return attr;
 }
 
+const breakpointColumnsObj = {
+    default: 3,
+    992: 2,
+    700: 1,
+    500: 1
+};
+
 const StoryBlock = ({ stories }) => {
   return (
     <Column className="story">
       <Column className="story__container">
           <Title size="l">Лучшие истории</Title>
           <Masonry
-          breakpointCols={3}
+          breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >

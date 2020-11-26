@@ -1,23 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Row, Column } from "ui/Layout";
-import fireCudaLogo from "statics/logo_firecuda.svg";
 import seagateLogo from "statics/seagate_logo.png";
 import logo from "statics/logo.svg";
 import style from "./style.scss";
 
 const menuConfig = [
   {
-    text: "Главная",
-    link: "/"
-  },
-  {
     text: "Правила",
     link: "#rules"
-  },
-  {
-    text: "Об акции",
-    link: "#about"
   }
 ];
 

@@ -5,6 +5,14 @@
   background-repeat: no-repeat;
   min-height: 800px;
   background-position: center bottom;
+  @include screen-lt(mobile) {
+    background-position: 75% 50%;
+    min-height: 850px;
+  }
+  @include screen-lt(mobile-small) {
+    background-position: 71% 50%;
+    min-height: 850px;
+  }
   &__container {
     @include container-size();
     z-index: 2;
@@ -20,6 +28,15 @@
       color: $white;
       @include main-font(600);
       font-size: 16px;
+      @include screen-lt(tablet) {
+        font-size: 1.9vw;
+      }
+      @include screen-lt(mobile) {
+        font-size: 2.7vw;
+      }
+    }
+    @include screen-lt(mobile-small) {
+      margin: 20px 0;
     }
   }
 }
@@ -30,6 +47,12 @@
     text-transform: uppercase;
     font-size: 94px;
     @include main-font(700);
+    @include screen-lt(desktop) {
+      font-size: 8vw;
+    }
+    @include screen-lt(mobile) {
+      font-size: 11vw;
+    }
   }
   span {
     color: $orange;

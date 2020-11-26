@@ -40,6 +40,9 @@ $btn-fill: transparent, $white, transparent, $grey, transparent, $white, $grey, 
   border-radius: 5px;
   border: none;
   text-transform: uppercase;
+  @include screen-lt(tablet) {
+    font-size: 1.9vw !important;
+  }
   @include screen-lt(mobile-very-small) {
     height: 32px;
   }

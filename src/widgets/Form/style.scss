@@ -11,38 +11,6 @@
     width: 90px;
   }
 }
-
-.social {
-  background-color: transparent;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid $orange;
-  border-radius: 50%;
-  margin-right: 15px;
-  outline: none;
-  cursor: pointer;
-  &:last-child {
-    margin-right: 0;
-  }
-  &:hover {
-    opacity: .7;
-  }
-
-  &__container {
-    margin: 20px 0;
-  }
-
-  img {
-    width: 13px;
-    height: 13px;
-    min-width: 13px;
-    min-height: 13px;
-  }
-}
-
 .auth {
   &__or {
     position: relative;
