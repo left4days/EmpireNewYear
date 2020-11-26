@@ -7,6 +7,12 @@
     h2 {
       margin-top: 40px;
       margin-bottom: 40px;
+      @include screen-lt(tablet) {
+        font-size: 8vw;
+      }
+      @include screen-lt(mobile-small) {
+        font-size: 8vw;
+      }
     }
   }
   &__item {
@@ -24,6 +30,15 @@
       color: $black;
       @include main-font(700);
       margin-bottom: 3px;
+      @include screen-lt(tablet) {
+        font-size: 1.9vw;
+      }
+      @include screen-lt(mobile) {
+        font-size: 2.5vw;
+      }
+      @include screen-lt(mobile-small) {
+        font-size: 3.5vw;
+      }
     }
   }
   &__attr {
@@ -31,11 +46,29 @@
     font-size: 16px;
     margin-bottom: 10px;
     color: $black;
+    @include screen-lt(tablet) {
+      font-size: 1.9vw;
+    }
+    @include screen-lt(mobile) {
+      font-size: 2.5vw;
+    }
+    @include screen-lt(mobile-small) {
+      font-size: 3.5vw;
+    }
   }
   &__message {
     color: $black;
     @include main-font(400);
     font-size: 16px;
+    @include screen-lt(tablet) {
+      font-size: 1.9vw;
+    }
+    @include screen-lt(mobile) {
+      font-size: 2.5vw;
+    }
+    @include screen-lt(mobile-small) {
+      font-size: 3.5vw;
+    }
   }
 }
 

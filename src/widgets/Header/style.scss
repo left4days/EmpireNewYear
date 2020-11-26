@@ -2,9 +2,7 @@
   background-color: #000000;
   color: $white;
   height: 80px;
-  @include screen-lt(tablet) {
-    height: 160px;
-  }
+
 
   &__menu_item {
     @include main-font(700);
@@ -18,6 +16,12 @@
       color: $orange;
       transition: .2s all ease-in-out;
     }
+    @include screen-lt(tablet) {
+      font-size: 1.9vw;
+    }
+    @include screen-lt(tablet) {
+      font-size: 2.4vw;
+    }
   }
 
   &__container {
@@ -25,13 +29,14 @@
     width: 100%;
     height: 100%;
     @include container-size();
-    @include screen-lt(tablet) {
-      flex-direction: column-reverse;
-    }
+
   }
 
   &__logo {
     height: 40px;
+    @include screen-lt(mobile) {
+      height: 25px;
+    }
     &_double {
       height: 100%;
       align-items: center !important;
@@ -39,11 +44,6 @@
         &:first-child {
           margin-right: 40px;
         }
-      }
-      @include screen-lt(tablet) {
-        align-items: center;
-        margin-top: 20px;
-        justify-content: center;
       }
     }
     &_container {
