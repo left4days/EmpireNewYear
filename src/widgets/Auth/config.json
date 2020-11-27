@@ -47,7 +47,6 @@
       "name": "password",
       "margin": "top_x2",
       "placeholder": "Пароль",
-      "validations": "password",
       "validationsError": "",
       "autoComplete": "current-password"
     }

@@ -1,10 +1,10 @@
 const firebaseAdmin = require("firebase-admin");
 const get = require("lodash/get");
-const mergeDeep = require("lodash/merge");
+// const mergeDeep = require("lodash/merge");
 const json2csv = require("json2csv");
 const db = firebaseAdmin.database();
-const userRef = db.ref("server/saving-data/fireblog/users");
-const appStateRef = db.ref("server/saving-data/fireblog/appState");
+const userRef = db.ref("users");
+const appStateRef = db.ref("appState");
 
 const randomInteger = (min, max) => {
   let rand = min + Math.random() * (max - min);

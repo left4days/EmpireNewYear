@@ -33,16 +33,30 @@ async function getStory(req, res, next) {
 
 async function createStory(req, res, next) {
   const { body = {} } = req;
+  const { email } = body;
+  const stories = await storiesService.getStories();
 
-  const result = await storiesService.createStory(body);
+  const isAlreadyExists = stories.map(story => story.email).includes(email);
+  if(!isAlreadyExists) {
+    await storiesService.createStory(body);
 
-  res.json({ success: true });
+    res.json({ success: true });
+  }
+
+  res.status(406).json({ success: false, error: 'История для этого email уже существует' });
+}
+
+async function generateWinner(req, res, next) {
+  const result = await storiesService.generateWinner();
+
+  res.json({ success: true, data: result });
 }
 
 async function switchShowStoryOnMainPage(req, res, next) {
   const { body = {} } = req;
+  const { email = '' } = body;
 
-  const result = await storiesService.switchStory();
+  await storiesService.switchStory(email);
 
   res.json({ success: true });
 }
@@ -53,8 +67,11 @@ module.exports = {
     ["/api/v1/top-stories", getTopStories],
     ["/api/v1/story/:email", requiresAdmin, getStory]
   ],
-  POST: [["/api/v1/story", createStory]],
-  PUT: [[
+  POST: [
+    ["/api/v1/story", createStory],
+    ["/api/v1/stories/winner", generateWinner],
+  ],
+  PUT: [
     ["/api/v1/story", switchShowStoryOnMainPage]
-  ]]
+  ]
 };

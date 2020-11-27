@@ -1,16 +1,24 @@
 const firebaseAdmin = require("firebase-admin");
 const db = firebaseAdmin.database();
 const storiesRef = db.ref("stories");
-// const { uuid } = require("uuidv4");
+const appStateRef = db.ref("appState");
+const { uuid } = require("uuidv4");
 
-function sortByLevel(a, b) {
-  const { level: aLevel } = a;
-  const { level: bLevel } = b;
-  if (Number(aLevel) > Number(bLevel)) {
+const randomInteger = (min, max) => {
+  let rand = min + Math.random() * (max - min);
+  rand = Math.round(rand);
+
+  return rand;
+};
+
+function sortByDate(a, b) {
+  const {created: aCreated} = a;
+  const {created: bCreated} = b;
+  if (Number(aCreated) > Number(bCreated)) {
     return -1;
   }
 
-  if (Number(aLevel) < Number(bLevel)) {
+  if (Number(aCreated) < Number(bCreated)) {
     return 1;
   }
 
@@ -31,7 +39,7 @@ class StoriesService {
       return { success: false, errorMessage: "ERROR IN GUILDS API" };
     }
 
-    return Object.values(stories);
+    return Object.values(stories).sort(sortByDate);
   }
 
   async getTopStories() {
@@ -45,14 +53,14 @@ class StoriesService {
       return { success: false, errorMessage: "ERROR IN STORIES API" };
     }
 
-    return stories.filter(i => i => i.shownOnMainPage);
+    return stories.filter(i => i.shownOnMainPage).sort(sortByDate);
   }
 
   async getStoryByEmail(email) {
-    let story = {};
+    let stories = {};
     try {
-      await storiesRef.child(email).once("value", snap => {
-        story = snap.val() || {};
+      await storiesRef.once("value", snap => {
+        stories = snap.val() || {};
       });
     } catch (error) {
       console.log("ERROR IN getStoryByEmail API");
@@ -63,23 +71,26 @@ class StoriesService {
       };
     }
 
-    return story;
+    const [uid, story] = Object.entries(stories).find(([uid, story]) => story.email === email) || ['', {}];
+
+    return { uid, ...story };
   }
 
   async createStory(data) {
-    const { text, name, email } = data;
-    // const uid = uuid();
+    const { text, name, email, link } = data;
+    const uid = uuid();
     const result = {
       text,
       name,
       email,
+      link,
       created: Date.now(),
       shownOnMainPage: false
     };
 
     try {
       await storiesRef.update({
-        [email]: result
+        [uid]: result
       });
     } catch (err) {
       console.log("ERROR DB createStory", email);
@@ -90,15 +101,45 @@ class StoriesService {
     return result;
   }
 
+  async generateWinner() {
+    let stories = {};
+    try {
+      await storiesRef.once("value", snap => {
+        stories = snap.val() || {};
+      });
+    } catch (error) {
+      console.log("ERROR IN getStoryByEmail API");
+      console.log(error);
+      return {
+        success: false,
+        errorMessage: "ERROR IN getStoryByEmail API"
+      };
+    }
+
+    const emails = Object.values(stories).map(story => story.email);
+    const email = emails[randomInteger(0, emails.length)];
+
+    try {
+      await appStateRef.update({ winnerEmail: email });
+    } catch (error) {
+      console.log("ERROR IN generateWinner API");
+      console.log(error);
+      return {
+        success: false,
+        errorMessage: "ERROR IN generateWinner API"
+      };
+    }
+
+    return email;
+  }
+
   async switchStory(email) {
     let story = {};
     try {
-      await storiesRef.child(email).once("value", snap => {
-        story = snap.val() || {};
-      });
+      story = await this.getStoryByEmail(email);
 
       await storiesRef
-        .child(email)
+        .child(story.uid)
         .update({ shownOnMainPage: !story.shownOnMainPage });
       return { success: true };
     } catch (err) {

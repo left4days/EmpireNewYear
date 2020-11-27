@@ -37,7 +37,7 @@ const StoryBlock = ({ stories }) => {
                   {checkLength(item.email, 30)}
                 </Description>
                 <Description className="story__message">
-                  {checkLength(item.message, 3000)}
+                  {checkLength(item.text, 3000)}
                 </Description>
               </Column>
             );

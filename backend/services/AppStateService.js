@@ -1,8 +1,6 @@
 const firebaseAdmin = require("firebase-admin");
 const db = firebaseAdmin.database();
 const appStateRef = db.ref("appState");
-const usersRef = db.ref("users");
-const storiesRef = db.ref("stories");
 
 function stateFSM(currentState) {
   switch (currentState) {
@@ -24,14 +22,17 @@ class AppStateService {
 
   async getAppState(isAdmin) {
     let state = "ACTIVE";
+    let winner = "";
 
     await appStateRef.on("value", snap => {
       const {
         actionState,
+        winnerEmail,
       } = snap.val() || {};
 
       if (typeof actionState === "string") {
         state = actionState;
+        winner = winnerEmail;
       }
     });
 
@@ -46,7 +47,8 @@ class AppStateService {
     // }
 
     return {
-      state
+      state,
+      winnerEmail: winner,
     };
   }
 

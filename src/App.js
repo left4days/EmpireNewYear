@@ -41,9 +41,8 @@ class App extends Component {
     //   this.setState({ stories: topStories });
     // });
 
-    //TODO: Stories API should be connected
-    axios.get("/stories.json").then(res => {
-      this.setState({ stories: res.data });
+    axios.get("/api/v1/top-stories").then(res => {
+      this.setState({ stories: res.data.data });
     });
   }
 

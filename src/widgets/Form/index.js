@@ -63,16 +63,14 @@ class Form extends React.Component {
     const model = this.form.getModel();
     const { name, productLink, email, message } = model;
 
-    createMessage(name, productLink, email, message)
-      .then(async res => {
-        const data = { name, productLink, email, message };
-
-        return axios.post("api/v1/createMessage", data);
-      })
-      .catch(error => {
-        this.setState({ error: error.code });
-        setTimeout(() => this.setState({ error: "" }), 8000);
-      });
+    return axios.post("api/v1/story", {
+      name,
+      email,
+      text: message,
+      link: productLink
+    });
+    // this.setState({ error: error.code });
+    // setTimeout(() => this.setState({ error: "" }), 8000);
   };
 
   render() {

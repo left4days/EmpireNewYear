@@ -1,5 +1,10 @@
 .admin {
   background-color: #13023c;
+
+  p {
+    color: white;
+  }
+
   &__container {
     @include container-size();
   }
@@ -30,5 +35,18 @@
 
   .ux-button {
     width: auto;
+  }
+
+  .text-story {
+    margin: 5px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    min-width: 300px;
+    width: 50%;
+    max-width: calc(50% - 16px);
+    * {
+      color: black;
+    }
   }
 }

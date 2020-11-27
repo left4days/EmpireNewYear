@@ -8,9 +8,10 @@ import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import { Button } from "ui/Button";
 import { AuthPage } from "modules/AuthPage";
 import { Row, Column } from "ui/Layout";
-import { SwitchActionStateButton, Table } from "./components";
-import { GuildsTable } from "./GuildTable";
-import { UserTable } from "./UserTable";
+import { Title } from "ui/Title";
+import { Description } from "ui/Description";
+
+import { SwitchActionStateButton } from "./components";
 
 import style from "./style.scss";
 
@@ -21,40 +22,28 @@ class AdminPanel extends React.PureComponent {
     this.state = {
       isUserAdmin: false,
       actionState: "ACTIVE",
-      localeWinners: [],
-      guildList: [],
-      guildsNum: 0,
-      usersNum: 0,
-      secretWinners: []
+      stories: [],
+      secretWinners: [],
+      winnerEmail: " "
     };
   }
 
   componentWillMount = () => {
     firebase.auth().onAuthStateChanged(() => {
       this.getCurrentAppState();
+      this.getStories();
     });
   };
 
   getCurrentAppState = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/appState/state", options).then(res => {
-      const { state } = get(res, "data.data", {});
+    axios.get("/api/v1/appState/state-admin", options).then(res => {
+      const { state, winnerEmail } = get(res, "data.data", {});
+      console.log('STATE', winnerEmail);
       this.setState({
-        actionState: state
-      });
-    });
-  };
-
-  getLocaleWinners = async () => {
-    const options = await getFirebaseHeaderToken();
-  };
-
-  createLocaleWinners = async () => {
-    const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/user/winners-create/10", options).then(res => {
-      this.setState({
-        localeWinners: res.data.data,
-        created: res.data.created
+        actionState: state,
+        winnerEmail,
+        isUserAdmin: true
       });
     });
   };
@@ -68,59 +57,33 @@ class AdminPanel extends React.PureComponent {
     });
   };
 
-  getGuilds = async () => {
+  getStories = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/guilds", options).then(res => {
-      const guildList = get(res, "data.data", []);
-      this.setState({ guildList });
+    axios.get("/api/v1/stories", options).then(res => {
+      const stories = get(res, "data.data", []);
+      this.setState({ stories });
     });
   };
 
-  getSecretWinners = async () => {
+  generateWinner = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/user/secret-winners/1", options).then(res => {
-      console.log("DDD", res);
-      const secretWinners = get(res, "data.data", []);
-      this.setState({ secretWinners });
+    axios.post("/api/v1/stories/winner", {}, options).then(res => {
+      this.setState({ winnerEmail: res.data.data });
     });
   };
 
-  generateSecretWinners = async () => {
+  switchStory = async (email) => {
     const options = await getFirebaseHeaderToken();
-    axios.post("/api/v1/user/secret-winners/1", {}, options).then(res => {
-      this.getSecretWinners();
-    });
-  };
-
-  downloadAllUsers = async () => {
-    const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/users", options).then(async res => {
-      const encodedUri = encodeURI("data:text/csv;charset=utf-8," + res.data);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "all-users.csv");
-      document.body.appendChild(link); // Required for FF
-
-      link.click(); // This will download the data file named "my_data.csv".
+    axios.put("/api/v1/story", { email }, options).then(res => {
+      this.getStories();
     });
   };
 
   render() {
-    const {
-      isUserAdmin,
-      actionState,
-      localeWinners,
-      guildList,
-      usersNum,
-      guildsNum,
-      secretWinners,
-      created = Date.now()
-    } = this.state;
+    const { isUserAdmin, actionState, stories, winnerEmail } = this.state;
 
     if (!isUserAdmin) {
-      return (
-        <AuthPage />
-      );
+      return <AuthPage />;
     }
 
     return (
@@ -131,35 +94,62 @@ class AdminPanel extends React.PureComponent {
               actionState={actionState}
               onClick={this.switchAppState}
             />
-            <Button style="void" margin="left" onClick={this.downloadAllUsers}>
-              Выгрузить полный список участников
+            <Button margin="left" onClick={this.generateWinner}>
+              Получить случайного победителя
             </Button>
-            <Row jc="flex-end" className={style["admin__header-summary"]}>
-              <p>Участников: {usersNum}</p>
-              <p>Гильдий: {guildsNum}</p>
-            </Row>
           </Row>
           <Column>
-            <Table
-              text={`10 локальных победителей`}
-              onClick={this.createLocaleWinners}
-              buttonText="Обновить"
-              data={localeWinners}
-            />
-            <p
-              style={{ fontSize: "20px", color: "white" }}
-            >{`Дата розыгрыша ${new Date(created).toLocaleString("ru")}`}</p>
-            <UserTable
-              data={secretWinners}
-              onClick={this.generateSecretWinners}
-            />
-            <GuildsTable data={guildList} onClick={this.getGuilds} />
+            <Title>Случайный победитель</Title>
+            <p>{winnerEmail}</p>
+            <Title>Истории</Title>
+            <Row multiStr>
+              {stories.map(story => (
+                <Story key={story.created} {...story} switchStory={this.switchStory} />
+              ))}
+            </Row>
           </Column>
         </Column>
       </Column>
     );
   }
 }
+
+const Story = props => {
+  const {
+    text,
+    email,
+    name,
+    created,
+    shownOnMainPage,
+    switchStory,
+    link
+  } = props;
+
+  const date = new Date(created);
+
+  return (
+    <Column className="text-story">
+      <Title>{name}</Title>
+      <p>{email}</p>
+      <Description>{text}</Description>
+      <a href={link}>{link}</a>
+      <Row jc="space-between">
+        <span
+          style={{
+            color: shownOnMainPage ? "green" : "red",
+            cursor: "pointer"
+          }}
+          onClick={() => switchStory(email)}
+        >
+          {shownOnMainPage ? "На главной" : "+"}
+        </span>
+        <span>
+          {date.toLocaleDateString()}, {date.getHours().toString()}:{date.getMinutes().toString()}
+        </span>
+      </Row>
+    </Column>
+  );
+};
 
 AdminPanel.propTypes = {
   className: PropTypes.string
