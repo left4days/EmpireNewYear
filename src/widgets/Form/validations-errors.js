@@ -1,5 +1,3 @@
-import React from "react";
-
 const VALIDATION_ERRORS = {
   "auth/expired-action-code": "Срок действия кода истек",
   "auth/invalid-action-code": "Этот код недействителен",

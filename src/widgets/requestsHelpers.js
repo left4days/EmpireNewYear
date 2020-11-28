@@ -1,6 +1,5 @@
 import firebase from "firebase";
 import get from "lodash/get";
-import axios from "axios";
 
 async function isUserLogged() {
   return !!get(firebase.auth(), "currentUser");

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Column } from "ui/Layout";
 import { ProductsBlock } from "./components/ProductsBlock";
 import { FormBlock } from "./components/FormBlock";

@@ -7,6 +7,7 @@ import style from "./style.scss";
 
 const menuConfig = [
   {
+    id: "0c698af7-a543-4c66-82f4-6102f4d6c79b",
     text: "Правила",
     link: "#rules"
   }
@@ -22,7 +23,7 @@ function Header() {
         </Row>
         <Row className={style.header__logo_container} jc="flex-end">
           {menuConfig.map(item => {
-            return <Link className={style.header__menu_item} to={item.link}>{item.text}</Link>;
+            return <Link key={item.id} className={style.header__menu_item} to={item.link}>{item.text}</Link>;
           })}
         </Row>
       </Row>

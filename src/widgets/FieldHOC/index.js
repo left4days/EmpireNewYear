@@ -19,10 +19,6 @@ const FieldWrapperHOC = Component => {
   }
 
   class Wrapped extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-
     componentDidMount() {
       const { id, value, setValue } = this.props;
       if(id === 'subscribe' && !value) {

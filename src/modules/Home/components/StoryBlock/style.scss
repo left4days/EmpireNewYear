@@ -1,5 +1,6 @@
 .story {
   position: relative;
+  min-height: 800px;
   margin-top: 40px;
   &__container {
     @include container-size();

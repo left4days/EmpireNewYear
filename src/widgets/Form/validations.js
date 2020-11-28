@@ -1,4 +1,3 @@
-import React from "react";
 import * as Formsy from "formsy-react";
 
 function oneLetterOneNumberAtLeast(value) {

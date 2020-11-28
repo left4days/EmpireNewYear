@@ -1,5 +1,5 @@
 import Formsy from "formsy-react";
-import React, { Component } from "react";
+import React from "react";
 import cx from "classnames";
 import get from "lodash/get";
 import axios from "axios";

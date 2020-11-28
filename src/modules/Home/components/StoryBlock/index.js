@@ -1,6 +1,6 @@
 import React from "react";
 import Masonry from "react-masonry-css";
-import { Column, Row } from "ui/Layout";
+import { Column } from "ui/Layout";
 import { Description } from "ui/Description";
 import { Title } from "ui/Title";
 import "./style.scss";
@@ -31,7 +31,7 @@ const StoryBlock = ({ stories }) => {
         >
           {stories.map(item => {
             return (
-              <Column className="story__item">
+              <Column className="story__item" key={item.created}>
                 <Title>{checkLength(item.name, 30)}</Title>
                 <Description className="story__attr">
                   {checkLength(item.email, 30)}
