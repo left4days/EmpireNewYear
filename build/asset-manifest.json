@@ -1,0 +1,20 @@
+{
+  "main.js": "/static/js/main.b9a72448.chunk.js",
+  "main.js.map": "/static/js/main.b9a72448.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.c5541365.js",
+  "runtime~main.js.map": "/static/js/runtime~main.c5541365.js.map",
+  "static/js/2.db98c329.chunk.js": "/static/js/2.db98c329.chunk.js",
+  "static/js/2.db98c329.chunk.js.map": "/static/js/2.db98c329.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.d0de6ad5603c0be0e769b46321675639.js": "/precache-manifest.d0de6ad5603c0be0e769b46321675639.js",
+  "service-worker.js": "/service-worker.js",
+  "static/media/buy3.svg": "/static/media/buy3.54aa4700.svg",
+  "static/media/buy4.png": "/static/media/buy4.8b2f7097.png",
+  "static/media/drakon.png": "/static/media/drakon.f8ae3e2b.png",
+  "static/media/image_bacground_futer.png": "/static/media/image_bacground_futer.b2ee6139.png",
+  "static/media/image_bacground_header.png": "/static/media/image_bacground_header.93ef6a2a.png",
+  "static/media/logo.svg": "/static/media/logo.2c17d653.svg",
+  "static/media/prize1.png": "/static/media/prize1.5f985c79.png",
+  "static/media/prize2.png": "/static/media/prize2.bb5c66c5.png",
+  "static/media/prize3.png": "/static/media/prize3.19696edd.png"
+}
