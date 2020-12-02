@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/prize1.5f985c79.png"
   },
   {
-    "revision": "ad3105c5a87b326af4da",
-    "url": "/static/js/main.d150491b.chunk.js"
+    "revision": "82d8b263d626966be72a",
+    "url": "/static/js/main.1b4e9469.chunk.js"
   },
   {
     "revision": "b2ee61393bc5e368b30f5bb2ddccb5f6",
@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/static/media/drakon.f8ae3e2b.png"
   },
   {
-    "revision": "15db7078c2919b1e46c8",
-    "url": "/static/js/2.72043c5f.chunk.js"
+    "revision": "df5e19af048b42ba0453",
+    "url": "/static/js/2.7876ef81.chunk.js"
   },
   {
-    "revision": "6de75542da1af7da371bf452a2f93e50",
+    "revision": "23c71131a8a2dcf2e44195a083087ce6",
     "url": "/index.html"
   }
 ];

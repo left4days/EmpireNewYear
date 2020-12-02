@@ -13,18 +13,23 @@ function checkLength(attr, max) {
 }
 
 const breakpointColumnsObj = {
-    default: 3,
-    992: 2,
-    700: 1,
-    500: 1
+  default: 3,
+  992: 2,
+  700: 1,
+  500: 1
 };
 
 const StoryBlock = ({ stories }) => {
   return (
     <Column className="story">
       <Column className="story__container">
-          <Title size="l">Лучшие истории</Title>
-          <Masonry
+        <Title size="l">Лучшие истории</Title>
+        {!stories.length && (
+          <Description className="story__empty">
+            Ваши лучшие истории скоро будут здесь!
+          </Description>
+        )}
+        <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"

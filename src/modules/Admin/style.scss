@@ -1,8 +1,24 @@
 .admin {
   background-color: #13023c;
+  &__wrapper {
+    min-height: 600px;
+  }
+  &__loading {
+    min-height: 75vh;
+  }
 
   p {
     color: white;
+  }
+
+  &__winner {
+    font-size: 24px;
+    &_header {
+      font-size: 30px;
+      color: $white;
+      @include main-font(700);
+      margin: 5px 0;
+    }
   }
 
   &__container {
@@ -42,9 +58,20 @@
     padding: 8px;
     background-color: white;
     border-radius: 4px;
-    min-width: 300px;
-    width: 50%;
-    max-width: calc(50% - 16px);
+    border: 2px solid transparent;
+    width: 100%;
+    &-checked {
+      border: 2px solid red;
+    }
+    p {
+      margin: 3px 0;
+    }
+    span {
+      background: #13023c;
+      padding: 5px 15px;
+      color: $white;
+      border-radius: 5px;
+    }
     * {
       color: black;
     }

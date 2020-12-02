@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import firebase from "firebase";
 import get from "lodash/get";
+import cx from "classnames";
 
 import { getFirebaseHeaderToken } from "widgets/requestsHelpers";
 import { Button } from "ui/Button";
 import { AuthPage } from "modules/AuthPage";
 import { Row, Column } from "ui/Layout";
-import { Title } from "ui/Title";
-import { Description } from "ui/Description";
 
 import { SwitchActionStateButton } from "./components";
 
 import style from "./style.scss";
+import { Loader } from "../../ui/Loader";
 
 class AdminPanel extends React.PureComponent {
   constructor(props) {
@@ -21,6 +21,7 @@ class AdminPanel extends React.PureComponent {
 
     this.state = {
       isUserAdmin: false,
+      loading: true,
       actionState: "ACTIVE",
       stories: [],
       secretWinners: [],
@@ -37,15 +38,21 @@ class AdminPanel extends React.PureComponent {
 
   getCurrentAppState = async () => {
     const options = await getFirebaseHeaderToken();
-    axios.get("/api/v1/appState/state-admin", options).then(res => {
-      const { state, winnerEmail } = get(res, "data.data", {});
-      console.log('STATE', winnerEmail);
-      this.setState({
-        actionState: state,
-        winnerEmail,
-        isUserAdmin: true
+    axios
+      .get("/api/v1/appState/state-admin", options)
+      .then(res => {
+        const { state, winnerEmail } = get(res, "data.data", {});
+        console.log("STATE", winnerEmail);
+        this.setState({
+          actionState: state,
+          winnerEmail,
+          isUserAdmin: true,
+          loading: false
+        });
+      })
+      .catch(() => {
+        this.setState({ loading: false });
       });
-    });
   };
 
   switchAppState = async currentState => {
@@ -72,7 +79,7 @@ class AdminPanel extends React.PureComponent {
     });
   };
 
-  switchStory = async (email) => {
+  switchStory = async email => {
     const options = await getFirebaseHeaderToken();
     axios.put("/api/v1/story", { email }, options).then(res => {
       this.getStories();
@@ -80,7 +87,21 @@ class AdminPanel extends React.PureComponent {
   };
 
   render() {
-    const { isUserAdmin, actionState, stories, winnerEmail } = this.state;
+    const {
+      isUserAdmin,
+      actionState,
+      stories,
+      winnerEmail,
+      loading
+    } = this.state;
+
+    if (loading) {
+      return (
+        <Row jc="center" ai="center" className={style.admin__loading}>
+          <Loader />
+        </Row>
+      );
+    }
 
     if (!isUserAdmin) {
       return <AuthPage />;
@@ -98,15 +119,19 @@ class AdminPanel extends React.PureComponent {
               Получить случайного победителя
             </Button>
           </Row>
-          <Column>
-            <Title>Случайный победитель</Title>
-            <p>{winnerEmail}</p>
-            <Title>Истории</Title>
-            <Row multiStr>
+          <Column className={style.admin__wrapper}>
+            <h2 className={style.admin__winner_header}>Случайный победитель</h2>
+            <p className={style.admin__winner}>{winnerEmail}</p>
+            <h2 className={style.admin__winner_header}>Истории</h2>
+            <Column>
               {stories.map(story => (
-                <Story key={story.created} {...story} switchStory={this.switchStory} />
+                <Story
+                  key={story.created}
+                  {...story}
+                  switchStory={this.switchStory}
+                />
               ))}
-            </Row>
+            </Column>
           </Column>
         </Column>
       </Column>
@@ -128,23 +153,34 @@ const Story = props => {
   const date = new Date(created);
 
   return (
-    <Column className="text-story">
-      <Title>{name}</Title>
-      <p>{email}</p>
-      <Description>{text}</Description>
-      <a href={link}>{link}</a>
+    <Column
+      className={cx("text-story", shownOnMainPage && "text-story-checked")}
+    >
+      <p>
+        <b>Имя:</b> {name}
+      </p>
+      <p>
+        <b>Email:</b> {email}
+      </p>
+      <p>
+        <b>История:</b> {text}
+      </p>
+      <p>
+        <b>Ссылка на продукт:</b> {link}
+      </p>
       <Row jc="space-between">
         <span
           style={{
-            color: shownOnMainPage ? "green" : "red",
+            background: shownOnMainPage ? "green" : "#13023c",
             cursor: "pointer"
           }}
           onClick={() => switchStory(email)}
         >
-          {shownOnMainPage ? "На главной" : "+"}
+          {shownOnMainPage ? "На главной" : "На главную"}
         </span>
         <span>
-          {date.toLocaleDateString()}, {date.getHours().toString()}:{date.getMinutes().toString()}
+          {date.toLocaleDateString()}, {date.getHours().toString()}:
+          {date.getMinutes().toString()}
         </span>
       </Row>
     </Column>
