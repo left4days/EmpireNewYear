@@ -13,7 +13,7 @@ const menuConfig = [
   }
 ];
 
-function Header() {
+function Header({ onToggleRulesModal }) {
   return (
     <Column className={style.header} ai="center" jc="space-between">
       <Row className={style.header__container}>
@@ -23,7 +23,15 @@ function Header() {
         </Row>
         <Row className={style.header__logo_container} jc="flex-end">
           {menuConfig.map(item => {
-            return <Link key={item.id} className={style.header__menu_item} to={item.link}>{item.text}</Link>;
+            return (
+              <button
+                key={item.id}
+                className={style.header__menu_item}
+                onClick={onToggleRulesModal}
+              >
+                {item.text}
+              </button>
+            );
           })}
         </Row>
       </Row>

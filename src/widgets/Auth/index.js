@@ -116,7 +116,7 @@ class Auth extends React.Component {
         const uid = get(res, "user.uid", "");
         const data = { login: userInfo, registerBy, uid, email };
         const options = await getFirebaseHeaderToken();
-
+        this.setState({ authType: "login" });
         return axios.post("api/v1/user", data, options);
       })
       .catch(error => {

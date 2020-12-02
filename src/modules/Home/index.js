@@ -6,7 +6,7 @@ import { PrizeBlock } from "./components/PrizeBlock";
 import { StoryBlock } from "./components/StoryBlock";
 import "./style.scss";
 
-const Home = ({ actionState, stories }) => {
+const Home = ({ stories }) => {
   return (
     <Column className="home">
       <ProductsBlock />

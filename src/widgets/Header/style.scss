@@ -7,6 +7,10 @@
   &__menu_item {
     @include main-font(700);
     font-size: 16px;
+    background-color: transparent;
+    border: none;
+    outline: 0;
+    cursor: pointer;
     color: $white;
     margin-right: 20px;
     &:last-child {

@@ -3757,3 +3757,45 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+.rules-modal {
+  overflow: scroll;
+  max-height: 600px;
+  padding: 0 20px;
+  p {
+    color: $black;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  .heading {
+    font-size: 16px;
+    margin: 10px 0;
+    @include main-font(700);
+    &-sub {
+      @include main-font(600);
+    }
+  }
+  &-close {
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    position: fixed;
+    top: 0px;
+    right: 0;
+    width: 40px;
+    z-index: 222;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .8;
+    cursor: pointer;
+    img {
+      width: 20px;
+    }
+    &:hover {
+      transform: scale(1.1);
+      opacity: 1;
+      transition: .1s ease-in;
+    }
+  }
+}

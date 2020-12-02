@@ -5,6 +5,7 @@ import buy2 from "statics/buy2.png";
 import buy3 from "statics/buy3.svg";
 import buy4 from "statics/buy4.png";
 import buy5 from "statics/buy5.png";
+import buy6 from "statics/buy6.svg";
 import "./style.scss";
 
 const config = [
@@ -27,6 +28,10 @@ const config = [
   {
     src: buy5,
     link: "https://new.ogo1.ru/market/ssd/?SECTION_CODE=ssd&PAGESIZE=&SORT=&ORDER=&ONLY_AVAILABLE=1&EXACT_SEARCH=1&set_filter=Y&view=plate&arrFilter%5BOSNOVNOE_PROIZVODITEL%5D%5B%5D=26459&arrFilter%5BGLAVNOE_FORM_FAKTOR%5D%5B%5D=15944&utm_source=teamempire&utm_medium=referral&utm_campaign=ssd_firecuda_seagate"
+  },
+  {
+    src: buy6,
+    link: "https://brain.com.ua/ukr/search/category/SSD_dysky-c1484/?Search=Firecuda",
   }
 ];
 

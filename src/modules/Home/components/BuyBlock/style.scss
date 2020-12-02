@@ -7,7 +7,7 @@
     flex-wrap: wrap;
   }
   &__item {
-    width: calc((100% / 5) - 15px);
+    width: calc((100% / 6) - 15px);
     height: 90px;
     border: 1px solid #000000;
     background-color: #fff;
@@ -17,7 +17,7 @@
     margin-right: 15px;
     margin-bottom: 30px;
     border-radius: 5px;
-    &:nth-child(5n - 5) {
+    &:nth-child(6n - 6) {
       margin-right: 0;
     }
     &:hover {
@@ -26,7 +26,7 @@
     }
     @include screen-lt(mobile) {
       height: 50px;
-      width: calc((100% / 5) - 5px);
+      width: calc((100% / 6) - 5px);
       margin-right: 5px;
     }
     @include screen-lt(mobile-small) {
@@ -34,6 +34,9 @@
       width: calc((100% / 2) - 5px);
       margin-right: 5px;
       margin-bottom: 5px;
+      &:nth-child(6n - 6) {
+        margin-right: 5px;
+      }
     }
   }
 }
